@@ -1,0 +1,457 @@
+﻿For the submission of your work:
+-	Create a folder named RoUNo Name DBI202 PaperNo. c.g. hcl70145 LongNI DBI2O2 01 Do not create any subfolder in this folder. All file created will be located in the above folder.
+-	For each question, you are required to write a database script. Create a file with the name corresponding to the index of the question. For example, for question I. we will create a file named QLvql and create a flic Q2.sql for question 2. So, if you do 10 questions, your folder must contain only 10 files QI sql. Q2.sql. Q3 sql, Q4 sql. Q5.sql. Q6 sql. Q7 sql. QX xql. Q9.sql and QlO.sql
+-	Do not use any commands having the database name such as create database, alter database, use {database name I. eỉc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command. For example, if you arc required to create a trigger procedure, then your response should contain only commands for creating the corresponding logger procedure; all commands for letting the created Inggerpnxedure are forbidden.
+-	Do not use GO command in your code
+-	On completion, import your work by browsing to the above folder
+-	Note that:
+♦	Yuu could use only SQL Server, SQL Server Management Studio, and paper or ofnine document ỉn your computer.
++	If any of the previous requirements is not respected, your mark will be 8.
+From the 2nd question, you should use the database provided in the .sql tile which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+Zoom
++ 707.
+Oose
+I
+
+2 0(2
+Piper No : 5
+Question 1;
+Create one database and then write SQL statements to create, in this database, al tables derived from the ERD given in the following picture with appropriate attributes, primary keys and foreign keys
+NOTE that when creating the SQL commands as request, you MUST keep the name of tables, relabonstsp. attnbutes and data type of attributes as SAME as given m the given ERD
+Attributes with underline are Primary Key of each entity.
+Attributes which reference to the primary key of another table must have the same name as the attributes in the primary key of the referencing table
+If a table must be created for representing a relationship, the name of the table must be the same as the name of the reiabonshp
+When submitting the responses for th« question. submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use 'create database", 'After database’, "use database_name" or any statements using database's name in your submission
+You must use ER style conversions for subclasses in this diagram rf exists
+The table represents the multi-values attribute must have the name which is the concatenation of the table name and the attribute name For example, if table named Student has the mute-values attribute named Phone, the name of the corresponding table must be StudentPhone
+OwMBsai Zoom	■y^ <^»QC^i) 1 ■** 1—(S?) / Qwiomww^ 1 H>wm i<*Jl*-i^^l__*!!_| — V "wT ’@)@	<^^> Picture 1.1 + 70X
+Oose
+Picture 11
+Question 2:
+Write an SQL query to drsplay aB employees who are chefs or managers and were hired in 2021. as shown in the folowing figure.
+3of3
+Paper No 5
+1
+2
+3
+Employee ID Full Name
+1	Nguyên Vốn An
+6	Nguyen Thanh Tùng
+10	Pham Quóc Việt
+Role	HireDate	Salary
+Manager 2021-02-15	18000000.00
+Chef	2021-11-20	18500000.00
+Chef	2021 -08-09	19000000.00
+Picture 2.1
+Questions:
+Write an SQL query to list all menu items ordered by the customer named 'Nguyên Hoài Phuong", displaying the CustomerlD, FuilName ItemID and ItemName Ensure that duplicate records are not repeated in the result:
+	CustomerlD	FullName	ItemlD	ItemName
+	1	36	Nguyen Hoài Phương	3	Bủn chả Hà Nội
+	2	36	Nguyên Hoài Phương	5	Cơm rang dưa bò
+	3	36 4	*%r*	Nguyễn Hoài Phương	11 4 4	Nộm du đú bỏ khô />.».	2 -X
+Zoom
+Close
+
+3of3
+Paper No: 5
+	EmployeelD	FullName	Role	HireDate	Salary
+1	1	Nguyen Vàn An	Manager	2021-02-15	18000000.00
+2	6	Nguyen Thanh Túng	Chef	2021-11-20	18500000.00
+3	10	Phạm Quỗc Viét	Chef	2021-08-09	19000000 00
+Picture 2 1
+Question^
+Write an SQL query to list all menu items ordered by the customer named 'Nguyên Hoài Phuong", displaying the CustomerlD, FullName. ItemID and ItemName Ensure that duplicate records are not repeated in the result.
+1	CustomerlD FullName		ItemlD 3	ItemName Bún chả Hà Nội
+	36	Nguyen Hoải Phương		
+2	36	Nguyen Hoài Phương	5	Cơm rang dưa bò
+3	36	Nguyen Hoài Phương	11	Nộm đu đú bò khô
+4	36	Nguyên Hoài Phương	14	Súp ngô gà
+5	36	Nguyễn Hoải Phương	15	Súp nấm hái sán
+6	36	Nguyền Hoải Phương	16	Trà đá
+7	36	Nguyền Hoài Phương	17	Nước SUỖI
+8	36	Nguyễn Hoài Phương	19	Sinh tõ bơ
+9	36	Nguyẻn Hoài Phương	23	Nước chanh
+10	36	Nguyễn Hoài Phương	26	Kem dửa
+Picture 3.1
+Question 4:
+Write an SQL query to display al main dishes (Category = ’Món chinh'), along with the customers who ordered them in August 2025 Include menu Items even if they were not ordered by any customer during that month. Show the following columns Category. ItemID, ItemName. Customer ID FullName Sort the result by ItemName m ascending order, then by CustomerlD in ascending order for rows of the same ItemName as shown in the following figure
+Zoom
++ 707.
+Close
+----33-----------HgayBTTTTOHrrwDngr^o--------rermiua-----------
+Picture 3 1
+Qwtlgn *
+Wnte an SQL query to display all main dishes (Category = *Món chinh*), along with the customers who ordered them in August 2025 Include menu items even if they were not ordered by any customer during that month Show the following columns Category Itemio ItemName, Customer! D FullName Sort the result by itemName in ascending order then by CustomertD in ascending order for rows of the same llemName as shown in the following figure
+4 of 4 Paper No 5
+	Category	ItemlD	It em Name	Customer ID	FullName
+1	Món chính	4	Bùn bò Huế	33	Đỗ Thi Hiỏn
+2	Món chỉnh	3	Bún chã Hà NỘI	NULL	NULL
+3	Món chinh	5	Cơm rang dưa bò	44	Tràn Hữu Nghía
+4	Món chinh	5	Cơm rang dưa bò	46	Pham Vồn Quang
+5	Món chỉnh	6	Cơm tâm 8ơờn bi chã	NULL	NULL
+6	Môn chinh	10	Gà rang muối	44	Tràn Hữu Nghĩa
+7	Món chính	9	Láu bò nhúng dâm	46	Phạm Ván Quang
+8	Món chính	8	Láu thái hái sản	44	Trốn Hữu Nghĩa
+9	Món chinh	7	Mi xào hai san	NULL	NULL
+10	Món chỉnh	1	Phở bồ tái	38	Lé Vân Hâu
+11	Món chinh	2	Phở gồ	NULL	NULL
+Picture 4 1
+Question 5:
+Write an sot nuerv to hat all cuatomera whose full name Matin with 'NnuvAn' nr “RÙT
+Zoom
++ 647.
+Oose
+
+	category	-rwmnr	Itemwame		cusrornanu-	Funrrame
+1	Món chính	4	Bún bò Hué	33	ĐỖ Thf HAn
+2	Món chinh	3	Bùn chã Há NỘI	NULL	NULL
+3	Món chỉnh	5	Cơm rang dưa bõ	44	Trốn Hữu Nghĩa
+4	Môn chinh	5	Cơm rang dưa bỏ	46	Pham Vồn Quang
+5	Món chinh	6	Cơm tâm sườn bì chá	NULL	NULL
+6	Món chinh	10	Gà rang muôi	44	Trân Hữu Nghĩa
+7	Món chinh	9	Láu bò nhúng dâm	46	Phạm Vản Quang
+8	Món chính	8	Lếu thái hái sán	44	Trần Hữu Nghĩa
+9	Món chinh	7	Mi xảo hai sán	NULL	NULL
+10	Món chỉnh	1	Phở bò tãi	38	Lô Vàn Hậu
+11	Món chinh	2	Pho ga	NULL	NULL
+Picture 4 1
+Question 5:
+Write an sex query Io het all customers whose full name Marit with ‘Nguyền or -Bur. showing for each customer CustomeriD, FullName. the number of completed orders they made in the year 2025 (column NumberOfOrders). and the total amount spent on those orders (column Tola I Amount) If a customer has no completed order in 2025. still display the* name with NumberOfOrders = 0 and Total Amou nt = 0
+CustomerlD FullName			NumberO (Orders	Total Amount
+1	1	Nguyễn Th| Mai	2	1902000.00
+2	7	Bùi Thi Ngọc	0	0.00
+3	8	Nguyễn Hoàng Nam	1	573000.00
+4	14	Đủi Vãn Lồm	0	0.00
+5	15	Nguyễn Th| Hông	3	1576000.00
+6	21	Bùi Thi Nhung	3	2156000.00
+7	22	Nguyồn Vàn Tín	1	900000.00
+8	28	BÙI Ngọc Linh	1	570000.00
+9	29	Nguyên Ván Khánh	1	405000.00
+10	35	BÙI Thí Trang	2	1155000.00
+11	36	Nguyỏn Hoài Phương	0	0.00
+12	42	BÙI Thanh Binh	6	194 7000.00
+13	43	Nguyên Lan Hương	0	0.00
+14	49	Bùi Thi Thu Hà	3	1215000.00
+15	50	Nguyên Quốc Đạt	1	800000.00
+Picture 5 1
+Question 6:
+Write an SQL query to list all menu Items whose total sales amount in completed orders in 2023 IS below the average total sales amount in 2023 of all menu items including those with
+Zoom
++ 647.
+Oose
+
+QyMbonA
+WMi an SQL query to tat all menu Item* Abuse total sale* amount in completed order* tn 2023 » below the average total Mlea amount ri 2023 of al menu flamt, including thoee with
+5 of 5 Paper No 5
+no sales in 2023 For each menu flem. deplay tom©. I tern Na me. Category. TotaiAmourt (the total revenue generated from completed orders m 2023 (use 0 lor terns that were not sold tn 2023) Ensure to oataUM the average Ml solas across al flams (including those with zero revenue I Sort the result by TatafAmourt n assenting order, and then by ItemiD in ascending order for Items havng the same TotaiAmount
+	ItemID	ItemName	Category	Total Amount
+1	6	Cơm tám sườn bi chã	Mỏn chính	0.00
+2	30	Bánh mì pate trừng	Món ân nhẹ	40000 00
+3	16	Trồ đổ	Thức uõng	55000.00
+4	18	Coca-Cola	Thức uống	60000.00
+5	17	Nước suôi	Thức uổng	70000.00
+6	7	Mi xào hái sán	Món chính	80000.00
+7	27	Trà súa trân châu	Thức uổng	80000 00
+8	21	Cafe đen đá	Thức uỏng	125000.00
+9	28	Bánh chuỗi ndởng	Tráng miệng	128000.00
+10	22	Cafe sữa đã	Thửc uống	140000.00
+11	24	Chè thập cám	Tráng miệng	150000.00
+12	29	Chè khúc bạch	Trăng miệng	165000.00
+13	25	Bánh flan	Tráng miệng	200000.00
+14	26	Kem dửa	Tráng miệng	210000.00
+15	15	Súp nám hải sán	Món khai VỊ	225000.00
+16	19	Sinh tố bơ	Thửc uổng	245000.00
+17	20	Sinh tố xoài	Thửc uỗng	245000.00
+18	23	Nườc chanh	Thửc uõng	280000.00
+19	12	Nem rán Hà NÔI	Món khai VỊ	300000.00
+20	14	Súp ngó gã	Môn khai vị	320000.00
+21	1	Phơ bo tái	Mốn chính	325000.00
+22	13	Chá giò hãi sân	Món khai vị	420000.00
+Retire 6 1
+ftMM&2
+WMa an SQL query to analyze customer spend ng trends between 2023 and 2024 based on completed orders For each customer who placed completed orders in both 2023 and 2024. ceicUate and display:
+Zoom
+- CustnmarlD
++ 547.
+Oose
+
+Picture 6 1
+Question^:
+Write an SQL query to analyze customer spending trends between 2023 and 2024 based on completed orders For each customer who placed completed orders in both 2023 and 2024, calculate and display
+-	CustomerlD
+-	Full Name
+6of6
+Paper No 5
+• AvgTotalOrderVa4ue2023 - the average total order value of the Customers completed orders in 2023, rounded to two decimal places
+• AvgToiaiOrdcrVa*ue2024 - the average total order value of the customers completed orders in 2024, rounded to two decimal places
+- Percentagechange - the percentage growth in the average total order value from 2023 to 2024 H16 calculated as (AvgTota*OrderValue2024 - AvgTotal0rderValue2023y
+AvgTotalOrderValue2023,100 Round the percentage change to two decimal places and append ' %' at the end
+Order the result in ascending order of CustomerlO as shown m the following figure
+	CuMonwrlD	FutNama	AvgTowOrdarV«iua2a23	AvgTcU»K»><VaMa2ứ24	^•roareaeaChenge
+1	2	TrlA VAn Tầm	530000 00	340000 00	35 «5 %
+2	12	OỔĐUcThr*	4 75000 00	525000 00	10 53%
+3	13	Vô Th Hoe	1820000 00	446000 00	7546%
+4	17	LSTNDUm	1070500.00	235000 00	78 05%
+5	43	Nouyin lan Huong	1700000 00	580000 00	«12%
+8	45	LiTMTim	347000 00	1102000 00	217 58%
+7	48	VõOđe Ta.	525000 00	255000 00	51 43%
+Picture 7 1
+Question 8:
+Write a stored procedure named MonthtySalesSummary that generates a monthly sales report tor a specified year Your procedure must accept one input parameter ©year int - the year for which the report will be generated The procedure must display all 12 months (from January to December), even if there are no orders It a given month For each month, calculate and display
+- Month - in the format Month/Year
+- NumberOfOrders - the total count of completed orders in that month
+- TotaIRevenue - the total revenue (sum of Quantity * Pnce) from all completed orders in that month
+Zoom
++ 627.
+Oose
+Rdư»71
+Qv«l-ífi ộ
+Wnta a stored procedure named MonthtySalesSummary that generates a monthly sates report for a specced year Vox procedure mutt accept one input parameter ỡyear mt * the year tor whch Fie report Wil be generated The procedure must deptay al 12 months (tram January to December) even if there are no orders tn a p*eri month For each month, caicUate and Cisplay
+•	Month IT the formal Month'Year
+-	NumberOtOrders - the total count of compacted orders in that month
+-	TotaRevenue - the total revenue (sum of Quantity • Pnce I tram al completed orders in that month
+For example when we execute the MorthlySafesSumrnary procedure by usng the fallowing query, the results must be shown as ri the fatowing figure
+execute MonFitySotesSummary 2023
+7 of 7 Paper No 5
+Month NumberOfOrders Total Revenue
+1
+2
+3
+4
+5
+6
+7
+8
+1/2023 1
+2/2023
+3/2023
+4/2023
+5/2023
+6/2023
+7/2023
+8/2023
+0 4
+2 1
+4
+1
+1
+475
+.00
+0.00
+3315000.00
+139
+575
+0.00 .00
+2115000.00
+1105000.00
+107
+0.00
+/> ro/\r^o
+*> J -T/%M/* />r\
+Zoom
++ 56%
+Oose
+execute MorenlySatesSummary 2023
+7 of 7 Paper No 5
+Month NumberOfOrders TotalRevenue
+Zoom
+I
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+1/2023 1
+2/2023 0
+3/2023 4
+4/2023 2
+5/2023 1
+6/2023 4
+7/2023 1
+8/2023 1
+9/2023 1
+10/2023 2
+11/2023 1
+12/2023 0
+475
+.00
+0.00
+3315000.00
+139
+575
+cm
+•I©
+0.00
+.00
+2115000.00
+1105000.00
+107
+cm
+347
+0.00
+
+.00
+2111000.00 525000.00 0.00
+Ptture8.1
+Qutitwi 9
+urease a trigger rorneo vg_upaatB I cnauvnouni on ire unwueoM one n ensure me TotalAmount column in the Orders table always stays accurate
+Whenever an OnterOetwb record IS inserted updated or deleted, the logger Should ■utom#kc«llr teéãiculelã Ika total amocrrl of toi aHadad ordart at Ika turn of iQuenHIy • ritLcj lu aim «011» II an UIUC1 Uuunta UI MIUIUGI «0 uucwu, 0» UMI oiiwnt UI am order tewuld be eel to 0
++ 567.
+Oose
+
+U7UU
+TZ7ZUZ3-n
+”Ĩ7
+Picture 8 1
+Question 9:
+Create a trigger named trg UpdateTotalAmount on the OrderDetarts table to ensure the Total Amount column in the Orders table always stays accurate
+Whenever an Order De tarts record IS inserted, updated, or deleted, the trigger should automatically recalculate the total amount of the affected orders as the sum of (Quantify ■ Price) tor ell Ito Soma If All OdorOeMto of an order ere deleted, the total amount of thia order should bo set to 0
+For example tf you run the following queries on the table OrderDetads the corresponding orders will be updated
+-	test case 1 •> TotalAmount of the orders with OrderlD * 3 and QrdeflO = 5 will be updated
+INSERT OrderDetails (OtderiD ItemID Quantity, Price)
+VALDES (3. 2. 3. 75000 CO). (5,27,2.40000 00)
+-	test case 2 -> TotalAmount of the order with Order!D = 6 will be updated
+8 of 8
+Paper No 5
+delete from OrderDetails where Order ID = 6 and ItemID = 1
+QuestionJO:
+Write SQL statements 10 create a new reservation for a customer The reservation should be made tor CuslomerlD ■ 7, With 5 guests on November 20 2025, at 19 15 PM The ReservationlD should be 210
+After inserting the reservation into the Reservations la We assign the reservation to a table tn the Reservation Tables table The assigned table should be the one with the smallest TablelD among al tables that have a capacity greater than or equal to 5.
+Zoom
++ 62%
+Oose
+
+
+
+==============
+
+
+Chào bạn, để một mô hình ngôn ngữ (LLM) khác có thể hiểu chính xác thiết kế cơ sở dữ liệu này và viết code SQL/truy vấn chuẩn, cách tốt nhất là chuyển đổi hình ảnh thành văn bản mô tả cấu trúc (Schema description).
+
+Bạn có hai hình ảnh thể hiện hai mức độ thiết kế khác nhau (mức khái niệm và mức vật lý). Dưới đây là phần trình bày lại bằng văn bản đã được tối ưu hóa. Bạn chỉ cần copy/paste nguyên đoạn mã dưới đây (từ đường gạch ngang trở xuống) cho bất kỳ LLM nào:
+
+---
+
+### **SYSTEM PROMPT / DATABASE CONTEXT**
+
+Here is the structure of my database. Please use this schema for any SQL queries or logic I ask for.
+
+#### **PART 1: Conceptual ER Diagram (From Picture 1.1)**
+
+This is a conceptual ERD describing Restaurants, Employees, and Shifts.
+
+**Entities & Attributes:**
+
+1. **Restaurants**
+* `restaurantID` (int) - **Primary Key**
+* `name` (nvarchar(100))
+* `address` (Composite attribute consisting of: `street` nvarchar(50) and `city` nvarchar(50))
+
+
+2. **Employees**
+* `empID` (int) - **Primary Key**
+* `FullName` (nvarchar(50))
+* `gender` (char(1))
+* `phone` (nvarchar(20)) - **Multi-valued attribute** (represented by a double oval, meaning an employee can have multiple phone numbers).
+
+
+3. **Shifts**
+* `shiftID` (int) - **Primary Key**
+* `shiftDate` (date)
+* `startTime` (time)
+* `endTime` (time)
+
+
+
+**Relationships:**
+
+* **has (1:N):** One `Restaurant` (1) has many `Employees` (N).
+* **works (N:M):** Many `Employees` (N) work many `Shifts` (N). (This implies a bridging table is needed in physical implementation).
+
+---
+
+#### **PART 2: Physical Relational Database Schema (From 2nd Image)**
+
+This represents an operational restaurant management database.
+
+**Tables & Columns:**
+
+1. **Tables**
+* `TableID` (Primary Key)
+* `TableNumber`
+* `Capacity`
+* `Location`
+
+
+2. **Customers**
+* `CustomerID` (Primary Key)
+* `FullName`
+* `Phone`
+* `Email`
+* `CreatedDate`
+
+
+3. **Employees**
+* `EmployeeID` (Primary Key)
+* `FullName`
+* `Role`
+* `HireDate`
+* `Salary`
+
+
+4. **MenuItems**
+* `ItemID` (Primary Key)
+* `ItemName`
+* `Category`
+* `Price`
+* `IsAvailable`
+
+
+5. **Reservations**
+* `ReservationID` (Primary Key)
+* `CustomerID` (Foreign Key referencing `Customers.CustomerID`)
+* `ReservationTime`
+* `GuestCount`
+* `Status`
+* `Notes`
+
+
+6. **ReservationTables** (Bridging table for Many-to-Many between Reservations and Tables)
+* `ReservationID` (Primary Key, Foreign Key referencing `Reservations.ReservationID`)
+* `TableID` (Primary Key, Foreign Key referencing `Tables.TableID`)
+
+
+7. **Orders**
+* `OrderID` (Primary Key)
+* `CustomerID` (Foreign Key referencing `Customers.CustomerID`)
+* `EmployeeID` (Foreign Key referencing `Employees.EmployeeID`)
+* `ReservationID` (Foreign Key referencing `Reservations.ReservationID`)
+* `OrderTime`
+* `Status`
+* `PaymentTime`
+* `PaymentMethod`
+* `TotalAmount`
+
+
+8. **OrderTables** (Bridging table for Many-to-Many between Orders and Tables)
+* `OrderID` (Primary Key, Foreign Key referencing `Orders.OrderID`)
+* `TableID` (Primary Key, Foreign Key referencing `Tables.TableID`)
+
+
+9. **OrderDetails** (Bridging table for Many-to-Many between Orders and MenuItems)
+* `OrderID` (Primary Key, Foreign Key referencing `Orders.OrderID`)
+* `ItemID` (Primary Key, Foreign Key referencing `MenuItems.ItemID`)
+* `Quantity`
+* `Price`
+
+
+
+---

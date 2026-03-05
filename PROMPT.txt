@@ -1,0 +1,10 @@
+tiếp tục, bạn hãy đọc phong cách viết coding guide ở D:\FPT_Ky3\DBI\de thi PE\DBI202 - PE - FA25 - 2\CODING_GUIDE.md viết theo kiểu tư duy khi đọc đề như thế nào, rồi từ đó làm gì, cần gì,....  .rồi dựa vào đề ở D:\FPT_Ky3\DBI\de thi PE\DBI202 - FA25 - PE - Đề số 10\debai.txt viết cho tôi coding guide của đề DBI202 - FA25 - PE - Đề số 10
+
+<hình erd>
+trình bày lại erd này cho LLM hiểu
+
+đọc các coding guide ở các folder rồi viết cho tôi file syntax_template.md tổng hợp, phân tích chi tiết các template và syntax mà coding đề cập 
+file syntax_template thêm cho nó giải thích và cách dùng cho từng cái nữa
+
+
+bạn đọc coding của DBI202 - FA25 - PE - Đề 10 và DBI202 - FA25 - PE - Đề 5 rồi đọc file syntax_template.md hiện tại xem có gì có thể update cho syntax_template.md ko (file syntax_template.md là file tổng hợp, phân tích chi tiết các template và syntax mà coding đề cập )

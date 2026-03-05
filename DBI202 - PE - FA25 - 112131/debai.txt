@@ -1,0 +1,123 @@
+﻿PRACTICAL EXAMINATION
+Subject code: DBI202 Duration: 85 minutes
+Requirements:
+♦ Download the file PE_DBI202_.sql and execute it to create the database and the tables that are already in the file.
++ Students must complete their exams in 2 files: file named PE_DBI202_.sql for SQL code and word file PE_DBI202.doex containing the ERD for question I.
+I.	(2 points) In the picture arc two entities extracted from a simplified ERD of a bank. Complete the ERD according to the given details:
+-	Each client can have many accounts.
+-	Each account is of one account type.
+Each account has an ID and a balance, which is the amount of money left in the account.
+(Add to the existing diagram in the exam).
+Use the diagram below to complete question I (you can draw it in MS Word).
+Zoom
+RD
+HIOVERHOW.COM
++ 100%
+Oose
+Entities Description
+•	Client: Contains personal information about each client, including Id (of the client), l;irstName, LastName.
+•	AccountType: Stores information about each type of account, including Id (of the type) and Name.
+•	Account: Contains information about each account, including account Id and account balance.
+2.	(2 points) From the complete ERD in question 1, write SQL statements to create the tablets) corresponding to the entity(ics) added to the diagram. Insert 5 appropriate data rows into each newly created table.
+Notice: Ilie balance of an account has up to 15 digits including 2 digits after the decimal point and has a default value of 0. Suppose that the currency is USD.
+3.	(2 points) Write a stored procedure to withdraw money from an account. In order for a withdrawal to be successful, the amount to be withdrawn must be a positive number, the account ID must be valid and the balance of the account must not be lower than the amount to be withdrawn. In case any criterion above is violated, rollback and/or raise an error.
+4.	(2 points) Create a table NotiílcâtionKmaĩls (Id, Recipient, Subject, Content). Add
+Zoom
+RD
+HIOVERFLOW.COM
++ 100%
+dose
+2.	(2 points) From the complete ERD in question 1, write SQL statements to create the tablets) corresponding to the entity(ies) added to the diagram. Insert 5 appropriate data rows into each newly created tabic.
+Notice: Ilie balance of an account has up to 15 digits including 2 digits after the decimal point and has a default value of 0. Suppose that the currency is USD.
+3.	(2 points) Write a stored procedure to withdraw money from an account. In order for a withdrawal to be successful, the amount to be withdrawn must be a positive number, the account ID must be valid and the balance of the account must not be lower than the amount to be withdrawn. In case any criterion above is violated, rollback and/or raise an error.
+4.	(2 points) Create a table Notification Emails (Id, Recipient, Subject, Content). Add • trigger to the table containing information about accounts and create a new message whenever this accounts tabic is updated. The following data is required to be filled for each email:
+•	Recipient - Accounlld
+•	Subject - “Update on account: (Accountld}”
+•	Content - “On {date} your balance was changed from {old balance} to {new balance}.”
+for example:
+Id	Recipient	Subject	Content
+I	1	Update on account: 1	On 05-11-2023 14:09 your balance was changed from 113.12 to 103.02.
+...		...	
+5. (2 points) Create a view that displays the first names and last names of all clients who have more than $300 in total of all their accounts.
+End
+Zoom
+RD
+HIOVERHOW.COM
++ 100X
+dose
+
+
+
+
+
+
+
+=========================================
+
+
+
+
+Dưới đây là phần mô tả cấu trúc bằng văn bản cho các sơ đồ ER mà bạn vừa tải lên. Khung thông tin này được tối ưu hóa để bạn có thể copy trực tiếp và dán vào bất kỳ công cụ AI nào nhằm yêu cầu tạo mã SQL hoặc phân tích logic thiết kế.
+
+### 1. Sơ đồ 1: Thực thể `Client` và `AccountType` (Hình mới)
+
+Sơ đồ này hiển thị hai thực thể mạnh (strong entities) cơ bản. Trong hình chưa có đường nối thể hiện mối quan hệ (relationship) giữa hai thực thể này.
+
+* **Entity: Client**
+* `Id` (Primary Key): Khóa chính, nhận diện qua nét gạch chân.
+* `FirstName`: Thuộc tính thông thường.
+* `LastName`: Thuộc tính thông thường.
+
+
+* **Entity: AccountType**
+* `Id` (Primary Key): Khóa chính, nhận diện qua nét gạch chân.
+* `Name`: Thuộc tính thông thường.
+
+
+
+---
+
+### 2. Sơ đồ 2: Hệ thống `Contracts` (Hợp đồng)
+
+Sơ đồ này phức tạp hơn, bao gồm sự tham gia của một thực thể yếu (weak entity) liên kết với ba thực thể mạnh thông qua các mối quan hệ xác định (identifying relationships).
+
+**Các Thực thể (Entities) và Thuộc tính:**
+
+* **Customers** (Thực thể mạnh):
+* `custID` (Primary Key, kiểu varchar 50)
+* `custName` (kiểu nvarchar 100)
+* `custAddress` (kiểu nvarchar 200)
+
+
+* **Rooms** (Thực thể mạnh):
+* `roomID` (Primary Key, kiểu varchar 50)
+* `roomPrice` (kiểu money)
+
+
+* **Services** (Thực thể mạnh):
+* `serviceID` (Primary Key, kiểu varchar 50)
+* `serviceName` (kiểu nvarchar 100)
+* `servicePrice` (kiểu money)
+
+
+* **Contracts** (Thực thể yếu - Ký hiệu bằng hình chữ nhật nét đôi):
+* `contractID` (Partial Key / Khóa thành phần, kiểu varchar 50)
+* `quantity` (kiểu int)
+
+
+
+**Các Mối quan hệ (Relationships):**
+Toàn bộ là mối quan hệ xác định (Identifying Relationship - ký hiệu hình thoi nét đôi), thể hiện rằng thực thể yếu `Contracts` phụ thuộc vào các thực thể mạnh để tồn tại.
+
+* **Cust-of:** Quan hệ 1-Nhiều (1:M) giữa `Customers` (1) và `Contracts` (M).
+* **Room-of:** Quan hệ 1-Nhiều (1:M) giữa `Rooms` (1) và `Contracts` (M).
+* **Service-of:** Quan hệ 1-Nhiều (1:M) giữa `Services` (1) và `Contracts` (M).
+* *Lưu ý cho LLM:* Khóa chính của bảng `Contracts` khi chuyển đổi sang Schema Relational sẽ bao gồm tổ hợp khóa ngoại từ 3 bảng mạnh (`custID`, `roomID`, `serviceID`) và khóa thành phần của chính nó (`contractID`).
+
+
+
+
+
+
+
+

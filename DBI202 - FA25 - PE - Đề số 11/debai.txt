@@ -1,0 +1,432 @@
+﻿1 of 1
+Paper No: 11
+For the submission of your work:
+-	Create a folder named RollNo_Nnme_DB1202_PaperNo, e g. hel70145_LongNT_DB1202_01. Do not create any subfolder in this folder. All file created will be located in the above folder.
+-	For each question, you arc required to write a database script. Create a file with the name corresponding to the index of the question. For example, for question 1, we will create a file named Ql.sql and create a file Q2.sql for question 2. So, if you do 10 questions, your folder must contain only 10 files Ọl.sql, Q2.sql, Qlsql, Q4.sql, Q5.sql, Q6.sql, Q7.sql, Q8.sql, Q9.sql and QlO.sql.
+-	Do not use any commands having the database name such as create database, alter database, use (database name], etc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command. For example, if you are required to create a trigger/procedure. (hen your response should contain only commands for creating the corresponding trigger/procedure; all commands for testing the created trigger/procedure are forbidden.
+-	Do not use GO command in your code
+-	On completion, import your work by browsing to the above folder.
+-	Note that:
++ You could use only SQL Server, SQL Server Management Studio, and paper or offline document in your computer.
++ If any of the previous requirements IS not respected, your mark will be 0.
+From the 2nd question, you should use the database provided in the .sql file which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+Tables		ReservationTables	Reservations	Customers
+’ Table! D		’ ReservationlD	’ Reservations	• CustowrID
+TaMeNumbef		• TablelD	Customer! D	FullName
+Capacity			ReservationTime	Phone
+Location			GuestCount	Email
+		OrderTables	Status	Created Data
+		’ OrdedO	Notes	
+		’ TablelO		
+Zoom
+RD
+HIOVERHOW.COM
+□om
+-	Do not use any commands having the database name such as create database, alter database, use [database name], etc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command. For example, if you are required to create a trigger/procedure, then your response should contain only commands for creating the corresponding trigger/proccdure; all commands for testing the created trigger/procedure are forbidden.
+-	Do not use GO command in your code
+-	On completion, import your work by browsing to the above folder.
+-	Note that:
++	You could use only SQL Server, SQL Server Management Studio, and paper or offline document in your computer.
++	If any of the previous requirements is not respected, your mark will be 0.
+From the 2nd question, you should use the database provided in the .sql file which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+Tables
+• TablelD TableNumber Capacity Location
+' ReservationTables
+ReservationlD
+TablelD
+OrderTables
+’ OrderlD
+• TablelD
+Employees ’ EmployeelD
+FullNamt
+Role HireDate Salary
+Orders
+• Order! D
+Customer ID Employeel D Reservation ID OrdefTime Status PaymentTime
+Payment Met hod TotalAmount
+Zoom
++ 1007.
+Oose
+2of2
+Paper No: 11
+Question 1:
+Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given in the following picture with appropriate attributes, primary keys and foreign keys.
+NOTE that when creating the SQL commands as request, you MUST keep the name of tables, relationship, attributes and data type of attributes as SAME as given in the given ERD.
+Attributes with underline are Primary Key of each entity.
+Attributes which reference to the primary key of another table must have the same name as the attributes in the primary key of the referencing table.
+If a table must be created for representing a relationship, the name of the table must be the same as the name of the relationship.
+When submitting the responses for this question, submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use ’create database", "Alter database", "use database_name" or any statements using database's name in your submission.
+You must use ER style conversions for subclasses in this diagram if exists.
+The table represents the multi-values attribute must have the name which is the concatenation of the table name and the attribute name. For example, if table named Student has the multi-values attribute named Phone, the name of the corresponding table must be StudentPhone.
+HIOVERHOW.COM
+dote
+submission.
+You must use ER style conversions for subclasses in this diagram if exists.
+The table represents the multi-values attribute must have the name which is the concatenation of the table name and the attribute name. For example, if table named Student has the multi-values attribute named Phone, the name of the corresponding table must be StudentPhone.
+Question 2:
+Write an SQL query to display all employees who are chefs or managers and were hired in 2021, as shown in the following figure:
+Zoom
+FID
+FUOVERFLOW.COM
++ 1007.
+Oose
+3 of 3
+Paper No: 11
+EmployeelD	FullName	Role	HireDate	Salary
+1 [T	Nguyễn Vàn An Manager 2021-02-15 18000000.00
+2	6	Nguyen Thanh Tùng	Chef	2021-11-20	18500000.00
+3	10	Pham Quõc Việt	Chef	2021-08-09	19000000.00
+Picture 2.1
+Question 3:
+Write an SQL query to display the list of customers who made reservations in the year 2025 and were assigned to tables whose locations include “Khu A". Display the results with CustomerlD, FullName, ReservationTime, TablelD, Location, as shown in the following figure:
+1	CustomerlD	FullName Đỏ Hoàng VỦ	Reservation Time 2025-11-21 19:02:00.000	TablelD 2	Location Khu A - Trung tâm
+	40				
+2	13	Vỏ Thị Hoa	2025-03-02 12:00:00.000	3	Khu A - Góc phái
+3	28	BÙI Ngọc Linh	2025-01-01 19:15:00.000	2	Khu A - Trung tâm
+4	28	BÙI Ngọc Linh	2025-01-01 19:15:00.000	3	Khu A - Góc phải
+5	10	Lô Vốn Phú	2025-07-13 12:30:00.000	2	Khu A - Trung tâm
+6	46	Phạm Vàn Quang	2025-09-19 19:15:00.000	2	Khu A - Trung tâm
+7	43	Nguyên Lan Hương	2025-01-08 19:15:00.000	3	Khu A - Góc phái
+8	44	Trân Hữu Nghĩa	2025-05-23 20:00:00.000	2	Khu A - Trung tám
+9	44	Trăn Hữu Nghĩa	2025-05-23 20:00:00.000	3	Khu A - Góc phái
+10	33	Đỗ ĩhỊ Hièn	2025-06-16 20:00:00.000	3	Khu A - Góc phổi
+11	33	ĐÕ Thi Hiên	2025-10-13 13:00:00.000	1	Khu A - Găn cửa số
+12	32	Phạm Ngọc Bào	2025-02-1313:00:00.000	2	Khu A - Trung tâm
+Zoom
+Oose
+
+2	13	VỎ Thi Hoa	2025-03-02 12:00:00.000	3	Khu A - Góc phải
+3	28	BÙI Ngọc Linh	2025-01-01 19:15:00.000	2	Khu A - Trung tâm
+4	28	ĐÙI Ngọc Linh	2025-01-01 19:15:00.000	3	Khu A - Góc phải
+5	10	Lé Vốn Phú	2025-07-13 12:30:00.000	2	Khu A - Trung tâm
+6	46	Phạm Vàn Quang	2025-09-19 19:15:00.000	2	Khu A - Trung tâm
+7	43	Nguyên Lan Hương	2025-01-08 19:15:00.000	3	Khu A - Góc phải
+8	44	Trân Hữu Nghĩa	2025-05-23 20:00:00.000	2	Khu A - Trung tâm
+9	44	Trân Hữu Nghĩa	2025-05-23 20:00:00.000	3	Khu A - Gỏc phái
+10	33	Đỏ Thi Hiên	2025-06-16 20:00:00.000	3	Khu A - Góc phài
+11	33	Đỏ Thi Hiẽn	2025-10-13 13:00:00.000	1	Khu A - Gãn cửa số
+12	32	Phạm Ngọc Bào	2025-02-1313:00:00.000	2	Khu A - Trung tâm
+13	28	ĐÙI Ngọc Linh	2025-09-09 13:00:00.000	3	Khu A - Góc phai
+14	4	Phạm Vồn cưởng	2025-03-26 19:45:00. )00	2	Khu A-Trung tâm
+15	4	Phạm Vản cưởng	2025-03-26 19:45:00 000	3	Khu A - Gỏc phái
+Picture 3.1
+Question 4:
+Write an SQL query to list all tables whose locations include "Khu A”, “Khu B" or “Khu C", along with the customers who reserved them in September 2025. Ensure to include tables even if no customer reserved them during that month. Show the following columns: TablelD, Capacity, Location, CustomerlD, FullName. Sort the result in descending order of Capacity and then by Location in ascending order for tables with the same capacity.
++ 1007.
+Oose
+
+4 of 4
+Paper No: 11
+1	TablelD	Capacity 8	Location Khu c - Trung tâm	CustomerlD 7	FullName BÙI Thị Ngọc
+	8				
+2	4	6	Khu B - Gân quây bar	4	Phạm Vân cường
+3	4	6	Khu B - Gãn quầy bar	24	Lê Minh Hoàng
+4	7	6	Khu c - Gãn sân khãu	4	Phạm Vãn cường
+5	3	4	Khu A - Góc phải	Ỉ8	BÙI Ngọc Linh
+6	2	4	Khu A - Trung tâm	46	Phạm Vàn Quang
+7	6	4	Khu B - Trung tâm	12	Đỗ Đửc Thịnh
+8	1	2	Khu A - Gân cửa số	NULL	NULL
+9	5	2	Khu B - Cạnh tường	NULL	NULL
+10	9	2	Khu c - Góc trái	NULL	NULL
+Picture 4.1
+Question 5:
+Write an SQL query to list all customers whose full name starts with "Nguyễn" or “Bùi", showing for each customer: CustomerlD, FullName, the number of completed orders they made in the year 2025 (column NumberOfOrders), and the total amount spent on those orders (column TotalAmount). If a customer has no completed order in 2025, still display their name with NumberOfOrders = 0 and TotalAmount = 0.
+	CustomerlD	FullName	NumberOfOrders	Total Amount
+1	1	Nguyễn Thị Mai	2	1902000.00
+2	7	Bùi Thị Ngọc	0	0.00
+3	8	Nguyễn Hoàng Nam	1	573000.00
+4	14	Bùi Vãn Lâm	0	0.00
+5	15	Nguyễn Thị Hông	3	1576000.00
+A	01	Rói Thi Klhiinn	0	oiAAnnn nn
++ 100%
+Oose
+
+3	8	Nguyen Hoàng Nam	1	573000.00
+4	14	Bùi Văn Lâm	0	0.00
+5	15	Nguyễn Thị Hông	3	1576000.00
+6	21	Bùi Thị Nhung	3	2156000.00
+7	22	Nguyễn Vãn Tin	1	900000.00
+8	28	Bùi Ngọc Linh	1	570000.00
+9	29	Nguyễn Vãn Khánh	1	405000.00
+10	35	Bùi Thị Trang	2	1155000.00
+11	36	Nguyễn Hoài Phương	0	0.00
+12	42	Bùi Thanh Binh	6	1947000.00
+13	43	Nguyễn Lan Hương	0	0.00
+14	49	Bùi Thị Thu Hà	3	1215000.00
+15	50	Nguyễn Quốc Đạt	1	800000.00
+Picture 5.1
+Question 6:
+Write an SQL query to list all menu items whose total sales amount in completed orders in 2023 is below the average total sales amount in 2023 of all menu rtems, including those with no sales in 2023. For each menu item, display: ItemID, ItemName, Category, TotalAmount
+5 of 5
+Paper No: 11
+(the total revenue generated from completed orders in 2023 (use 0 for items that were not sold in 2023). Ensure to calculate the average total sales across all items (including those with zero revenue). Sort the result bv TotalAmount in ascendinq order, and then bv ItemID in
+Zoom
++ 1007.
+Oose
+
+5 of 5
+Paper No: 11
+(the total revenue generated from completed orders in 2023 (use 0 for items that were not sold in 2023). Ensure to calculate the average total sales across all items (including those with zero revenue). Sort the result by TotalAmount in ascending order, and then by ItemID in ascending order for items having the same TotalAmount.
+	ItemID	ItemName	Category	TotalAmount
+1	6	Cơm tãm sườn bì chà	Món chính	0.00
+2	30	Bánh mi pate trứng	Món ãn nhẹ	40000.00
+3	16	Trà đá	Thức uống	55000.00
+4	18	Coca-Cola	Thức uống	60000.00
+5	17	Nước suối	Thức uống	70000.00
+6	7	Mì xào hãi sàn	Món chính	80000.00
+7	27	Trà sữa trân châu	Thức uống	80000.00
+8	21	Cafe đen đá	Thức uống	125000.00
+9	28	Bánh chuối nướng	Tráng miệng	128000.00
+10	22	Cafe sữa đá	Thức uổng	140000.00
+11	24	Chè thập cẩm	Tráng miệng	150000.00
+12	29	Chè khúc bạch	Tráng miệng	165000.00
+13	25	Bánh flan	Tráng miệng	200000.00
+14	26	Kem dừa	Tráng miệng	210000.00
+15	15	Súp nấm hái sàn	Món khai vị	225000.00
+1Ê	IQ	Qir»h fA RH	Thứn 1 lAnn	Q/iRnnn nn
++ 100%
+Zoom
+FUOVERFLOW.COM
+Oose
+4	18	Coca-Cola	I nưc uong	6UUUU.U0
+5	17	Nước suối	Thức uống	70000.00
+6	7	Mi xào hải sán	Món chính	80000.00
+7	27	Trà sữa trân châu	Thức uõng	80000.00
+8	21	Cafe đen đá	Thức uổng	125000.00
+9	28	Bánh chuối nướng	Tráng miệng	128000.00
+10	22	Cafe sữa đá	Thức uõng	140000.00
+11	24	Chè thập cấm	Tráng miệng	150000.00
+12	29	Chè khúc bạch	Tráng miệng	165000.00
+13	25	Bánh flan	Tráng miệng	200000.00
+14	26	Kem dừa	Tráng miệng	210000.00
+15	15	Súp nãm hãi sân	Món khai vị	225000.00
+16	19	Sinh tố bơ	Thức uống	245000.00
+17	20	Sinh tố xoài	Thủc uống	245000.00
+18	23	Nước chanh	Thức uống	280000.00
+19	12	Nem rán Hà Nội	Món khai vị	300000.00
+20	14	Súp ngô gà	Món khai vị	320000.00
+21	1	Phở bò tái	Món chính	325000.00
+22	13	Chà giò hài sản	Món khai vị	420000.00
+Picture 6.1
+Question 7:
+Write an SQL query to analyze customer spending trends between 2024 and 2025 based on completed orders. For each customer who placed completed orders in both 2024 and 2025, calculate and display:
+-	CustomerlD
+-	FullName
+FUOVERFLOW.COM
++ 100*
+Oose
+comprereoTJTcrers-ForeacrrcusronTerwno-piscea-compieTea orders in DOtn 2U24 ana 2U25, calculate and display:
+-	CustomerlD
+-	FullName
+6 of 6
+Paper No: 11
+-	AvgTotalOrderValue2024 - the average total order value of the customer’s completed orders in 2024, rounded to two decimal places.
+-	AvgTotalOrderValue2025 - the average total order value of the customer’s completed orders in 2025, rounded to two decimal places.
+-	Percentagechange - the percentage growth in the average total order value from 2024 to 2025. II is calculated as (AvgTotalOrderValue2025 - AvgTotalOrderValue2024)/ AvgTotalOrderValue2024*100. Round the percentage change to two decimal places, and append ‘ %’ at the end.
+Order the result in ascending order of CustomerlD as shown in the following figure.
+1	CustomerlD 2	FullName Trốn Vốn Tảm	AvgTotalOrder Value2024 340000.00	AvgTotalOrderValue2025 481000.00	Percentagechange 41.47%
+2	4	Pham Vốn cưởng	341000.00	592500.00	73.75 %
+3	10	Lô Vồn Phú	370000.00	875000.00	136.49%
+4	12	Đỏ Đúc Thinh	525000.00	570000.00	8.57%
+5	13	Vỗ ThỊ Hoa	446000.00	637500.00	42.94%
+6	17	Lé Thi Diêm	235000.00	920000 00	291.49%
+7	20	Vỗ Quỏc Huy	240000.00	535000.00	122.92 %
+8	22	Nguyên Vồn Tin	890000.00	900000.00	1.12%
+9	25	Phạm Thi Hậu	504000.00	493000.00	•2.18%
++ 100%
+Oose
+Order the result in ascending order of CustomerlD as shown in the following figure.
+	CustomerlD	FullName	AvgTotalOrderValue2024	AvgTotalOrder Value2025	Percentagechange
+1	2	Trản Vốn Tàm	340000.00	481000 00	41.47%
+2	4	Phạm Vốn cưởng	341000.00	592500.00	73.75 %
+3	10	Lé Vỏn Phú	370000.00	875000.00	136.49%
+4	12	ĐÔ Đửc Thinh	525000.00	570000.00	8.57%
+5	13	Vô Thi Hoa	446000.00	637500.00	42.94%
+6	17	Lé Thi Diêm	235000.00	920000.00	291.49%
+7	20	Vỏ Quỗc Huy	240000.00	535000.00	122.92 %
+8	22	Nguyỏn Vân Tin	890000.00	900000.00	1.12%
+9	25	Phạm Thi Háu	504000.00	493000.00	•2 18%
+10	26	Đỏ Vốn Đức	395000.00	294000.00	-25.57 %
+11	30	Tràn Thị Tươi	460000.00	892 00.00	94.02%
+12	31	Lê Đúc Hòa	481000.00	48335 7.14	0.59%
+13	35	BÙI Thi Trang	403333.33	577500.00	43.18%
+14	39	Phạm Thi Yen	578000.00	629500.00	8.91 %
+15	40	Đỏ Hoàng Vù	330000.00	754000.00	128.48 %
+16	41	Vỗ ThỊ Kim	880000 00	480000.00	-45.45 %
+17	45	Lé Thị Tảm	1102000.00	655000.00	-40.56%
+18	46	Phạm Ván Quang	590000.00	657500.00	11.44%
+19	48	Vỗ Đức Tài	255000.00	795000.00	211.76%
+			Picture 7.1		
+Question 8:
+Write a stored procedure named MonthlySalesSummary that generates a monthly sales report for a specified year. Your procedure must accept one input parameter: @year int - the year for which the report will be generated. The procedure must display all 12 months (from January to December), even if there are no orders in a given month. For each month, calculate and display:
+-	Month - in the format Month/Year
+-	NumberOfOrders - the total count of completed orders in that month
+-	TotalRevenue - the total revenue (sum of Quantity • Price) from all completed orders in that month
+For example, when we execute the MonthlySalesSummary procedure by using the following
++ 100%
+Close
+
+-	I otalKevenue - the total revenue (sum of Quantity ' Price) from all completed orders in that month
+For example, when we execute the MonthlySalesSummary procedure by using the following query, the results must be shown as in the following figure:
+execute MonthlySalesSummary 2023
+7 of 7 Paper No: 11
+	Month	NumberOfOrders	TotalRevenue
+1	1/2023	1	475000.00
+2	2/2023	0	0.00
+3	3/2023	4	3315000.00
+4	4/2023	2	1390000.00
+5	5/2023	1	575000.00
+6	6/2023	4	2115000.00
+7	7/2023	1	1105000.00
+8	8/2023	1	1070000.00
+Zoom
++ 100%
+Qose
+10	10/2023	2	2111000.00
+11	11/2023	1	525000.00
+12	12/2023	0	0.00
+Picture 8.1
+Question*
+Create a trigger named trg_UpdateTotalAmounl on the OrderDetails table to ensure the TotalAmount column in the Orders table always stays accurate.
+Whenever an OrderDetails record is inserted, updated, or deleted, the trigger should automatically recalculate the total amount of the affected orders as the sum of (Quantity X Price) for all its items. If all OrderDetails of an order are deleted, the total amount of this order should be set to 0.
+For example, if you run the following queries on the table OrderDetails, the corresponding orders will be updated.
+-	test case 1 -> TotalAmount of the orders With OrderiD = 3 and OrderlD = 5 will be updated
+INSERT OrderDetails (OrderiD, ItemID, Quantity. Price)
+VALUES (3. 2, 3, 75000.00), (5.27,2.40000.00)
+-	test case 2 ■> Total Amount of the order with OrderlD = 6 will be updated
++ 100%
+
+Oose
+8of8
+Paper No: 11
+delete from OrderDetails where OrderlD = 6 and ItemID = 1
+Question 10:
+Write SQL statements to create a new reservation for a Ơ stomer. The reservation should be made for CustomeriD = 7, with 5 guests, on November 20, 2025, at 19:15 PM. The ReservationlD should be 210.
+After inserting the reservation into the Reservations table, assign the reservation to a table in the ReservationTables table The assigned table should be the one with the smallest TablelD among all tables that have a capacity greater than or equal to 5.
++ 100%
+
+Close
+
+
+
+
+
+=================================
+
+
+
+Chào bạn, có vẻ bạn đang giải quyết nốt các câu hỏi còn lại trong đề thi/bài tập DBI202. Mình thấy bạn tải lên lại một số hình cũ kèm theo 2 hình mới.
+
+Để tiết kiệm thời gian, mình sẽ trình bày cấu trúc cho **2 sơ đồ mới nhất** (sơ đồ quản lý Khách sạn và sơ đồ quản lý Nhà hàng) để bạn dễ dàng copy đưa cho LLM phân tích hoặc tạo script SQL nhé.
+
+---
+
+### 1. Sơ đồ Quản lý Khách sạn (Conceptual ERD - Picture 1.1)
+
+Đây là sơ đồ Thực thể - Mối quan hệ ở mức khái niệm. Đặc biệt chú ý các thuộc tính đa trị và thuộc tính phức hợp trong sơ đồ này.
+
+**Các Thực thể (Entities) và Thuộc tính:**
+
+* **Hotels** (Thực thể mạnh):
+* `hotelID` (Primary Key, kiểu `int`)
+* `name` (kiểu `nvarchar(100)`)
+* `contact` (Thuộc tính đa trị / Multi-valued attribute - ký hiệu hình bầu dục nét đôi, kiểu `nvarchar(100)`). *Lưu ý cho LLM: Khi chuyển sang bảng vật lý, thuộc tính này cần được tách thành một bảng riêng.*
+* `address` (Thuộc tính phức hợp / Composite attribute, kiểu `nvarchar(100)`). Bao gồm 2 thành phần:
+* `street` (kiểu `nvarchar(50)`)
+* `city` (kiểu `nvarchar(50)`)
+
+
+
+
+* **Rooms** (Thực thể yếu - Ký hiệu hình chữ nhật nét đôi):
+* `roomNumber` (Partial Key / Khóa thành phần, kiểu `int`)
+* `floor` (kiểu `int`)
+* `building` (kiểu `nvarchar(200)`)
+
+
+* **Guests** (Thực thể mạnh):
+* `guestID` (Primary Key, kiểu `int`)
+* `fullname` (kiểu `nvarchar(50)`)
+* `phone` (kiểu `varchar(15)`)
+* `email` (kiểu `varchar(50)`)
+
+
+
+**Các Mối quan hệ (Relationships):**
+
+* **has** (Identifying Relationship - Hình thoi nét đôi): Quan hệ **1-N** giữa `Hotels` (1) và `Rooms` (N). Thực thể yếu `Rooms` phụ thuộc vào `Hotels`. Khóa chính của bảng `Rooms` sau này sẽ là (`hotelID`, `roomNumber`).
+* **books** (Mối quan hệ có thuộc tính): Quan hệ Nhiều-Nhiều **N-N** giữa `Rooms` (N) và `Guests` (N).
+* Thuộc tính của mối quan hệ: `bookingID` (kiểu `int`). Thuộc tính này được gạch chân, đóng vai trò như định danh cho mỗi lần đặt phòng.
+
+
+
+---
+
+### 2. Sơ đồ Cơ sở dữ liệu Quản lý Nhà hàng / Đặt bàn (Relational Schema - Sơ đồ có các bảng màu xám)
+
+Đây là Lược đồ CSDL vật lý hoàn chỉnh với các khóa chính (chìa khóa vàng) và khóa ngoại (đường nối).
+
+**Các Bảng (Tables) và Khóa:**
+
+1. **Tables** (Bàn ăn)
+* `TableID` (Primary Key)
+* Các cột: `TableNumber`, `Capacity`, `Location`
+
+
+2. **Customers** (Khách hàng)
+* `CustomerID` (Primary Key)
+* Các cột: `FullName`, `Phone`, `Email`, `CreatedDate`
+
+
+3. **Employees** (Nhân viên)
+* `EmployeeID` (Primary Key)
+* Các cột: `FullName`, `Role`, `HireDate`, `Salary`
+
+
+4. **MenuItems** (Thực đơn)
+* `ItemID` (Primary Key)
+* Các cột: `ItemName`, `Category`, `Price`, `IsAvailable`
+
+
+5. **Reservations** (Đơn đặt bàn)
+* `ReservationID` (Primary Key)
+* `CustomerID` (Foreign Key tham chiếu `Customers.CustomerID`)
+* Các cột: `ReservationTime`, `GuestCount`, `Status`, `Notes`
+
+
+6. **Orders** (Hóa đơn/Đơn gọi món)
+* `OrderID` (Primary Key)
+* `CustomerID` (Foreign Key tham chiếu `Customers.CustomerID`)
+* `EmployeeID` (Foreign Key tham chiếu `Employees.EmployeeID`)
+* `ReservationID` (Foreign Key tham chiếu `Reservations.ReservationID`)
+* Các cột: `OrderTime`, `Status`, `PaymentTime`, `PaymentMethod`, `TotalAmount`
+
+
+
+**Các Bảng trung gian (Junction Tables - Giải quyết quan hệ N:M):**
+7.  **ReservationTables** (Bàn được đặt)
+* `ReservationID` (Primary Key, Foreign Key tham chiếu `Reservations`)
+* `TableID` (Primary Key, Foreign Key tham chiếu `Tables`)
+8.  **OrderTables** (Bàn của đơn hàng)
+* `OrderID` (Primary Key, Foreign Key tham chiếu `Orders`)
+* `TableID` (Primary Key, Foreign Key tham chiếu `Tables`)
+9.  **OrderDetails** (Chi tiết gọi món)
+* `OrderID` (Primary Key, Foreign Key tham chiếu `Orders`)
+* `ItemID` (Primary Key, Foreign Key tham chiếu `MenuItems`)
+* Các cột: `Quantity`, `Price`
+
+
+
+
+
+
+
+
+
+
+
+
+
+

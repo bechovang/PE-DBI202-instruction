@@ -1,0 +1,423 @@
+﻿iff Question paper (build 07.05.20.19)
+2of2
+Paper No: 10
+Question 1:
+Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given in the following picture with appropriate attributes, primary keys and foreign keys.
+NOTE that when creating the SQL commands as request, you MUST keep the name of tables, relationship, attributes and data type of attributes as SAME as given in the given ERD.
+Attributes with underline are Primary Key of each entity.
+Attributes which reference to the primary key of another table must have the same name as the attributes in the primary key of the referencing table.
+If a table must be created for representing a relationship, the name of the table must be the same as the name of the relationship.
+When submitting the responses for this question, submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use “create database", “Alter database’, “use database_name“ or any statements using database's name in your submission.
+You must use ER style conversions for subclasses in this diagram if exists.
+The table represents the multi-values attribute must have the name which is the concatenation of the table name and the attribute name. For example, if table named Student has the multi-values attribute named Phone, the name of the corresponding table must be Studentphone.
+4 Question paper (build 07.05.20.19)
+the attributes in the primary Key of the referencing table
+If a table must be created for representing a relationship, the name of the table must be the same as the name of the relationship.
+When submitting the responses for this question, submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use "create database", “Alter database", “use database_name" or any statements using database's name in your submission.
+You must use ER style conversions for subclasses In this diagram if exists.
+The table represents the multi-values attribute must have the name which is the concatenation of the table name and the attribute name. For example, if table named Student has the multi-values attribute named Phone, the name of the corresponding table must be StudentPhone.
+Picture 1.1
+FUO
+FUOVtRFLOW.COM
+Question 2:
+Write an SQL query to display all employees who are chefs or managers and were hired in 2021, as shown in the following figure:
+□^ Question paper (build 07.05.20.19)
+must be StudentPhone.
+Question 2:
+Write an SQL query to display all employees who are chefs or managers and were hired in 2021, as shown in the following figure:
+3 of 3
+Paper No: 10
+FUOVERFIOW.COM
+Question paper (build 07.05.20.19)
+Picture 1.1
+Question 2:
+Write an SQL query to display all employees who are chefs or managers and were hired in 2021, as shown in the following figure:
+3 of 3 Paper No: 10
+	Employeel D	FullName	Role	HireDate	Salary
+1	1	Nguyen Vãn An	Manager	2021-02-15	18000000.00
+2	6	Nguyễn Thanh Tùng	Chef	2021-11-20	18500000.00
+3	10	Phạm Quốc Việt	Chef	2021-08-09	19000000.00
+Picture 2.1
+Question 3:
+VERFIOW.COM
+Write an SQL query to list all menu items ordered by the customer named “Nguyễn Hoài Phương”, displaying the CustomerlD, FullName, ItemID, and ItemName. Ensure that duplicate records are not repeated in the result:
+Question paper (build 07.05.20.19)
+3 of 3 Paper No: 10
+1
+2
+3
+EmployeelD
+1
+6
+10
+FullName
+Nguyễn Vãn An
+Nguyen Thanh Tùng
+Phạm Quốc Việt
+Role HireDate Salary
+Manager 2021-02-15 18000000.00
+Chef 2021-11-20 18500000.00
+Chef 2021-08-09 19000000.00
+Picture 2.1
+Question 3:
+Write an SQL query to list all menu items ordered by the customer named “Nguyễn Hoài Phương”, displaying the CustomerlD, FullName, ItemID, and ItemName. Ensure that duplicate records are not repeated in the result:
+	CustomerlD	FullName	ItemlD	ItemName
+1	36	Nguyen Hoải Phương	3	Bún chã Hà Nội
+2	36	Nguyen Hoài Phương	5	Cơm rang dưa bò
+3	36	Nguyen Hoài Phương	11	Nộm đu đủ bò khô
+4	36	Nguyễn Hoài Phương	14	Súp ngô gà
+5	36	Nguyễn Hoài Phương	15	Súp nấm hãi sàn
+6	36	Nguyễn Hoài Phương	16	Trà đá
+7	36	Nguyền Hoài Phương	17	NƯỚC suôi
+8	36	Nguyễn Hoài Phương	19	Sinh tỗ bơ
+9	36	Nguyễn Hoài Phương	23	NƯỚC chanh
+10	36	Nguyễn Hoài Phương	26	Kem dừa
+Picture 3.1
+VERFIOW.COM
+Question 4:
+Write an SQL query to list all tables whose locations include “Khu A", “Khu B" or “Khu C",
+Question paper (build 07.05.20.19)
+Write an SQL query to list all menu items ordered by the customer named “Nguyên Hoài Phương”, displaying the CustomerlD, FullName, ItemID, and ItemName. Ensure that duplicate records are not repeated in the result:
+	CustomerlD	FullName	ItemlD	ItemName
+1	36	Nguyen Hoài Phương	3	Bún chà Hà Nội
+2	36	Nguyễn Hoài Phương	5	Cơm rang dưa bò
+3	36	Nguyền Hoài Phương	11	Nộm đu đù bò khô
+4	36	Nguyễn Hoài Phương	14	Súp ngô gà
+5	36	Nguyễn Hoài Phương	15	Súp nẫm hài sàn
+6	36	Nguyễn Hoài Phương	16	Trà đá
+7	36	Nguyễn Hoài Phương	17	Nước suối
+8	36	Nguyễn Hoài Phương	19	Sinh tố bơ
+9	36	Nguyễn Hoài Phương	23	Nước chanh
+10	36	Nguyễn Hoài Phương	26	Kem dừa
+Picture 3.1
+Question 4:
+Write an SQL query to list all tables whose locations include “Khu A”, “Khu B” or “Khu C”, along with the customers who reserved them in September 2025. Ensure to include tables even if no customer reserved them during that month. Show the following columns: TablelD, Capacity, Location, CustomerlD, FullName. Sort the result in descending order of Capacity and then by Location in ascending order for tables with the same capacity.
+VERFIOW.COM
+	TablelD	Capacity	Location	CustomerlD	FullName
+1	8	8	Khu c - Trung tâm	7	Bùi Thị Ngọc
+2	4	6	Khu B - Gân quây bar	4	Phạm Văn cưởng
+3	4	6	Khu B - Gân quây bar	24	Lê Minh Hoàng
+4	7	6	Khu c - Găn sân khâu	4	Phạm Vãn cưởng
+5	3	4	Khu A - Góc phải	28	Bùi Ngọc Linh
+6	2	4	Khu A - Trung tâm	46	Phạm Vãn Quang
+Question paper (build 07.05.20.19)
+5 6 7 8 9 10	36	Nguyen	Hoài Phương	15	Súp nấm hải sàn 36	Nguyễn	Hoài Phương	16	Trà đá 36	Nguyễn	Hoài Phương	17	Nướcsuõi 36	Nguyễn	Hoài Phương	19	Sinh tố bơ 36	Nguyễn	Hoài Phương	23	NƯỚC chanh 36	Nguyễn	Hoài Phương	26	Kem dừa
+Picture 3.1
+Question 4:
+Write an SQL query to list all tables whose locations include “Khu A”, “Khu B” or “Khu C”, along with the customers who reserved them in September 2025. Ensure to include tables even if no customer reserved them during that month. Show the following columns: TablelD, Capacity, Location, CustomerlD, FullName. Sort the result in descending order of Capacity and then by Location in ascending order for tables with the same capacity.
+1	TablelD	Capacity 8	Location Khu c - Trung tâm	CustomerlD 7	FullName Bùi Thị Ngọc
+	8				
+2	4	6	Khu B - Gân quay bar	4	Phạm Vãn cưởng
+3	4	6	Khu B - Gân quây bar	24	Lé Minh Hoảng
+4	7	6	Khu c - Gân sân khâu	4	Phạm Văn cường
+5	3	4	Khu A - Góc phải	28	Bùi Ngọc Linh
+6	2	4	Khu A - Trung tâm	46	Phạm Văn Quang
+7	6	4	Khu B - Trung tâm	12	Đỗ Đức Thịnh
+8	1	2	Khu A - Găn của số	NULL	NULL
+9	5	2	Khu B - Cạnh tường	NULL	NULL
+10	9	2	Khu c - Góc trái	NULL	NULL
+■ij1 Question paper (build 07.05.20.19)
+1	8	8	Khu c - I rung tam	/	Bui I hi Ngọc
+2	4	6	Khu B - Gân quay bar	4	Phạm Vãn cưởng
+3	4	6	Khu B - Gân quây bar	24	Lê Minh Hoàng
+4	7	6	Khu c - Găn sân khâu	4	Phạm Vãn cường
+5	3	4	Khu A - Góc phải	28	Bùi Ngọc Linh
+6	2	4	Khu A - Trung tâm	46	Phạm Vãn Quang
+7	6	4	Khu B - Trung tâm	12	Đỏ Đức Thịnh
+8	1	2	Khu A - Găn cửa số	NULL	NULL
+9	5	2	Khu B - Cạnh tường	NULL	NULL
+10	9	2	Khu c - Góc trái	NULL	NULL
+4 of 4 Paper No: 10
+Picture 4.1
+Question 5:
+Write an SQL query to list all customers whose full name starts with “Nguyễn" or “Bùi", showing for each customer: Customer!D, FullName, the number of completed orders they made in the year 2025 (column NumberOfOrders), and the total amount spent on those orders (column TotalAmount). If a customer has no completed order in 2025, still display their name with NumberOfOrders = 0 and TotalAmount = 0.
+FLO
+FUOVERFIOW.COM
+CustomerlD
+1
+2
+3
+FullName
+Nguyễn Thị Mai Bùi Thị Ngọc Nguyễn Hoàng Nam
+NumberOfOrders TotalAmount
+2	1902000.00
+0	0.00
+1	573000.00
+n	n nn
+■ij1 Question paper (build 07.05.20.19)
+1		Nguyen 1 ni Mai	2	lyuzuuu.uu
+2	7	Bùi Thị Ngọc	0	0.00
+3	8	Nguyễn Hoàng Nam	1	573000.00
+4	14	Bùi Văn Lâm	0	0.00
+5	15	Nguyễn Thị Hồng	3	1576000.00
+6	21	Bùi Thị Nhung	3	2156000.00
+7	22	Nguyễn Văn Tín	1	900000.00
+8	28	Bùi Ngọc Linh	1	570000.00
+9	29	Nguyễn Văn Khánh	1	405000.00
+10	35	Bùi Thị Trang	2	1155000.00
+11	36	Nguyễn Hoài Phương	0	0.00
+12	42	Bùi Thanh Binh	6	1947000.00
+13	43	Nguyễn Lan Hương	0	0.00
+14	49	Bùi Thị Thu Hà	3	1215000.00
+15	50	Nguyễn Quốc Đạt	1	800000.00
+Picture 5.1
+Question 6:
+Write an SQL query to list all customers whose total spending on completed orders in 2025 is below the average total spending in 2025 of all customers, including those who made no orders. For each customer, display: CustomerlD, FullName, TotalAmount (the total value of all completed orders in 2025 (use 0 for customers with no orders)). Ensure calculating the average total spending based on all customers, including those with 0 spending. Sort the output by TotalAmount in descending order, then by CustomerlD in ascending order for customers having the same TotalAmount.
+FLO
+FUOVERFIOW.COM
+4 Question paper (build 07.05.20.19)
+Picture 5.1
+Question 6:
+Write an SQL query to list all customers whose total spending on completed orders in 2025 is below the average total spending in 2025 of all customers, including those who made no orders. For each customer, display: CustomerlD, FullName, TotalAmount (the total value of all completed orders in 2025 (use 0 for customers with no orders)). Ensure calculating the average total spending based on all customers, including those with 0 spending. Sort the output by TotalAmount in descending order, then by CustomerlD in ascending order for customers having the same TotalAmount.
+5 of 5 Paper No: 10
+RD
+FUOVIRFLOW.COM
+CustomerlD Full Name Total Amount 1 ị 46^J Phạm Vân Quang 1315000.00 2 45 Lê Thị Tâm 1310000.00
+Í Question paper (build 07.05.20.19)
+5 of 5 Paper No: 10
+RD
+FUOVERFLOW.COM
+	CustomerlD	FullName	TotalAmount
+1	46	Phạm Văn Quang	1315000.00
+2	45	Lê Thị Tâm	1310000.00
+3	13	Võ Thị Hoa	1275000.00
+4	49	Bùi Thị Thu Hà	1215000.00
+5	4	Phạm Vãn cường	1185000.00
+6	35	Bùi Thị Trang	1155000.00
+7	6	Võ Minh Tuấn	1053000.00
+8	17	Lê Thị Diễm	920000.00
+9	32	Phạm Ngọc Bảo	910000.00
+10	22	Nguyễn Vãn Tín	900000.00
+11	50	Nguyễn Quổc Đạt	800000.00
+12	8	Nguyễn Hoàng ...	573000.00
+13	28	Bùi Ngọc Linh	570000.00
+14	3	Lê Thị Hạnh	548000.00
+15	20	Võ Quốc Huy	535000.00
+16	16	Trần Quốc Anh	522000.00
+17	2	Trần Ván Tâm	481000.00
+Question paper (build 07.05.20.19)
+	8	17	Lê Thị Diêm	920000.00
+	9	32	Phạm Ngọc Bảo	910000.00
+	10	22	Nguyễn Vãn Tín	900000.00
+	11	50	Nguyễn Quốc Đạt	800000.00
+	12	8	Nguyễn Hoàng ...	573000.00
+	13	28	Bùi Ngọc Linh	570000.00
+	14	3	Lê Thị Hạnh	548000.00
+	15	20	Võ Quốc Huy	535000.00
+	16	16	Trần Quốc Anh	522000.00
+	17	2	Trần Vãn Tâm	481000.00
+	18	29	Nguyễn Vãn Kh...	405000.00
+	19	11	Phạm Thị Thuỷ	392000.00
+	20	26	Đỗ Vãn Đức	294000.00
+	21	7	Bùi Thị Ngọc	0.00
+	22	14	Bùi Văn Lâm	0.00
+	23	18	Phạm Vãn Long	0.00
+	24	19	Đỗ Thị Hằng	0.00
+	25	24	Lê Minh Hoàng	0.00
+	26	36	Nguyễn Hoài p...	0.00
+FLO 1	27	43	Nguyễn Lan Hư...	0.00
+
+Question paper (build 07.05.20.19)
+19	11	Phạm Thị Thuỷ	392000.00
+20	26	Đỗ Văn Đức	294000.00
+21	7	Bùi Thị Ngọc	0.00
+22	14	Bùi Vãn Lâm	0.00
+23	18	Phạm Văn Long	0.00
+24	19	Đỗ Thị Hằng	0.00
+25	24	Lê Minh Hoàng	0.00
+26	36	Nguyễn Hoài p...	0.00
+27	43	Nguyễn Lan Hư...	0.00
+6 of 6 Paper No: 10
+Picture 6.1
+Question 7:
+Write an SQL query to analyze customer spending trends between 2023 and 2024 based on completed orders. For each customer who placed completed orders in both 2023 and 2024, calculate and display:
+VERFLOW.COM
+- CustomerlD
+- FullName
+10 Question paper (build 07.05.20.19)
+6 Of 6
+Paper No: 10
+Picture 6.1
+Question 7:
+Write an SQL query to analyze customer spending trends between 2023 and 2024 based on completed orders. For each customer who placed completed orders in both 2023 and 2024, calculate and display:
+-	CustomerlD
+-	FullName
+-	AvgTotalOrderValue2023 - the average total order value of the customer's completed orders in 2023, rounded to two decimal places.
+-	AvgTotalOrderValue2024 - the average total order value of the customer's completed orders in 2024, rounded to two decimal places.
+-	Percentagechange - the percentage growth in the average total order value from 2023 to 2024. II is calculated as (AvgTotalOrderValue2024 - AvgTotalOrderValue2023y AvgTotalOrderValue2023*100. Round the percentage change to two decimal places, and append ' %' at the end.
+Order the result in ascending order of CustomeriD as shown in the following figure.
+CusiomarlD	FuiNama	AvgTotalOíđa<Valua2023	AvgToíaK>ổarVa1ue2024	PafcantagaCbang#
+1	2	Trin Vốn TAm	530000.00	340000.00	-35.85%
+2	12	ĐỎĐUcThtnh	475000.00	525000.00	10.53%
+3	13	VOThfHoa	1820000 00	446000.00	-75.4» %
+4	17	L*Th,O*m	1070500.00	235000 00	-78.05 %
+5	43	Nguyin Lan Huang	1705000.00	680000.00	-60.12%
+6	45	L4Th<T4m	347000.00	1102000.00	217.58%
+RD ^O	VôĐúcTài	525000.00	255000.00	-51.43%
+fUOWERFLOW.COM		Picture 7.1		
+■3 Question paper (build 07.05.20.19)
+- CustomerlD
+-	FullName
+-	AvgTotalOrderValue2023 - the average total order value of the customer's completed orders in 2023, rounded to two decimal places.
+-	AvgTotalOrderValue2024 - the average total order value of the customer’s completed orders in 2024, rounded to two decimal places.
+-	Percentagechange - the percentage growth in the average total order value from 2023 to 2024. II is calculated as (AvgTotalOrderValue2024 - AvgTotalOrderValue2023y AvgTotalOrderValue2023*100. Round the percentage change to two decimal places, and append ' %' at the end.
+Order the result in ascending order of CustomerlD as shown in the following figure.
+CusiomerlD	FulNama	AvgTotalOrđarValua2023	AvgTo<a»OrđarValua2024	PercentageChanga
+1	2	Tràn Vân Tâm	530000.00	340000.00	-35 85%
+2	12	Đỏ Đúc Thinh	475000.00	525000.00	10.53%
+3	13	VỗThf Hoa	1820000.00	446000 00	•75.49 %
+4	17	L4Th|D4m	1070500.00	235000.00	-78.05 %
+5	43	NguyAn Lan Húong	1705000.00	680000.00	-60.12%
+6	45	L4Th|TAm	347000.00	1102000.00	217.58%
+7	48	VÔĐOcTèi	525000.00	255000.00	-51.43%
+		Picture 7.1		
+Question 8:
+Write a stored procedure named MonthlySalesSummary that generates a monthly sales report for a specified year. Your procedure must accept one input parameter: @year int - the year for which the report will be generated. The procedure must display all 12 months (from January to December), even if there are no orders in a given month. For each month, calculate and display:
+-	Month - in the format Month/Year
+RD
+FUOVIRFLOW.COM
+-	NumberOfOrders - the total count of completed orders in that month
+- TotalRevenue - the total revenue (sum of Quantity * Price) from all completed orders in that month
+iff Question paper (build 07.05.20.19)
+5	43	Ng uyển Lan Huong	1705000.00	680000.00	-60.12%
+6	45	L* TN Tim	347000.00	1102000.00	217.58%
+7	48	VôĐúcTài	525000.00	255000.00	-51.43%
+Picture 7.1
+Question 8:
+Write a stored procedure named MonthlySalesSummary that generates a monthly sales report for a specified year. Your procedure must accept one input parameter: @year int - the year for which the report will be generated. The procedure must display all 12 months (from January to December), even if there are no orders in a given month. For each month, calculate and display:
+-	Month - in the format Month/Year
+-	NumberOfOrders - the total count of completed orders in that month
+-	TotalRevenue - the total revenue (sum of Quantity * Price) from all completed orders in that month
+For example, when we execute the MonthlySalesSummary procedure by using the following query, the results must be shown as in the following figure:
+execute MonthlySalesSummary 2023
+7 of 7
+Paper No: 10
+RD
+FUOVIRFLOW.COM
+Question paper (build 07.05.20.19)
+-	NumberOfOrders - the total count of completed orders in that month
+-	TotalRevenue - the total revenue (sum of Quantity * Price) from all completed orders in that month
+For example, when we execute the MonthlySalesSummary procedure by using the following query, the results must be shown as in the following figure:
+execute MonthlySalesSummary 2023
+7 of 7 Paper No: 10
+Month
+1	1/2023
+2	2/2023
+NumberOfOrders TotalRevenue 1	475000.00
+0	0.00
+VERFLOW.COM
+3	3/2023	4	3315000.00
+4	4/2023	2	1390000.00
+5	5/2023	1	575000.00
+6	6/2023	4	2115000.00
+“7	4	AA
+Question paper (build 07.05.20.19)
+7 of 7 Paper No: 10
+	Month	NumberOfOrders	TotalRevenue
+1	1/2023	1	475000.00
+2	2/2023	0	0.00
+3	3/2023	4	3315000.00
+4	4/2023	2	1390000.00
+5	5/2023	1	575000.00
+6	6/2023	4	2115000.00
+7	7/2023	1	1105000.00
+8	8/2023	1	1070000.00
+9	9/2023	1	347000.00
+10	10/2023	2	2111000.00
+11	11/2023	1	525000.00
+12	12/2023	0	0.00
+		Picture 8.1	
+Question 9:
+Create a trigger named trg_UpdateTotalAmount on the OrderDetails table to ensure the TotalAmount column in the Orders table always stays accurate.
+RD
+Whenever an OrderDetails record is inserted, updated, or deleted, the trigger should
+■S Question paper (build 07.05.20.19)
+9	9/2023	1	347000.00
+10	10/2023	2	2111000.00
+11	11/2023	1	525000.00
+12	12/2023	0	0.00
+Picture 8.1
+Question 9:
+Create a trigger named trg_UpdateTotalAmount on the OrderDetails table to ensure the TotalAmount column in the Orders table always stays accurate.
+Whenever an OrderOetails record is inserted, updated, or deleted, the trigger should automatically recalculate the total amount of the affected orders as the sum of (Quantity X Price) for all its items. If all OrderDetails of an order are deleted, the total amount of this order should be set to 0.
+For example, if you run the following queries on the table OrderOetails, the corresponding orders will be updated.
+- test case 1 -> TotalAmount of the orders with OrderlD = 3 and OrderlD = 5 will be updated
+INSERT OrderDetails (OrderlD, ItemID, Quantity, Price)
+VALUES (3, 2, 3, 75000.00), (5,27,2,40000.00)
+-	test case 2 -> TotalAmount of the order with OrderlD = 6 will be updated
+RJO
+FUOVtRFLOW.COM
+■S Question paper (build 07.05.20.19)
+onrerBnuuRTDH^Hrirru:---------------------------------------------------------------
+For example, if you run the following queries on the table OrderOetails, the corresponding orders will be updated.
+-	test case 1 -> TotalAmount of the orders with OrderlD = 3 and OrderlD = 5 will be updated
+INSERT OrderOetails (OrderlD, ItemID, Quantity, Price)
+VALUES (3, 2, 3, 75000.00), (5,27,2,40000.00)
+-	test case 2 -> TotalAmount of the order with OrderlD = 6 will be updated
+RJO
+FUOVIRFLOW.COM
+8 of 8 Paper No: 10
+delete from OrderOetails where OrderlD = 6 and ItemID = 1
+Question 10:
+Write SQL statements to create a new reservation for a customer. The reservation should be made for CustomeriD = 7, with 5 guests, on November 20,2025, at 19:15 PM. The ReservationlD should be 210.
+After inserting the reservation into the Reservations table, assign the reservation to a table in the ReservatlonTables table. The assigned table should be the one with the smallest TablelD among all tables that have a capacity greater than or equal to 5.
+■S Question paper (build 07.05.20.19)
+- test case 2 -> TotalAmount of the order with OrderlD = 6 will be updated
+8 of 8 Paper No: 10
+delete from OrderDetails where OrderlD = 6 and ItemID = 1
+Question 10:
+Write SQL statements to create a new reservation for a customer. The reservation should be made for CustomeriD = 7, with 5 guests, on November 20,2025, at 19:15 PM. The ReservationlD should be 210.
+After inserting the reservation into the Reservations table, assign the reservation to a table in the ReservationTables table. The assigned table should be the one with the smallest TablelD among all tables that have a capacity greater than or equal to 5.
+RD
+FUOWRFIOW.COM
+
+
+
+
+
+================
+
+
+
+
+Dưới đây là phần trình bày lại ERD trong hình thành dạng văn bản cấu trúc chuẩn để bạn có thể copy/paste cho bất kỳ LLM nào (như ChatGPT, Claude, hoặc các mô hình khác) để chúng hiểu chính xác thiết kế này:
+
+---
+
+### **SYSTEM PROMPT / DATABASE CONTEXT**
+
+Here is the conceptual Entity-Relationship Diagram (ERD) for my database. Please use this schema context for any SQL queries, database design, or logic I ask for.
+
+**Entities & Attributes:**
+
+1. **Restaurants**
+* `restaurantID` (int) - **Primary Key**
+* `name` (nvarchar(100))
+* `address` (nvarchar(100)) - **Composite attribute** consisting of:
+* `street` (nvarchar(50))
+* `city` (nvarchar(50))
+
+
+
+
+2. **Employees**
+* `empID` (int) - **Primary Key**
+* `FullName` (nvarchar(50))
+* `gender` (char(1))
+* `phone` (nvarchar(20)) - **Multi-valued attribute** (represented by a double oval, meaning one employee can have multiple phone numbers. This will require a separate table in the physical schema).
+
+
+3. **Shifts**
+* `shiftID` (int) - **Primary Key**
+* `shiftDate` (date)
+* `startTime` (time)
+* `endTime` (time)
+
+
+
+**Relationships:**
+
+* **has (1:N):** One `Restaurant` (1) has many `Employees` (N). There is a double line from Employees to the 'has' relationship, indicating total participation (every employee must belong to a restaurant).
+* **works (N:M):** Many `Employees` (N) work many `Shifts` (N). This is a Many-to-Many relationship (which implies a bridging table is needed in the physical database implementation).
+
+---

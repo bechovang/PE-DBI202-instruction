@@ -1,0 +1,288 @@
+﻿lof 1
+Paper No: 1
+For the submission of your work:
+-	Create a folder named RollNo_Name_DBI202_PaperNo, e.g. se01245_LongNT_DBI202_01. Do not create any subfolder in this folder. All file created will be located in the above folder.
+-	For each question, you are required to write a database script. Create a file with the name corresponding to the index of the question. For example, for question 1, we will create a file named Ql.sql and create a file Q2.sql for question 2. So, if you do 10 questions, your folder must contain only 10 files Ql.sql, Q2^ql, Q3.sql, Q4.sql, Q5.sql, Q6.sql, Q7^ql, Q8.sql, Q9.sql and QlO^ql.
+-	Do not use any commands having the database name such as create database, alter database, use [database name], etc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command( GO, EXEC, USE,...). For example, if you are required to create a trigger/procedure, then your response should contain only commands for creating the corresponding trigger/procedure; all commands for testing the created trigger/procedure are forbidden.
+-	On completion, import your work by browsing to the above folder.
+-	Note that:
++	You could use only SQL Server, SQL Server Management Studio, window explorer, winzip.
++	Only use all build-in functions of the sql server 2008 for writing queries.
++	If any of the previous requirements is not respected, your mark will be 0.
+From the 2nd question, you should use the database provided in the .sql file which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+ooz
+Oose
+FUOVERFLOW.COM
+2 of 2
+Paper No: 1
++ ooz.
+Close
+3 of 3
+Paper No: 1
+Question 1:
+[1.5 marks]Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given in the following picture with appropriate attributes, primary keys and foreign keys.
+NOTE that when creating the SQL commands as request, you MUST keep the name of tables, relationship, attributes and data type of attributes as SAME as given in the given ERD.
+Attributes with underline belong to the Primary Key of each entity.
+Attributes which reference to the primary key of another table must have the same name as the attributes in the primary key of the referencing table.
+When submitting the responses for this question, submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use "create database", “Alter database ", “use database_name" or any statements using database's name in your submission.
+Picture 1.1
+Question 2:
+FLO
+00%
+Oose
+FUOVERFLOW.COM
+Picture 1.1
+Question 2:
+4 of 4 Paper No: 1
+[0.5 mark] Wnte a query to list Customers living in New York . The result includes columns: customerjd, first_name, last_name, email and sort in ascending order by last_name, first name as follows.
+	customerjd	first _name	last.name	emad
+1			Johnson	ham Johnson @cust example
+2	2	Emma	South	emma smthl^cust example
+Picture 2.1
+Question 3:
+[1 mark]. Write a query to list products with a product_name containing the word ' City', the result includes: product_id, product_name, and list_price columns, and sort in ascending order by product_name.as follows.
+product jd	product _name	1st _pnce
+1	[KZZj ^^	25900
+2	7	OtyPro	399 00
+3	11	EOy 250	1299 00
+Picture 3.1
+Close
+Question 3:
+[1 mark]. Write a query to list products with a product_name containing the word ' City', the result includes: product_id, product_name, and list_price columns, and sort in ascending order by product_name as follows.
+product _td product .name Wjjnce
+1 I 6..... I Qty Ute 25900
+2	7	" “ Qty Pro	399 00
+3	11 EQty 250	1299 00
+Picture 3.1
+Question 4:
+[1 mark ]. Write a query to find orders between 2025-08-05 and 2025-08-15 (YYYY-MM-DD). Display the results including the columns order_id, customerJd, order_date, storeJd, staff-id, and sort in ascending order by the order_date column as follows.
+5 of 5
+Paper No: 1
+FUOVERFLOW.COM
+	order-id	customer-id	order-date	storejd	staff Jd
+1		5	2025-08-05	5	5
+2	6	6	2025-08-06	6	6
+3	7	7	202 508-0 7	7	7
+4	8	8	2025-08-08	8	8
+5	9	9	2025-08-09	9	9
+6	10	10	202508-10	10	10
+7	11	11	202508-11	11	11
+Close
+5 of 5
+Paper No: 1
+	ordef-id	customer-id	order-date	store.id	staff-id
+1	5	5	2025-08-05	5	5
+2	6	6	2025-08-06	6	6
+3	7	7	2025084)7	7	7
+4	8	8	202 508-08	8	8
+5	9	9	202508-09	9	9
+6	10	10	202508-10	10	10
+7	11	11	202508-11	11	11
+8	12	12	202508-12	12	12
+9	13	13	202508-13	13	13
+10	14	14	202508-14	14	14
+11	15	15	202508-15	15	15
+Picture 4.1
+Question 5:
+[1 mark] Write a query to find the products with the lowest list_price. Display the results with the columns productjd, product_name, and list-Price as follows.
+product-id product _name bst_pnce
+1	10 n Kids Fun 14	149 00
+2	13 BMX Spark 149 00
+Picture 5.1
+Question 6:
+[1 mark]. Write a query to calculate the total quantity in each store. Tthe result includes columns such as storejd, store_name, and total_qty_in_stock, then sort in descending order by the total_qty_in_stock column and ascending order by the storeJd column as follows.
+jRDj
+FUOVERFLOW.COM
+	storejd	store_name	total_qtyjn_stock
+1	Li	Downtown Cycles	17
+2	2	Riverside Wheels	16
+3	4	Desert Trai	13
+4	7	Seaside Spokes	13
+5	3	Bay City Bikes	11
+6	6	Music Oty Pedals	11
+7	5	CaptolRide	9
+Close
+Question 6:
+[1 mark]. Write a query to calculate the total quantity in each store. Tthe result includes columns such as storeJd, store_name, and total_qty_in_stock, then sort in descending order by the total_qtyjn_stock column and ascending order by the storejd column as follows.
+	storejd	store_name	total.qtyjn.stock
+1	1	Downtown Cycles	17
+2	2	Riversde Wheels	16
+3	4	Desert Trai	13
+4	7	Seas^e Spokes	13
+5	3	Bey Qty Bices	11
+6	6	Muse Qty Pedals	11
+7	5	Cap<ol Ride	9
+Picture 6.1
+Question 7:
+6 of 6 Paper No: 1
+[1 mark] Write a query to find the highest list_ price of products within each category_name The result includes columns: category_name, productjd, product_name, and list_price, then sort in ascending order by category_name and product jd as follows.
+	category .name	product jd	product .name	bst .price
+1	i BMX	I"	BMX Spark	14900
+2	City	7	Qty Pro	399 00
+3	E&ke	12	E Mount an 500	219900
+4	R»e	15	Fooe Base	21900
+5	Poking	9	Poking Go	379 00
+6	Gravel	8	Gravel GX	99900
+7	Hybnd	17	Hybrid H3	64900
+8	Kids	10	Kids Fun 14	149 00
+9	Moưtan	5	Mountan X2	79900
+10	Road	3	Roadster 300	69900
+11	Tounng	14	Touring T1	89900
+Oose
+FUOVERFLOW.COM
+6 of 6
+Paper No: 1
+[1 mark]. Write a query to find the highest list- price of products within each category_name The result includes columns: category_name, product-id, product_name, and list -Price, then sort in ascending order by category_name and product-id as follows.
+	category _name	product.id	product .name	bit _pnce
+1	BMX	13	BMX Spark	14900
+2	Ory	7	City Pro	399 00
+3	E&ke	12	E Mount an 500	2199 00
+4	Fine	15	Fooe Base	21900
+5	Poking	9	FoldngGo	37900
+6	Gravel	8	Gravel GX	999 00
+7	Hybrid	17	HybndH3	649 00
+8	Kids	10	Kids Fun 14	14900
+9	Mount an	5	Mountain X2	799 00
+10	Road	3	Roadster 300	69900
+11	Touring	14	Tounng T1	89900
+Picture 7.1
+Question 8:
+[ 1 mark] Create a store procedure named proc_SumQuantityProduct to calculate the total products quantity of each store Jd.
+Where @store_id int is an input parametter and @SumQuantity Decimal(10,2) is an output parameter of the procedure
+For example, when we execute the procedure proc_SumQuantityProduct by using the following statements the result should be as in the following figure.
+DECLARE @x DECIMAL(10,2)
+EXEC proc_SumQuantityProduct 2, @x OUTPUT
+SELECT @x SumQuantityProduct
+007.
+Oose
+FUOVERFLOW.COM
+7 of 7
+Paper No: 1
+SuniQuđ My Product
+1 [jfc^
+Picture 8.1
+Question 9:
+[1 mark]. Write a query to list the staffs who processed orders for customers In the state of 'CA'
+tfaff jd fMjwM iMtjwre
+1	^ , ^ ^
+2	11 Minh Dang
+Picture 9.1
+Question 10:
+[ 1 mark]. Write a query to delete rows from the stocks table whose product-id belongs to category_name is 'Mountain'
+Oose
+
+
+
+
+
+
+========================
+
+
+Dưới đây là phần trình bày lại cấu trúc bằng văn bản cho hai sơ đồ bạn vừa tải lên. Khung thông tin này được tối ưu hóa để bạn copy và dán vào LLM để yêu cầu viết truy vấn SQL hoặc phân tích dữ liệu.
+
+---
+
+### 1. Sơ đồ 3: Sơ đồ ER khái niệm (Conceptual ERD - Picture 1.1)
+
+Đây là sơ đồ Thực thể - Mối quan hệ (ERD) ở mức khái niệm, gồm 3 thực thể mạnh và các mối quan hệ giữa chúng.
+
+**Các Thực thể (Entities) và Thuộc tính (Attributes):**
+
+* **Product** (Sản phẩm):
+* `ProductID` (Primary Key, kiểu `int`)
+* `Productname` (kiểu `nvarchar(150)`)
+* `Price` (kiểu `decimal(12,2)`)
+
+
+* **Category** (Danh mục):
+* `CategoryID` (Primary Key, kiểu `int`)
+* `Name` (kiểu `nvarchar(100)`)
+* `Description` (kiểu `nvarchar(200)`)
+
+
+* **Supplier** (Nhà cung cấp):
+* `SupplierID` (Primary Key, kiểu `varchar(30)`)
+* `SupplierName` (kiểu `nvarchar(100)`)
+* `Level` (kiểu `int`)
+
+
+
+**Các Mối quan hệ (Relationships):**
+
+* **has**: Quan hệ giữa **Product** và **Category**. Theo ký hiệu trên hình, đây là quan hệ **1-N** (1 `Product` có nhiều `Category`). *(Lưu ý cho LLM: Thông thường logic thực tế là 1 Category có nhiều Product, nhưng cần code theo đúng ký hiệu cardinality 1:N trên hình vẽ).*
+* **hasSupplier**: Quan hệ giữa **Product** và **Supplier**. Theo ký hiệu trên hình, đây là quan hệ Nhiều-Nhiều **N-M** (Nhiều `Product` liên kết với Nhiều `Supplier`). Khi chuyển sang SQL, mối quan hệ này sẽ sinh ra một bảng trung gian.
+
+---
+
+### 2. Sơ đồ 4: Lược đồ Cơ sở dữ liệu quan hệ (Relational Database Schema - Paper No: 1)
+
+Đây là sơ đồ CSDL vật lý (Physical Diagram) thể hiện chi tiết các bảng, khóa chính (biểu tượng chìa khóa vàng) và khóa ngoại (đường nối vô cực).
+
+**Các Bảng (Tables) và Khóa (Keys):**
+
+1. **stores** (Cửa hàng)
+* `store_id` (Primary Key)
+* Các cột khác: `store_name`, `phone`, `email`, `street`, `city`, `state`, `zip_code`
+
+
+2. **staffs** (Nhân viên)
+* `staff_id` (Primary Key)
+* Các cột khác: `first_name`, `last_name`, `email`, `phone`, `active`
+* `store_id` (Foreign Key tham chiếu đến `stores.store_id`)
+* `manager_id` (Foreign Key tham chiếu đến chính bảng `staffs.staff_id` - Mối quan hệ tự tham chiếu/Đệ quy)
+
+
+3. **customers** (Khách hàng)
+* `customer_id` (Primary Key)
+* Các cột khác: `first_name`, `last_name`, `phone`, `email`, `street`, `city`, `state`, `zip_code`
+
+
+4. **orders** (Đơn hàng)
+* `order_id` (Primary Key)
+* Các cột khác: `order_status`, `order_date`, `required_date`, `shipped_date`
+* `customer_id` (Foreign Key tham chiếu đến `customers.customer_id`)
+* `store_id` (Foreign Key tham chiếu đến `stores.store_id`)
+* `staff_id` (Foreign Key tham chiếu đến `staffs.staff_id`)
+
+
+5. **products** (Sản phẩm)
+* `product_id` (Primary Key)
+* Các cột khác: `product_name`, `model_year`, `list_price`, `brand_name`, `category_name`
+
+
+6. **stocks** (Tồn kho)
+* `store_id` (Primary Key, Foreign Key tham chiếu đến `stores.store_id`)
+* `product_id` (Primary Key, Foreign Key tham chiếu đến `products.product_id`)
+* Các cột khác: `quantity`
+* *(Bảng này sử dụng Composite Primary Key gồm 2 cột)*
+
+
+7. **order_items** (Chi tiết đơn hàng)
+* `order_id` (Primary Key, Foreign Key tham chiếu đến `orders.order_id`)
+* `item_id` (Primary Key)
+* `product_id` (Foreign Key tham chiếu đến `products.product_id`)
+* Các cột khác: `quantity`, `list_price`, `discount`
+* *(Bảng này sử dụng Composite Primary Key gồm `order_id` và `item_id`)*
+
+
+
+**Tóm tắt Mối quan hệ (Foreign Keys):**
+
+* `stores` (1) - (N) `staffs`
+* `stores` (1) - (N) `orders`
+* `stores` (1) - (N) `stocks`
+* `staffs` (1) - (N) `orders`
+* `staffs` (1 Manager) - (N Staffs) `staffs` (Self-referencing)
+* `customers` (1) - (N) `orders`
+* `orders` (1) - (N) `order_items`
+* `products` (1) - (N) `order_items`
+* `products` (1) - (N) `stocks`
+
+
+
+
+
+
+
