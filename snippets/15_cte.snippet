@@ -2,12 +2,44 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>CTE (Common Table Expression)</Title>
+            <Title>15_cte</Title>
             <Shortcut>cte</Shortcut>
             <Description>CTE cho query phức tạp</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>CTEName</ID>
+                    <ToolTip>Tên CTE</ToolTip>
+                    <Default>SummaryData</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột nhóm 1</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột nhóm 2</ToolTip>
+                    <Default>ProductID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col3</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 WITH $CTEName$ AS (

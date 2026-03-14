@@ -2,12 +2,44 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>INSERT with Subquery</Title>
+            <Title>22_insert_subquery</Title>
             <Shortcut>ins_sub</Shortcut>
             <Description>INSERT với giá trị từ subquery</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng đích</ToolTip>
+                    <Default>Categories</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột 2</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Value1</ID>
+                    <ToolTip>Giá trị cột 1</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>SourceTable</ID>
+                    <ToolTip>Tên bảng nguồn</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>Price > 100</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 INSERT INTO $TableName$ ($Col1$, $Col2$)

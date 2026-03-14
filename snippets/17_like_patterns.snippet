@@ -2,12 +2,34 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>LIKE Patterns</Title>
+            <Title>17_like_patterns</Title>
             <Shortcut>like</Shortcut>
             <Description>LIKE với các pattern phổ biến</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Tên cột</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Start</ID>
+                    <ToolTip>Chuỗi bắt đầu</ToolTip>
+                    <Default>A</Default>
+                </Literal>
+                <Literal>
+                    <ID>End</ID>
+                    <ToolTip>Chuỗi kết thúc</ToolTip>
+                    <Default>ing</Default>
+                </Literal>
+                <Literal>
+                    <ID>Contains</ID>
+                    <ToolTip>Chuỗi chứa</ToolTip>
+                    <Default>test</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 -- Bắt đầu bằng

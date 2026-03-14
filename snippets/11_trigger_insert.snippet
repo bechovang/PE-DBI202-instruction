@@ -2,12 +2,39 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Trigger INSERT</Title>
+            <Title>11_trigger_insert</Title>
             <Shortcut>trig_ins</Shortcut>
             <Description>Trigger cho sự kiện INSERT</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TriggerName</ID>
+                    <ToolTip>Tên trigger</ToolTip>
+                    <Default>trg_AfterInsert</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột hiển thị 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột hiển thị 2</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>PK</ID>
+                    <ToolTip>Khóa chính</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE TRIGGER $TriggerName$

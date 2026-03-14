@@ -2,12 +2,59 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>12 Months Report</Title>
+            <Title>25_months_report</Title>
             <Shortcut>months</Shortcut>
             <Description>Procedure tạo báo cáo 12 tháng</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ProcName</ID>
+                    <ToolTip>Tên procedure</ToolTip>
+                    <Default>sp_MonthlyReport</Default>
+                </Literal>
+                <Literal>
+                    <ID>ID</ID>
+                    <ToolTip>ID bảng orders</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>CountAlias</ID>
+                    <ToolTip>Alias COUNT</ToolTip>
+                    <Default>TotalOrders</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumCol</ID>
+                    <ToolTip>Cột SUM bảng details</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>OrdersTable</ID>
+                    <ToolTip>Tên bảng orders</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>DateCol</ID>
+                    <ToolTip>Cột ngày tháng</ToolTip>
+                    <Default>OrderDate</Default>
+                </Literal>
+                <Literal>
+                    <ID>Status</ID>
+                    <ToolTip>Trạng thái</ToolTip>
+                    <Default>Status</Default>
+                </Literal>
+                <Literal>
+                    <ID>DetailsTable</ID>
+                    <ToolTip>Tên bảng details</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE PROCEDURE $ProcName$ @year INT

@@ -2,12 +2,64 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Below Average</Title>
+            <Title>24_below_average</Title>
             <Shortcut>below_avg</Shortcut>
             <Description>Tìm giá trị thấp hơn trung bình</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>CTEName</ID>
+                    <ToolTip>Tên CTE</ToolTip>
+                    <Default>CustomerSummary</Default>
+                </Literal>
+                <Literal>
+                    <ID>ID</ID>
+                    <ToolTip>Cột ID</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Cột hiển thị</ToolTip>
+                    <Default>CustomerName</Default>
+                </Literal>
+                <Literal>
+                    <ID>ValueCol</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>TotalAlias</ID>
+                    <ToolTip>Alias tổng</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng chính</ToolTip>
+                    <Default>Customers</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng phụ</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol1</ID>
+                    <ToolTip>Cột join bảng 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol2</ID>
+                    <ToolTip>Cột join bảng 2</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>FilterCondition</ID>
+                    <ToolTip>Điều kiện lọc bảng 2</ToolTip>
+                    <Default>Status = 'Completed'</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 WITH $CTEName$ AS (

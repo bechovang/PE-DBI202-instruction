@@ -2,12 +2,49 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>SELECT DISTINCT JOIN</Title>
+            <Title>23_distinct_join</Title>
             <Shortcut>sel_dist</Shortcut>
             <Description>SELECT DISTINCT với JOIN (loại bỏ trùng)</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột bảng 1</ToolTip>
+                    <Default>CategoryName</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột bảng 1</ToolTip>
+                    <Default>Description</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col3</ID>
+                    <ToolTip>Cột bảng 2</ToolTip>
+                    <Default>ProductName</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng 1</ToolTip>
+                    <Default>Categories</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng 2</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol</ID>
+                    <ToolTip>Cột join</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>Active = 1</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT DISTINCT t1.$Col1$, t1.$Col2$, t2.$Col3$

@@ -2,12 +2,74 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #3: LEFT JOIN + ISNULL Aggregate</Title>
+            <Title>03_lj_isnull</Title>
             <Shortcut>lj_isnull</Shortcut>
             <Description>LEFT JOIN với ISNULL - "include even if no orders"</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột bảng 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột bảng 1</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>ID</ID>
+                    <ToolTip>ID bảng 2 để COUNT</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>CountAlias</ID>
+                    <ToolTip>Alias COUNT</ToolTip>
+                    <Default>TotalOrders</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumCol</ID>
+                    <ToolTip>Cột SUM bảng 2</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng chính</ToolTip>
+                    <Default>Customers</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng phụ</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol1</ID>
+                    <ToolTip>Cột join bảng 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol2</ID>
+                    <ToolTip>Cột join bảng 2</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>FilterCondition</ID>
+                    <ToolTip>Điều kiện lọc bảng 2</ToolTip>
+                    <Default>Status = 'Completed'</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện WHERE</ToolTip>
+                    <Default>Active = 1</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT t1.$Col1$, t1.$Col2$,

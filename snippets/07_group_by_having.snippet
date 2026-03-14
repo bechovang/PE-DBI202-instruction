@@ -2,12 +2,44 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>GROUP BY HAVING</Title>
+            <Title>07_group_by_having</Title>
             <Shortcut>grp</Shortcut>
             <Description>GROUP BY với HAVING</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>GroupCol</ID>
+                    <ToolTip>Cột nhóm</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>CountAlias</ID>
+                    <ToolTip>Tên alias COUNT</ToolTip>
+                    <Default>TotalCount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumCol</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Price</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Tên alias SUM</ToolTip>
+                    <Default>TotalPrice</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Value</ID>
+                    <ToolTip>Giá trị so sánh</ToolTip>
+                    <Default>5</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT $GroupCol$, COUNT(*) AS $CountAlias$, SUM($SumCol$) AS $SumAlias$

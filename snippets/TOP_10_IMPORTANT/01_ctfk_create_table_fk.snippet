@@ -2,12 +2,49 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #1: Create Table with Foreign Key</Title>
+            <Title>01_ctfk_create_table_fk</Title>
             <Shortcut>ctfk</Shortcut>
             <Description>Tạo bảng có Foreign Key - Q1 thường 2 điểm</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>PK_Column</ID>
+                    <ToolTip>Tên cột Primary Key</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column1</ID>
+                    <ToolTip>Cột dữ liệu 1</ToolTip>
+                    <Default>Quantity</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column2</ID>
+                    <ToolTip>Cột dữ liệu 2</ToolTip>
+                    <Default>UnitPrice</Default>
+                </Literal>
+                <Literal>
+                    <ID>FK_Column</ID>
+                    <ToolTip>Tên cột Foreign Key</ToolTip>
+                    <Default>OrderID</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefTable</ID>
+                    <ToolTip>Tên bảng tham chiếu</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefColumn</ID>
+                    <ToolTip>Tên cột tham chiếu</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE TABLE $TableName$ (

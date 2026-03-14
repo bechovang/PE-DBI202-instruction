@@ -2,12 +2,39 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>DELETE with Subquery</Title>
+            <Title>21_delete_subquery</Title>
             <Shortcut>delsub</Shortcut>
             <Description>DELETE với subquery (SQL Server)</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TableToDelete</ID>
+                    <ToolTip>Tên bảng cần xóa</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>FKCol</ID>
+                    <ToolTip>Cột foreign key</ToolTip>
+                    <Default>OrderID</Default>
+                </Literal>
+                <Literal>
+                    <ID>PKCol</ID>
+                    <ToolTip>Cột primary key bảng tham chiếu</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefTable</ID>
+                    <ToolTip>Tên bảng tham chiếu</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>Status = 'Cancelled'</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 DELETE FROM $TableToDelete$

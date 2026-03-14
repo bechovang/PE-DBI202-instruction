@@ -2,12 +2,64 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Percentage Change</Title>
+            <Title>19_percentage_change</Title>
             <Shortcut>perc</Shortcut>
             <Description>Tính % tăng trưởng giữa 2 giá trị</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Year1</ID>
+                    <ToolTip>Năm thứ nhất</ToolTip>
+                    <Default>2023</Default>
+                </Literal>
+                <Literal>
+                    <ID>Year2</ID>
+                    <ToolTip>Năm thứ hai</ToolTip>
+                    <Default>2024</Default>
+                </Literal>
+                <Literal>
+                    <ID>ID</ID>
+                    <ToolTip>Cột ID</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Cột tính AVG</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>Val1</ID>
+                    <ToolTip>Alias giá trị 1</ToolTip>
+                    <Default>Avg2023</Default>
+                </Literal>
+                <Literal>
+                    <ID>Val2</ID>
+                    <ToolTip>Alias giá trị 2</ToolTip>
+                    <Default>Avg2024</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>DateCol</ID>
+                    <ToolTip>Cột ngày tháng</ToolTip>
+                    <Default>OrderDate</Default>
+                </Literal>
+                <Literal>
+                    <ID>Status</ID>
+                    <ToolTip>Cột trạng thái</ToolTip>
+                    <Default>Status</Default>
+                </Literal>
+                <Literal>
+                    <ID>PercentageChange</ID>
+                    <ToolTip>Alias % thay đổi</ToolTip>
+                    <Default>GrowthRate</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 WITH $Year1$Data AS (

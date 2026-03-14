@@ -2,12 +2,54 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #2: Create Table with Composite PK</Title>
+            <Title>02_ctpk_composite_pk</Title>
             <Shortcut>ctpk</Shortcut>
             <Description>Tạo bảng với Composite Primary Key - Junction table</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng (Junction Table)</ToolTip>
+                    <Default>StudentCourse</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column1</ID>
+                    <ToolTip>Cột FK 1</ToolTip>
+                    <Default>StudentID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column2</ID>
+                    <ToolTip>Cột FK 2</ToolTip>
+                    <Default>CourseID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column3</ID>
+                    <ToolTip>Cột dữ liệu bổ sung</ToolTip>
+                    <Default>EnrollDate</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefTable1</ID>
+                    <ToolTip>Tên bảng tham chiếu 1</ToolTip>
+                    <Default>Students</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefColumn1</ID>
+                    <ToolTip>Tên cột tham chiếu 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefTable2</ID>
+                    <ToolTip>Tên bảng tham chiếu 2</ToolTip>
+                    <Default>Courses</Default>
+                </Literal>
+                <Literal>
+                    <ID>RefColumn2</ID>
+                    <ToolTip>Tên cột tham chiếu 2</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE TABLE $TableName$ (

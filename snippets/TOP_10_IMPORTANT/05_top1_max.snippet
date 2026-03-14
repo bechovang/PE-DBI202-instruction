@@ -2,12 +2,49 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #5: TOP 1 ORDER BY DESC</Title>
+            <Title>05_top1_max</Title>
             <Shortcut>top1</Shortcut>
             <Description>Tìm giá trị lớn nhất - "most", "highest", "maximum"</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Cột hiển thị</ToolTip>
+                    <Default>CategoryName</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumCol</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng 1</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng 2</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol</ID>
+                    <ToolTip>Cột join</ToolTip>
+                    <Default>OrderID</Default>
+                </Literal>
+                <Literal>
+                    <ID>FilterCondition</ID>
+                    <ToolTip>Điều kiện lọc</ToolTip>
+                    <Default>Status = 'Completed'</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT TOP 1 t1.$Col$, SUM(t1.$SumCol$) AS $SumAlias$

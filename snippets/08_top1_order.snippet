@@ -2,12 +2,34 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 1 ORDER BY DESC</Title>
+            <Title>08_top1_order</Title>
             <Shortcut>top1</Shortcut>
             <Description>Lấy giá trị lớn nhất (TOP 1)</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Cột hiển thị</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>AggregateCol</ID>
+                    <ToolTip>Cột tính aggregate</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>Alias</ID>
+                    <ToolTip>Tên alias</ToolTip>
+                    <Default>MaxAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Customers</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT TOP 1 $Col$, $AggregateCol$ AS $Alias$

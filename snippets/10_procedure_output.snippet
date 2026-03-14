@@ -2,12 +2,54 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>PROCEDURE OUTPUT</Title>
+            <Title>10_procedure_output</Title>
             <Shortcut>proc_out</Shortcut>
             <Description>Stored Procedure với OUTPUT parameter</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ProcName</ID>
+                    <ToolTip>Tên procedure</ToolTip>
+                    <Default>sp_CountOrders</Default>
+                </Literal>
+                <Literal>
+                    <ID>InputParam</ID>
+                    <ToolTip>Tên parameter input</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>InputType</ID>
+                    <ToolTip>Kiểu input</ToolTip>
+                    <Default>INT</Default>
+                </Literal>
+                <Literal>
+                    <ID>OutputParam</ID>
+                    <ToolTip>Tên parameter output</ToolTip>
+                    <Default>TotalCount</Default>
+                </Literal>
+                <Literal>
+                    <ID>OutputType</ID>
+                    <ToolTip>Kiểu output</ToolTip>
+                    <Default>INT</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col</ID>
+                    <ToolTip>Cột đếm</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE PROCEDURE $ProcName$

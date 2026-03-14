@@ -2,12 +2,59 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Table-Valued Function</Title>
+            <Title>14_function_table</Title>
             <Shortcut>func_tbl</Shortcut>
             <Description>Tạo Function trả về TABLE</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>FuncName</ID>
+                    <ToolTip>Tên function</ToolTip>
+                    <Default>fn_GetProductSummary</Default>
+                </Literal>
+                <Literal>
+                    <ID>Param</ID>
+                    <ToolTip>Tên parameter</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>ParamType</ID>
+                    <ToolTip>Kiểu parameter</ToolTip>
+                    <Default>INT</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột 2</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col3</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Price</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalPrice</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE FUNCTION $FuncName$(@Param$ $ParamType$)

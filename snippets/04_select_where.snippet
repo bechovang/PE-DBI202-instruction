@@ -2,12 +2,34 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>SELECT WHERE</Title>
+            <Title>04_select_where</Title>
             <Shortcut>sel</Shortcut>
             <Description>SELECT với WHERE cơ bản</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Column1</ID>
+                    <ToolTip>Cột 1</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column2</ID>
+                    <ToolTip>Cột 2</ToolTip>
+                    <Default>Quantity</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện</ToolTip>
+                    <Default>Quantity > 0</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT $Column1$, $Column2$

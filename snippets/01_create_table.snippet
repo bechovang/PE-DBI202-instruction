@@ -2,12 +2,34 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Create Table - Strong Entity</Title>
+            <Title>01_create_table</Title>
             <Shortcut>ct</Shortcut>
             <Description>Tạo bảng không có Foreign Key</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>MyTable</Default>
+                </Literal>
+                <Literal>
+                    <ID>PK_Column</ID>
+                    <ToolTip>Tên cột Primary Key</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column1</ID>
+                    <ToolTip>Cột dữ liệu 1</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Column2</ID>
+                    <ToolTip>Cột dữ liệu 2</ToolTip>
+                    <Default>Quantity</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE TABLE $TableName$ (

@@ -2,12 +2,39 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>Date Filter</Title>
+            <Title>18_date_filter</Title>
             <Shortcut>date</Shortcut>
             <Description>Filter theo ngày tháng</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>DateCol</ID>
+                    <ToolTip>Cột ngày tháng</ToolTip>
+                    <Default>OrderDate</Default>
+                </Literal>
+                <Literal>
+                    <ID>StartDate</ID>
+                    <ToolTip>Ngày bắt đầu</ToolTip>
+                    <Default>2024-01-01</Default>
+                </Literal>
+                <Literal>
+                    <ID>EndDate</ID>
+                    <ToolTip>Ngày kết thúc</ToolTip>
+                    <Default>2024-12-31</Default>
+                </Literal>
+                <Literal>
+                    <ID>Year</ID>
+                    <ToolTip>Năm</ToolTip>
+                    <Default>2024</Default>
+                </Literal>
+                <Literal>
+                    <ID>Month</ID>
+                    <ToolTip>Tháng</ToolTip>
+                    <Default>1</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 -- BETWEEN (bao gồm cả 2 đầu)

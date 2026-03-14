@@ -2,12 +2,54 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #7: TRIGGER INSERT UPDATE DELETE</Title>
+            <Title>07_trig_all</Title>
             <Shortcut>trig_all</Shortcut>
             <Description>Trigger tự động cập nhật aggregate - Q9 thường 1 điểm</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>TriggerName</ID>
+                    <ToolTip>Tên trigger</ToolTip>
+                    <Default>trg_UpdateOrderTotal</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng con (detail)</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>TotalCol</ID>
+                    <ToolTip>Cột tổng tiền ở bảng cha</ToolTip>
+                    <Default>TotalAmount</Default>
+                </Literal>
+                <Literal>
+                    <ID>CalcCol</ID>
+                    <ToolTip>Cột tính tổng</ToolTip>
+                    <Default>Amount</Default>
+                </Literal>
+                <Literal>
+                    <ID>ChildTable</ID>
+                    <ToolTip>Tên bảng con</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>FK</ID>
+                    <ToolTip>Foreign key bảng con</ToolTip>
+                    <Default>OrderID</Default>
+                </Literal>
+                <Literal>
+                    <ID>ParentTable</ID>
+                    <ToolTip>Tên bảng cha</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>PK</ID>
+                    <ToolTip>Primary key bảng cha</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE TRIGGER $TriggerName$

@@ -2,12 +2,44 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>CREATE PROCEDURE</Title>
+            <Title>09_stored_procedure</Title>
             <Shortcut>proc</Shortcut>
             <Description>Tạo Stored Procedure cơ bản</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ProcName</ID>
+                    <ToolTip>Tên procedure</ToolTip>
+                    <Default>sp_GetProducts</Default>
+                </Literal>
+                <Literal>
+                    <ID>Param1</ID>
+                    <ToolTip>Tên parameter</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>DataType1</ID>
+                    <ToolTip>Kiểu dữ liệu</ToolTip>
+                    <Default>INT</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột 2</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>TableName</ID>
+                    <ToolTip>Tên bảng</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 CREATE PROCEDURE $ProcName$

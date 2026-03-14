@@ -2,12 +2,59 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>TOP 10 #4: GROUP BY HAVING</Title>
+            <Title>04_grp_having</Title>
             <Shortcut>grp</Shortcut>
             <Description>GROUP BY với HAVING - "count greater than"</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>GroupCol</ID>
+                    <ToolTip>Cột nhóm</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>CountAlias</ID>
+                    <ToolTip>Alias COUNT</ToolTip>
+                    <Default>TotalCount</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumCol</ID>
+                    <ToolTip>Cột tính SUM</ToolTip>
+                    <Default>Price</Default>
+                </Literal>
+                <Literal>
+                    <ID>SumAlias</ID>
+                    <ToolTip>Alias SUM</ToolTip>
+                    <Default>TotalPrice</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng 1</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng 2</ToolTip>
+                    <Default>OrderDetails</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol1</ID>
+                    <ToolTip>Cột join bảng 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol2</ID>
+                    <ToolTip>Cột join bảng 2</ToolTip>
+                    <Default>ProductID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Value</ID>
+                    <ToolTip>Giá trị so sánh</ToolTip>
+                    <Default>5</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT t1.$GroupCol$, COUNT(*) AS $CountAlias$, SUM(t1.$SumCol$) AS $SumAlias$

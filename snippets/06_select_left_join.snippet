@@ -2,12 +2,54 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>SELECT LEFT JOIN</Title>
+            <Title>06_select_left_join</Title>
             <Shortcut>sellj</Shortcut>
             <Description>SELECT với LEFT JOIN (bao gồm NULL)</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột từ bảng 1</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột từ bảng 2</ToolTip>
+                    <Default>OrderDate</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng chính</ToolTip>
+                    <Default>Customers</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng phụ</ToolTip>
+                    <Default>Orders</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol1</ID>
+                    <ToolTip>Cột join bảng 1</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol2</ID>
+                    <ToolTip>Cột join bảng 2</ToolTip>
+                    <Default>CustomerID</Default>
+                </Literal>
+                <Literal>
+                    <ID>FilterCondition</ID>
+                    <ToolTip>Điều kiện lọc bảng 2</ToolTip>
+                    <Default>Status = 'Completed'</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện WHERE bảng 1</ToolTip>
+                    <Default>City = 'HCM'</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT t1.$Col1$, t2.$Col2$

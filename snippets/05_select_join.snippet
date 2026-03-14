@@ -2,12 +2,49 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
     <CodeSnippet Format="1.0.0">
         <Header>
-            <Title>SELECT INNER JOIN</Title>
+            <Title>05_select_join</Title>
             <Shortcut>selj</Shortcut>
             <Description>SELECT với INNER JOIN</Description>
             <Author>DBI202</Author>
         </Header>
         <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Col1</ID>
+                    <ToolTip>Cột từ bảng 1</ToolTip>
+                    <Default>Name</Default>
+                </Literal>
+                <Literal>
+                    <ID>Col2</ID>
+                    <ToolTip>Cột từ bảng 2</ToolTip>
+                    <Default>Price</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table1</ID>
+                    <ToolTip>Tên bảng 1</ToolTip>
+                    <Default>Products</Default>
+                </Literal>
+                <Literal>
+                    <ID>Table2</ID>
+                    <ToolTip>Tên bảng 2</ToolTip>
+                    <Default>Categories</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol1</ID>
+                    <ToolTip>Cột join bảng 1</ToolTip>
+                    <Default>CategoryID</Default>
+                </Literal>
+                <Literal>
+                    <ID>JoinCol2</ID>
+                    <ToolTip>Cột join bảng 2</ToolTip>
+                    <Default>ID</Default>
+                </Literal>
+                <Literal>
+                    <ID>Condition</ID>
+                    <ToolTip>Điều kiện WHERE</ToolTip>
+                    <Default>Price > 100</Default>
+                </Literal>
+            </Declarations>
             <Code Language="SQL">
                 <![CDATA[
 SELECT t1.$Col1$, t2.$Col2$
