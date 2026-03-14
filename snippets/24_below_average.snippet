@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Below Average</Title>
+            <Shortcut>below_avg</Shortcut>
+            <Description>Tìm giá trị thấp hơn trung bình</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+WITH $CTEName$ AS (
+    SELECT $ID$, $Col$, ISNULL(SUM($ValueCol$), 0) AS $TotalAlias$
+    FROM $Table1$ t1
+    LEFT JOIN $Table2$ t2 ON t1.$JoinCol1$ = t2.$JoinCol2$
+        AND t2.$FilterCondition$
+    GROUP BY $ID$, $Col$
+)
+SELECT *
+FROM $CTEName$
+WHERE $TotalAlias$ < (SELECT AVG($TotalAlias$) FROM $CTEName$)
+ORDER BY $TotalAlias$ DESC;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

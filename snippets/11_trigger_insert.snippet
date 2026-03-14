@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Trigger INSERT</Title>
+            <Shortcut>trig_ins</Shortcut>
+            <Description>Trigger cho sự kiện INSERT</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TRIGGER $TriggerName$
+ON $TableName$
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT $Col1$, $Col2$
+    FROM $TableName$
+    WHERE $PK$ IN (SELECT $PK$ FROM inserted);
+END;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

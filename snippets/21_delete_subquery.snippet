@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>DELETE with Subquery</Title>
+            <Shortcut>delsub</Shortcut>
+            <Description>DELETE với subquery (SQL Server)</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+DELETE FROM $TableToDelete$
+WHERE $FKCol$ IN (
+    SELECT $PKCol$
+    FROM $RefTable$
+    WHERE $Condition$
+);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,102 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  📂 DANH SÁCH CÁC FILE SNIPPET                             ║
+║                      DBI202 - SQL SERVER MANAGEMENT STUDIO                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📁 Thư mục snippets/
+│
+├── 📄 00_INDEX.txt                  (FILE NÀY - Danh sách snippets)
+├── 📄 README.md                     (Hướng dẫn chi tiết)
+├── 📄 README_HUONG_DAN.txt          (Hướng dẫn cài đặt)
+├── 📄 SNIPPET_CHEAT_SHEET.txt       (Tra cứu nhanh)
+│
+├── 📦 PHẦN 1: CREATE TABLE (3 files)
+│   ├── 01_create_table.snippet      (ct  - Tạo bảng cơ bản)
+│   ├── 02_create_table_fk.snippet   (ctfk - Tạo bảng có FK)
+│   └── 03_create_table_composite.snippet (ctpk - Composite PK)
+│
+├── 📊 PHẦN 2: SELECT STATEMENTS (4 files)
+│   ├── 04_select_where.snippet      (sel      - SELECT WHERE)
+│   ├── 05_select_join.snippet       (selj     - SELECT JOIN)
+│   ├── 06_select_left_join.snippet  (sellj    - LEFT JOIN)
+│   └── 07_group_by_having.snippet   (grp      - GROUP BY)
+│
+├── 📈 PHẦN 3: AGGREGATE & TOP (2 files)
+│   ├── 08_top1_order.snippet       (top1     - TOP 1 DESC)
+│   └── 16_left_join_isnull.snippet (lj_isnull - LEFT JOIN + ISNULL)
+│
+├── 🔧 PHẦN 4: STORED PROCEDURE (2 files)
+│   ├── 09_stored_procedure.snippet (proc     - PROCEDURE cơ bản)
+│   └── 10_procedure_output.snippet (proc_out - PROCEDURE + OUTPUT)
+│
+├── ⚡ PHẦN 5: TRIGGER (3 files)
+│   ├── 11_trigger_insert.snippet   (trig_ins - Trigger INSERT)
+│   ├── 12_trigger_update.snippet   (trig_upd - Trigger UPDATE)
+│   └── 13_trigger_all.snippet      (trig_all - INSERT UPDATE DELETE)
+│
+├── 🎯 PHẦN 6: FUNCTION & CTE (2 files)
+│   ├── 14_function_table.snippet   (func_tbl - Table-Valued Function)
+│   └── 15_cte.snippet              (cte      - CTE)
+│
+├── 🔍 PHẦN 7: FILTER & PATTERNS (2 files)
+│   ├── 17_like_patterns.snippet    (like     - LIKE patterns)
+│   └── 18_date_filter.snippet      (date     - Date filter)
+│
+├── 📊 PHẦN 8: ADVANCED QUERIES (5 files)
+│   ├── 19_percentage_change.snippet   (perc       - % tăng trưởng)
+│   ├── 20_max_in_group.snippet        (max_grp    - MAX trong nhóm)
+│   ├── 24_below_average.snippet       (below_avg  - Dưới TB)
+│   ├── 25_months_report.snippet       (months     - Báo cáo 12 tháng)
+│   └── 23_distinct_join.snippet       (sel_dist   - DISTINCT JOIN)
+│
+└── 🗑️ PHẦN 9: DML STATEMENTS (3 files)
+    ├── 21_delete_subquery.snippet     (delsub    - DELETE + subquery)
+    ├── 22_insert_subquery.snippet     (ins_sub   - INSERT + subquery)
+    └── 08_top1_order.snippet          (top1      - TOP 1)
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     TỔNG CỘNG: 27 FILES                                   ║
+║                     • 25 file snippet .snippet                            ║
+║                     • 2 file tài liệu (.md, .txt, .txt)                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     THÔNG TIN CÀI ĐẶT                               ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                             ║
+║ 1. Copy TẤT CẢ file .snippet vào thư mục:                                   ║
+║                                                                            ║
+║    %ProgramFiles(x86)%\Microsoft SQL Server Management Studio 19\Code     ║
+║    Snippets\SQL                                                             ║
+║                                                                            ║
+║ 2. Thay "19" bằng phiên bản SSMS của bạn (18, 19, 20...)                    ║
+║                                                                            ║
+║ 3. Khởi động lại SSMS                                                       ║
+║                                                                            ║
+║ 4. Trong Query Editor: Gõ shortcut + Tab                                    ║
+║                                                                            ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     DOCUMENTATION                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                             ║
+║ 📖 README.md                  → Hướng dẫn chi tiết từng snippet           ║
+║ 📖 README_HUONG_DAN.txt        → Hướng dẫn cài đặt vào SSMS              ║
+║ 📖 SNIPPET_CHEAT_SHEET.txt    → Cheat sheet tra cứu nhanh             ║
+║ 📖 00_INDEX.txt                → File danh sách này                       ║
+║                                                                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     VERSION HISTORY                                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                             ║
+║ Version 1.0 - 2025                                                           ║
+║ • 25 snippets cho DBI202                                                      ║
+║ • Hỗ trợ SQL Server Management Studio (SSMS)                                  ║
+║ • Dựa trên 6 Coding Guide của các đề thi                                     ║
+║                                                                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Made with ❤️ for DBI202 Students

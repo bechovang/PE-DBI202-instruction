@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #6: PROCEDURE with OUTPUT</Title>
+            <Shortcut>proc_out</Shortcut>
+            <Description>Stored Procedure với OUTPUT parameter - Q6, Q8 thường 0.5-1 điểm</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE PROCEDURE $ProcName$
+    @InputParam $InputType$,
+    @OutputParam $OutputType$ OUTPUT
+AS
+BEGIN
+    SELECT @OutputParam = COUNT(DISTINCT $Col$)
+    FROM $TableName$
+    WHERE $Condition$ = @InputParam;
+END;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

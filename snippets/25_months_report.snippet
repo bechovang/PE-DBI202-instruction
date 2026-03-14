@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>12 Months Report</Title>
+            <Shortcut>months</Shortcut>
+            <Description>Procedure tạo báo cáo 12 tháng</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE PROCEDURE $ProcName$ @year INT
+AS
+BEGIN
+    WITH Months AS (
+        SELECT 1 AS MonthNum UNION ALL SELECT 2 UNION ALL SELECT 3
+        UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6
+        UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9
+        UNION ALL SELECT 10 UNION ALL SELECT 11 UNION ALL SELECT 12
+    )
+    SELECT CAST(m.MonthNum AS NVARCHAR(10)) + '/' + CAST(@year AS NVARCHAR(10)) AS [Month],
+           ISNULL(COUNT(DISTINCT o.$ID$), 0) AS $CountAlias$,
+           ISNULL(SUM(od.$SumCol$), 0) AS $SumAlias$
+    FROM Months m
+    LEFT JOIN $OrdersTable$ o ON MONTH(o.$DateCol$) = m.MonthNum
+        AND YEAR(o.$DateCol$) = @year
+        AND o.$Status$ = 'Completed'
+    LEFT JOIN $DetailsTable$ od ON o.$ID$ = od.$ID$
+    GROUP BY m.MonthNum
+    ORDER BY m.MonthNum;
+END;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Trigger INSERT UPDATE DELETE</Title>
+            <Shortcut>trig_all</Shortcut>
+            <Description>Trigger cho INSERT, UPDATE, DELETE</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TRIGGER $TriggerName$
+ON $TableName$
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE o
+    SET o.$TotalCol$ = ISNULL((
+        SELECT SUM($CalcCol$)
+        FROM $ChildTable$ c
+        WHERE c.$FK$ = o.$PK$
+    ), 0)
+    FROM $ParentTable$ o
+    WHERE o.$PK$ IN (
+        SELECT $FK$ FROM inserted
+        UNION
+        SELECT $FK$ FROM deleted
+    );
+END;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

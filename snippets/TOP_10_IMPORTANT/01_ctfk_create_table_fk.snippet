@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #1: Create Table with Foreign Key</Title>
+            <Shortcut>ctfk</Shortcut>
+            <Description>Tạo bảng có Foreign Key - Q1 thường 2 điểm</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TABLE $TableName$ (
+    $PK_Column$ INT PRIMARY KEY,
+    $Column1$ NVARCHAR(100),
+    $Column2$ INT,
+    $FK_Column$ INT,
+    FOREIGN KEY ($FK_Column$) REFERENCES $RefTable$($RefColumn$)
+);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

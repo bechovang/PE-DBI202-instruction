@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #9: Percentage Change (2 years)</Title>
+            <Shortcut>perc</Shortcut>
+            <Description>Tính % tăng trưởng giữa 2 năm - Q7 thường 1 điểm</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+WITH $Year1$Data AS (
+    SELECT t1.$ID$, AVG(t1.$Col$) AS $Val1$
+    FROM $Table1$ t1
+    JOIN $Table2$ t2 ON t1.$JoinCol$ = t2.$JoinCol$
+    WHERE YEAR(t2.$DateCol$) = $Year1$ AND t2.$Status$ = 'Completed'
+    GROUP BY t1.$ID$
+),
+$Year2$Data AS (
+    SELECT t1.$ID$, AVG(t1.$Col$) AS $Val2$
+    FROM $Table1$ t1
+    JOIN $Table2$ t2 ON t1.$JoinCol$ = t2.$JoinCol$
+    WHERE YEAR(t2.$DateCol$) = $Year2$ AND t2.$Status$ = 'Completed'
+    GROUP BY t1.$ID$
+)
+SELECT a.$ID$, a.$Val1$, b.$Val2$,
+       CAST(ROUND(((b.$Val2$ - a.$Val1$) / a.$Val1$ * 100), 2) AS NVARCHAR(10)) + '%' AS $PercentageChange$
+FROM $Year1$Data a
+JOIN $Year2$Data b ON a.$ID$ = b.$ID$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

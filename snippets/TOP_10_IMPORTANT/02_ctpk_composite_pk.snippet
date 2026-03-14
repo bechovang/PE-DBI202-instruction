@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #2: Create Table with Composite PK</Title>
+            <Shortcut>ctpk</Shortcut>
+            <Description>Tạo bảng với Composite Primary Key - Junction table</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TABLE $TableName$ (
+    $Column1$ INT,
+    $Column2$ INT,
+    $Column3$ INT,
+    PRIMARY KEY ($Column1$, $Column2$),
+    FOREIGN KEY ($Column1$) REFERENCES $RefTable1$($RefColumn1$),
+    FOREIGN KEY ($Column2$) REFERENCES $RefTable2$($RefColumn2$)
+);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

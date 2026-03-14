@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #4: GROUP BY HAVING</Title>
+            <Shortcut>grp</Shortcut>
+            <Description>GROUP BY với HAVING - "count greater than"</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+SELECT t1.$GroupCol$, COUNT(*) AS $CountAlias$, SUM(t1.$SumCol$) AS $SumAlias$
+FROM $Table1$ t1
+JOIN $Table2$ t2 ON t1.$JoinCol1$ = t2.$JoinCol2$
+GROUP BY t1.$GroupCol$
+HAVING COUNT(*) >= $Value$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

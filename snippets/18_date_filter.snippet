@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Date Filter</Title>
+            <Shortcut>date</Shortcut>
+            <Description>Filter theo ngày tháng</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+-- BETWEEN (bao gồm cả 2 đầu)
+WHERE $DateCol$ BETWEEN '$StartDate$' AND '$EndDate$'
+
+-- Năm cụ thể
+WHERE YEAR($DateCol$) = $Year$
+
+-- Tháng + Năm
+WHERE MONTH($DateCol$) = $Month$ AND YEAR($DateCol$) = $Year$
+
+-- Quý 1: Tháng 1, 2, 3
+WHERE MONTH($DateCol$) IN (1, 2, 3) AND YEAR($DateCol$) = $Year$
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

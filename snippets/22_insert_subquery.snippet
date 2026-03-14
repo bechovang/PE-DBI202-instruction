@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>INSERT with Subquery</Title>
+            <Shortcut>ins_sub</Shortcut>
+            <Description>INSERT với giá trị từ subquery</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+INSERT INTO $TableName$ ($Col1$, $Col2$)
+SELECT $Value1$, MIN($Col2$)
+FROM $SourceTable$
+WHERE $Condition$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

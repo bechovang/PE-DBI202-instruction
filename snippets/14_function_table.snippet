@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Table-Valued Function</Title>
+            <Shortcut>func_tbl</Shortcut>
+            <Description>Tạo Function trả về TABLE</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE FUNCTION $FuncName$(@Param$ $ParamType$)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT $Col1$, $Col2$, SUM($Col3$) AS $SumAlias$
+    FROM $TableName$
+    WHERE $Condition$ = @Param$
+    GROUP BY $Col1$, $Col2$
+);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

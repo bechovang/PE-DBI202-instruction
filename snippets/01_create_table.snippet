@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Create Table - Strong Entity</Title>
+            <Shortcut>ct</Shortcut>
+            <Description>Tạo bảng không có Foreign Key</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TABLE $TableName$ (
+    $PK_Column$ INT PRIMARY KEY,
+    $Column1$ NVARCHAR(100),
+    $Column2$ INT
+);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

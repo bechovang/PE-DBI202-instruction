@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>MAX Within Each Group</Title>
+            <Shortcut>max_grp</Shortcut>
+            <Description>Tìm giá trị lớn nhất trong mỗi nhóm</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+SELECT t1.$GroupCol$, t1.$Col1$, t1.$Col2$, t1.$ValueCol$
+FROM $TableName$ t1
+WHERE t1.$ValueCol$ = (
+    SELECT MAX(t2.$ValueCol$)
+    FROM $TableName$ t2
+    WHERE t2.$GroupCol$ = t1.$GroupCol$
+)
+ORDER BY t1.$GroupCol$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

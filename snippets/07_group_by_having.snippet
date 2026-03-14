@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>GROUP BY HAVING</Title>
+            <Shortcut>grp</Shortcut>
+            <Description>GROUP BY với HAVING</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+SELECT $GroupCol$, COUNT(*) AS $CountAlias$, SUM($SumCol$) AS $SumAlias$
+FROM $TableName$
+GROUP BY $GroupCol$
+HAVING COUNT(*) >= $Value$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

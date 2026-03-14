@@ -1,0 +1,147 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  🚀 SQL SNIPPETS CHEAT SHEET - DBI202                         ║
+║                        TRA CỨU NHANH GỌN                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📦 CREATE TABLE (3 snippets)                                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut │ Template                  │ Ví dụ dùng                            │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ ct        │ CREATE TABLE               │ Tạo bảng Customers, Products        │
+│ ctfk      │ CREATE TABLE + FK           │ Tạo bảng Orders, Reservations      │
+│ ctpk      │ CREATE TABLE + Composite PK │ Tạo bảng OrderDetails, Stocks     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📊 SELECT STATEMENTS (4 snippets)                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut │ Template              │ Khi nào dùng                            │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ sel       │ SELECT WHERE           │ Lọc dữ liệu đơn giản                  │
+│ selj      │ SELECT INNER JOIN      │ Dữ liệu từ 2+ bảng, chỉ lấy rows khớp │
+│ sellj     │ SELECT LEFT JOIN       │ "include... even if..."              │
+│ sel_dist  │ SELECT DISTINCT JOIN   │ "duplicate not repeated"              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📈 GROUP BY & AGGREGATE (3 snippets)                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template                │ Khi nào dùng                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ grp       │ GROUP BY HAVING          │ "count... greater than"              │
+│ lj_isnull │ LEFT JOIN + ISNULL      │ Bao gồm cả NULL, hiển thị 0         │
+│ top1      │ TOP 1 ORDER BY DESC     │ "most", "highest", "maximum"         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🔧 STORED PROCEDURE (2 snippets)                                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template                    │ Khi nào dùng                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ proc      │ CREATE PROCEDURE             │ "create stored procedure"        │
+│ proc_out  │ PROCEDURE + OUTPUT           │ "output parameter"               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ ⚡ TRIGGER (3 snippets)                                                    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template                    │ Khi nào dùng                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ trig_ins  │ Trigger INSERT               │ "after inserting"                │
+│ trig_upd  │ Trigger UPDATE               │ "when... is updated"             │
+│ trig_all  │ Trigger INSERT UPDATE DELETE │ "when inserted/updated/deleted"  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🎯 FUNCTION & CTE (2 snippets)                                             │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template              │ Khi nào dùng                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ func_tbl  │ Table-Valued Function │ "create function"                     │
+│ cte       │ CTE                   │ Query phức tạp, below average         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🔍 FILTER & PATTERNS (2 snippets)                                          │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template          │ Ví dụ                                    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ like      │ LIKE patterns     │ LIKE '%Khu A%', LIKE 'Nguyễn%'          │
+│ date      │ Date filter       │ YEAR()=2025, MONTH()=9, BETWEEN        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📊 ADVANCED QUERIES (4 snippets)                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template                  │ Khi nào dùng                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ perc      │ Percentage Change          │ "percentage growth", "trend"       │
+│ max_grp   │ MAX within each group     │ "highest within each category"     │
+│ below_avg │ Below Average              │ "below average of all"             │
+│ months    │ 12 Months Report Procedure │ "all 12 months even if no orders" │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🗑️ DML STATEMENTS (2 snippets)                                              │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Shortcut  │ Template                  │ Khi nào dùng                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ delsub    │ DELETE với subquery       │ "delete rows belonging to..."       │
+│ ins_sub   │ INSERT với subquery       │ "create new... assign to..."       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        KEYWORD MAPPING                                     ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ ĐỀ BÀI NÓI                      →  SNIPPET DÙNG                         ║
+╠──────────────────────────────────────────────────────────────────────────────╣
+║ "create table"                 →  ct, ctfk, ctpk                         ║
+║ "retrieve", "display"          →  sel                                    ║
+║ "in 2025", "between...and"      →  date                                   ║
+║ "starts with", "contains"      →  like                                   ║
+║ "most", "highest", "maximum"    →  top1 hoặc max_grp                      ║
+║ "count... greater than"        →  grp                                    ║
+║ "even if no..."                →  sellj, lj_isnull                       ║
+║ "create stored procedure"      →  proc, proc_out                         ║
+║ "trigger"                      →  trig_ins, trig_upd, trig_all            ║
+║ "percentage", "growth"          →  perc                                   ║
+║ "below average"                →  below_avg                              ║
+║ "within each category"          →  max_grp                                ║
+║ "all 12 months"                 →  months                                 ║
+║ "delete rows"                   →  delsub                                 ║
+║ "insert... create new"          →  ins_sub                                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        CÁCH DÙNG SNIPPET                                ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ 1. Gõ shortcut (ví dụ: ct)                                                     ║
+║ 2. Nhấn Tab (hoặc Tab hai lần)                                                ║
+║ 3. Code sẽ xuất hiện!                                                          ║
+║ 4. Nhấn Tab để di chuyển giữa các placeholder                                  ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        ⚠️ LƯU Ý QUAN TRỌNG                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ • [placeholder] = PHẢI thay thế bằng tên thật                                ║
+║ • $end$ = Vị trí con trỏ sẽ dừng                                               ║
+║ • N'unicode' = Dùng N prefix cho tiếng Việt                                    ║
+║ • LEFT JOIN: Đặt điều kiện trong ON, KHÔNG phải WHERE                          ║
+║ • HAVING: Dùng sau GROUP BY (có aggregate)                                     ║
+║ • WHERE: Dùng trước GROUP BY (không aggregate)                                  ║
+║ • ISNULL: Dùng khi LEFT JOIN để thay NULL bằng 0                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        PHÍM TẮT SSMS                                  ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ Ctrl + N              → New Query                                               ║
+║ F5                    → Execute                                                 ║
+║ Ctrl + K, Ctrl + X     → Insert Snippet                                        ║
+║ Ctrl + Space           → Intellisense                                           ║
+║ Ctrl + R               → Show/Hide results                                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Được tạo cho DBI202 Students | Version 1.0 | 2025

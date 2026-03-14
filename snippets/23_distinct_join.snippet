@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>SELECT DISTINCT JOIN</Title>
+            <Shortcut>sel_dist</Shortcut>
+            <Description>SELECT DISTINCT với JOIN (loại bỏ trùng)</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+SELECT DISTINCT t1.$Col1$, t1.$Col2$, t2.$Col3$
+FROM $Table1$ t1
+JOIN $Table2$ t2 ON t1.$JoinCol$ = t2.$JoinCol$
+WHERE t1.$Condition$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

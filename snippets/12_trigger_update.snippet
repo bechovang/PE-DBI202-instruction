@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Trigger UPDATE</Title>
+            <Shortcut>trig_upd</Shortcut>
+            <Description>Trigger cho sự kiện UPDATE</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+CREATE TRIGGER $TriggerName$
+ON $TableName$
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @OldValue $DataType$, @NewValue $DataType$;
+
+    SELECT @NewValue = $Col$
+    FROM inserted;
+
+    SELECT @OldValue = $Col$
+    FROM deleted;
+
+    -- Logic xử lý
+END;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

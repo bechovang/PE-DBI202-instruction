@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CTE (Common Table Expression)</Title>
+            <Shortcut>cte</Shortcut>
+            <Description>CTE cho query phức tạp</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+WITH $CTEName$ AS (
+    SELECT $Col1$, $Col2$, SUM($Col3$) AS $SumAlias$
+    FROM $TableName$
+    GROUP BY $Col1$, $Col2$
+)
+SELECT *
+FROM $CTEName$
+WHERE $SumAlias$ > (SELECT AVG($SumAlias$) FROM $CTEName$);
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

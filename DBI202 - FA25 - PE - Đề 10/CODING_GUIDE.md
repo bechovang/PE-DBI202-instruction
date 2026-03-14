@@ -139,157 +139,96 @@ Chữ underlined        = Primary Key
 
 ---
 
+
 ## 📌 QUESTION 1: CREATE TABLE [2 điểm]
 
 ### 📖 Đọc đề
-> "Create one database and then write SQL statements to create, in this database, all tables derived from the ERD..."
+
+> "Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given in the following picture..."
 
 ### 🧠 Tư duy
 
 ```
-Yêu cầu: Tạo bảng từ ERD (Conceptual + Physical)
+Yêu cầu: CHỈ tạo các bảng được suy ra từ sơ đồ ERD (Picture 1.1).
+Tuyệt đối KHÔNG tạo thừa các bảng nằm ngoài hình.
 Input:   ERD Picture 1.1
-Output:  SQL CREATE TABLE statements
+Output:  Chỉ chứa các câu lệnh SQL CREATE TABLE
+Quy tắc: Giữ nguyên 100% tên bảng, cột, kiểu dữ liệu. Tên thuộc tính đa trị = [Tên Bảng]+[Tên Thuộc Tính]. Tên bảng N-N = [Tên mối quan hệ].
+
 ```
 
 ### 🔍 Phân tích
 
-1. **Từ Conceptual ERD (Picture 1.1):**
-   - Restaurants, Employees, Shifts
-   - Multi-valued: Phone → EmployeePhone
-   - Composite: address → street, city
-   - Relationship "has" (1:N): Restaurant - Employees
-   - Relationship "works" (N:M): Employees - Shifts
+Từ Conceptual ERD (Picture 1.1), ta suy ra chính xác 5 bảng cần tạo:
 
-2. **Từ Physical Schema:**
-   - 9 bảng chính (Tables, Customers, Employees, MenuItems, Reservations, ReservationTables, Orders, OrderTables, OrderDetails)
+1. **Thực thể độc lập (Tạo trước):**
+* `Restaurants`: Gồm `restaurantID` (PK), `name` và thuộc tính gộp address tách thành `street`, `city`.
+* `Shifts`: Gồm `shiftID` (PK), `shiftDate`, `startTime`, `endTime`.
 
-3. **Thứ tự tạo:**
-   - Strong Entity trước (Tables, Customers, Employees, MenuItems)
-   - Weak Entity sau (Reservations, Orders)
-   - Bridging table cuối cùng (ReservationTables, OrderTables, OrderDetails)
+
+2. **Thực thể phụ thuộc (Tạo sau):**
+* `Employees`: Gồm `empID` (PK), `FullName`, `gender`. Vì có quan hệ 1-N (`has`) từ Restaurants, bảng này PHẢI chứa khóa ngoại `restaurantID`.
+
+
+3. **Bảng phát sinh (Tạo cuối cùng):**
+* `works`: Sinh ra từ quan hệ N-N giữa Employees và Shifts. Bảng phải mang tên mối quan hệ là "works". Chứa 2 FK là `empID` và `shiftID` (đồng thời là Composite PK).
+* `Employeesphone`: Sinh ra từ thuộc tính đa trị (vòng oval đôi). Tên ghép từ bảng "Employees" + cột "phone". Chứa FK `empID` và cột `phone` (cả 2 tạo thành Composite PK).
+
+
 
 ### ✅ Code
 
 ```sql
--- Bước 1: Tạo bảng MẠNH (không có FK)
+-- Bước 1: Tạo các bảng ĐỘC LẬP (không chứa Foreign Key)
 
-CREATE TABLE Tables (
-    TableID INT PRIMARY KEY,
-    TableNumber INT,
-    Capacity INT,
-    Location NVARCHAR(100)
+CREATE TABLE Restaurants (
+    restaurantID INT PRIMARY KEY,
+    name NVARCHAR(100),
+    street NVARCHAR(50),
+    city NVARCHAR(50)
 );
 
-CREATE TABLE Customers (
-    CustomerID INT PRIMARY KEY,
-    FullName NVARCHAR(50),
-    Phone NVARCHAR(20),
-    Email NVARCHAR(100),
-    CreatedDate DATE
+CREATE TABLE Shifts (
+    shiftID INT PRIMARY KEY,
+    shiftDate DATE,
+    startTime TIME,
+    endTime TIME
 );
+
+-- Bước 2: Tạo bảng PHỤ THUỘC (chứa Foreign Key từ quan hệ 1-N)
 
 CREATE TABLE Employees (
-    EmployeeID INT PRIMARY KEY,
-    FullName NVARCHAR(50),
-    Role NVARCHAR(50),
-    HireDate DATE,
-    Salary DECIMAL(18,2)
+    empID INT PRIMARY KEY,
+    FullName NVARCHAR(60),
+    gender CHAR(1),
+    restaurantID INT,
+    FOREIGN KEY (restaurantID) REFERENCES Restaurants(restaurantID)
 );
 
-CREATE TABLE MenuItems (
-    ItemID INT PRIMARY KEY,
-    ItemName NVARCHAR(100),
-    Category NVARCHAR(50),
-    Price MONEY,
-    IsAvailable BIT
+-- Bước 3: Tạo các bảng PHÁT SINH (từ quan hệ N-N và Thuộc tính đa trị)
+
+CREATE TABLE works (
+    empID INT,
+    shiftID INT,
+    PRIMARY KEY (empID, shiftID),
+    FOREIGN KEY (empID) REFERENCES Employees(empID),
+    FOREIGN KEY (shiftID) REFERENCES Shifts(shiftID)
 );
 
--- Bước 2: Tạo bảng YẾU (có FK)
-
-CREATE TABLE Reservations (
-    ReservationID INT PRIMARY KEY,
-    CustomerID INT,
-    ReservationTime DATETIME,
-    GuestCount INT,
-    Status NVARCHAR(20),
-    Notes NVARCHAR(200),
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+CREATE TABLE Employeesphone (
+    empID INT,
+    phone NVARCHAR(20),
+    PRIMARY KEY (empID, phone),
+    FOREIGN KEY (empID) REFERENCES Employees(empID)
 );
 
-CREATE TABLE Orders (
-    OrderID INT PRIMARY KEY,
-    CustomerID INT,
-    EmployeeID INT,
-    ReservationID INT,
-    OrderTime DATETIME,
-    Status NVARCHAR(20),
-    PaymentTime DATETIME,
-    PaymentMethod NVARCHAR(20),
-    TotalAmount MONEY,
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID)
-);
-
--- Bước 3: Tạo Bridging Tables
-
-CREATE TABLE ReservationTables (
-    ReservationID INT,
-    TableID INT,
-    PRIMARY KEY (ReservationID, TableID),
-    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID),
-    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
-);
-
-CREATE TABLE OrderTables (
-    OrderID INT,
-    TableID INT,
-    PRIMARY KEY (OrderID, TableID),
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
-);
-
-CREATE TABLE OrderDetails (
-    OrderID INT,
-    ItemID INT,
-    Quantity INT,
-    Price MONEY,
-    PRIMARY KEY (OrderID, ItemID),
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-    FOREIGN KEY (ItemID) REFERENCES MenuItems(ItemID)
-);
-
--- Multi-valued attribute từ Conceptual ERD
-CREATE TABLE EmployeePhone (
-    EmployeeID INT,
-    Phone NVARCHAR(20),
-    PRIMARY KEY (EmployeeID, Phone),
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
-);
-
--- N:M relationship Employees - Shifts
-CREATE TABLE EmployeeShifts (
-    EmployeeID INT,
-    ShiftID INT,
-    PRIMARY KEY (EmployeeID, ShiftID),
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (ShiftID) REFERENCES Shifts(ShiftID)
-);
-
--- Bảng Shifts
-CREATE TABLE Shifts (
-    ShiftID INT PRIMARY KEY,
-    ShiftDate DATE,
-    StartTime TIME,
-    EndTime TIME
-);
 ```
 
-### 💡 Tips
-- Data type phải GIỐNG HỆT với ERD
-- Composite PK: `PRIMARY KEY (col1, col2)`
-- Thứ tự tạo: Strong Entity → Weak Entity → Bridging Tables
+### 💡 Tips ăn trọn 2 điểm
+
+* **Chính tả là mạng sống:** Data type và tên cột phải GIỐNG HỆT hình ERD (VD: `empID` chứ không phải `EmployeeID`, `FullName` viết hoa chữ F và N).
+* **Thứ tự chạy code:** Bảng nào không lấy khóa ngoại thì tạo trước. Bảng nào có chứa khóa ngoại thì phải tạo sau khi bảng gốc đã tồn tại.
+* **Không dư thừa:** KHÔNG dùng lệnh `CREATE DATABASE`, KHÔNG tạo các bảng không có trong hình (như Customers, Orders...).
 
 ---
 

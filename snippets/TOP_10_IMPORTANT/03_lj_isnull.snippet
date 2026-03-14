@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>TOP 10 #3: LEFT JOIN + ISNULL Aggregate</Title>
+            <Shortcut>lj_isnull</Shortcut>
+            <Description>LEFT JOIN với ISNULL - "include even if no orders"</Description>
+            <Author>DBI202</Author>
+        </Header>
+        <Snippet>
+            <Code Language="SQL">
+                <![CDATA[
+SELECT t1.$Col1$, t1.$Col2$,
+       ISNULL(COUNT(t2.$ID$), 0) AS $CountAlias$,
+       ISNULL(SUM(t2.$SumCol$), 0) AS $SumAlias$
+FROM $Table1$ t1
+LEFT JOIN $Table2$ t2 ON t1.$JoinCol1$ = t2.$JoinCol2$
+    AND t2.$FilterCondition$
+WHERE t1.$Condition$
+GROUP BY t1.$Col1$, t1.$Col2$;
+$end$
+                ]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
