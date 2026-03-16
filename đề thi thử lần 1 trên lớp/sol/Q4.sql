@@ -1,0 +1,6 @@
+-- q4
+SELECT u.id AS university_id, u.university_name, uy.year, uy.num_students, uy.pct_international_students, u.country_id
+FROM university u
+JOIN university_year uy ON u.id = uy.university_id
+WHERE uy.year = 2016 AND uy.pct_international_students > 30
+ORDER BY u.university_name ASC

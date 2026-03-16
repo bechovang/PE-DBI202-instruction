@@ -31,6 +31,10 @@
 - Template cú pháp SQL tổng hợp
 - Đáp án tham khảo cho một số đề thi
 
+### Lưu ý
+- coding còn sai hơi nhiều, ae dùng nó như context cho AI để hỏi thôi
+- đưa AI : CODING_GUIDE.md, file sql trong Given, file debai.txt và cái ảnh ERD
+
 ### Database System
 
 - **RDBMS**: Microsoft SQL Server / SQL Server Management Studio (SSMS)

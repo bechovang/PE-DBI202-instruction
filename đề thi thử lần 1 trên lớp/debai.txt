@@ -1,0 +1,152 @@
+﻿1 of 8
+Paper No: 1
+For the submission of your work:
+-	Create a folder named RollNo_Name_DBI202_PaperNo, e.g. se01245_LongNT_DBI202_01. Do not create any subfolder in this folder. All file created will be located in the above folder.
+-	For each question, you are required to write a database script. Create a file with the name corresponding to the index of the question. For example, for question 1, we will create a file named Q1.sql and create a file Q2.sql for question 2. So, if you do 10 questions, your folder must contain only 10 files Q1.sql, Q2.sql, Q3.sql, Q4.sql, Q5.sql, Q6.sql, Q7.sql, Q8.sql, Q9.sql and Q10.sql.
+-	Do not use any commands having the database name such as create database, alter database, use [database name], GO, etc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command. For example, if you are required to create a trigger/procedure, then your response should contain only commands for creating the corresponding trigger/procedure; all commands for testing the created trigger/procedure are forbidden.
+-	On completion, use WinRAR / WinZip tool to compress the RollNo_Name_DBI202_PaperNo folder with the same name and submit it to LMS.
+-	Note that:
++ You could use only SQL Server, SQL Server Management Studio, Window explorer, Winrar, Winzip
++ If any of the previous requirements is not respected, your mark will be 0.
+From the 2nd question, you should use the database provided in the .sql file which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+2 of 8
+Paper No: 1
+3 of 8
+Paper No: 1
+Question 1:
+Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given in the following picture with appropriate attributes, primary keys and foreign keys.
+NOTE that when creating the SQL commands as request, you MUST keep the name of tables, relationship, attributes and data type of attributes as SAME as given in the given ERD.
+Attributes with underline belong to the Primary key of each entity.
+Attributes which reference to the primary key of another table must have the same name as the attributes in the primary key of the referencing table.
+When submitting the responses for this question, submit only SQL statements for creating tables with corresponding keys and foreign keys. Do not use "create database", "Alter database", "use database_name" or any statements using database's name in your submission.
+Picture 1.1
+Question 2:
+Display all ranking criteria as follows:
+4 of 8
+Paper No: 1
+	id	ranking_system_id	criteria_name
+1	1	1	Teaching
+2	2	1	International
+3	3	1	Research
+4	4	1	Citations
+5	5	1	Income
+6	6	1	Total Times
+7	7	2	Alumni
+8	8	2	Award
+9	9	2	HiCi
+10	10	2	NandS
+11	11	2	Pub
+12	12	2	PCP
+13	13	2	Total Shanghai
+14	14	3	Quality of Education Rank
+15	15	3	Alumni Employment Rank
+16	16	3	Quality of Faculty Rank
+17	17	3	Publications Rank
+18	18	3	Influence Rank
+19	19	3	Citations Rank
+20	20	3	Patents Rank
+21	21	3	Total CWUR
+Picture 2.1
+Question 3:
+Write a query to select ranking_system_id, criteria_name of all ranking criteria of the ranking system having ranking_system_id 1 or 2; display the results by ascending order of ranking_system_id, then by ascending order of criteria_name for ranking criteria of the same ranking system as follows:
+5 of 8
+Paper No: 1
+	ranking_system_id	criteria_name
+1	11		I Citations
+2	1	Income
+3	1	International
+4	1	Research
+5	1	Teaching
+6	1	Total Times
+7	2	Alumni
+8	2	Award
+9	2	HiCi
+10	2	NandS
+11	2	PCP
+12	2	Pub
+13	2	Total Shanghai
+Picture 3.1
+Question 4:
+Write a query to display the information about the number of students as well as the percentage of international students in 2016 of the universities having the percentage of international students (pct_international_students) in 2016 greater than 30%; display the results in the form of university_id, university_name, year, num_students, pct_international_students, country_id in ascending order of university_name as follows:
+	universityjd	universityname	year	num_students	pct_lnternational_students	countryJd
+1	I 107	I Australian National University	2016	14604	35	2
+2	43	Carnegie Mellon University	2016	11885	35	73
+3	28	Imperial College London	2016	15060	51	72
+4	2	Massachusetts Institute of Technology	2016	11074	33	73
+5	104	National University of Singapore	2016	31592	34	58
+6	31	University College London	2016	26607	46	72
+7	4	University of Cambridge	2016	18812	34	72
+8	60	University of Edinburgh	2016	25774	36	72
+9	118	University of Melbourne	2016	40128	35	2
+10	7	University of Oxford	2016	19919	34	72
+Picture 4.1
+Question 5:
+Write a query to display the system_id, system_name, numberOfCriteria of each ranking system where numberOfCriteria is the number of criteria corresponding to the ranking system; display the results by descending order of numberOfCriteria as follows:
+6 of 8
+Paper No: 1
+	systemjd	system_name	numberOfCriteria
+1	3	Ị Center for World University Rankings	8
+2	2	Shanghai Ranking	7
+3	1	Times Higher Education World University Ranking	6
+Picture 5.1
+Question 6:
+Write a query to display university_id, university_name, year, student_staff_ratio of all universities having the lowest student_staff_ratio in 2015 as follows:
+universityjd university_name	year student_staff_ratio
+1 I 15	I Johns Hopkins University 2015 3.60
+2	59	Vanderbilt University 2015 3.60
+Picture 6.1
+Question 7:
+Write a query to display the score in 2016 based on the ‘Teaching’ ranking criteria of all universities which have the same score with at least one other university; display the results in form of university_id, university_name, ranking_criteria_id, criteria_name, year, score in descending order of score as follows:
+7 of 8
+Paper No: 1
+	universityjd	university name	rankinc	criteriajd criterianame	year	score
+3	8	Yale University	1	Teaching	2016	86
+4	9	Columbia University	1	Teaching	2016	86
+5	19	University of California, Los Angeles 1	Teaching	2016	81
+6	14	University of Tokyo	1	Teaching	2016	81
+7	31	University College London	1	Teaching	2016	78
+8	15	Johns Hopkins University	1	Teaching	2016	78
+9	12	Cornell University	1	Teaching	2016	78
+10	111	Peking University	1	Teaching	2016	78
+11	35	University of Toronto	1	Teaching	2016	76
+12	27	Duke University	1	Teaching	2016	76
+13	41	McGill University	1	Teaching	2016	66
+14	75	Seoul National University	1	Teaching	2016	66
+15	70	Karolinska Institute	1	Teaching	2016	61
+16	90	Technical University of Munich	1	Teaching	2016	61
+17	87	Georgia Institute of Technology	1	Teaching	2016	58
+18	36	University of North Carolina at Ch 1	Teaching	2016	58
+19	62	Boston University	1	Teaching	2016	58
+20	112	University of Notre Dame	1	Teaching	2016	48
+21	98	University of Bristol	1	Teaching	2016	48
+22	59	Vanderbilt University	1	Teaching	2016	48
+23	99	Utrecht University	1	Teaching	2016	48
+24	108	University of Alberta	1	Teaching	2016	46
+25	22	Hebrew University of Jerusalem	1	Teaching	2016	46
+26	133	University of Groningen	1	Teaching	2016	43
+27	91	University of Oslo	1	Teaching	2016	43
+28	134	Korea Advanced Institute of Scien 1	Teaching	2016	43
+29	84	University of Virginia	1	Teaching	2016	39
+30	146	University of Birmingham	1	Teaching	2016	39
+31	50	University of Arizona	1	Teaching	2016	39
+Picture 7.1
+Question 8:
+Create a store procedure named proc_university_year for calculating the total number of universities have percentage of international students greater than a given number (input parameter @pct_international_students int) in a given year (input parameter @year int). The @nbUniversity int is the output parameter of the procedure.
+For example, when we execute the procedure proc_university_year by using the following statements, the result should be as in the following figure:
+declare @out int
+exec proc_university_year 2011,30, @out output
+select @out as NumberOfUniversities
+8 of 8
+Paper No: 1
+NumberOfUniversities
+1 [Ì2............................................1
+Picture 8.1
+Question 9:
+Create a trigger named tr_insert_university_ranking for the insert statement on table university_ranking_year so that when we insert one or more rows in this table, the system will display university_id, university_name, ranking_criteria_id, criteria_name, year, score corresponding to the rows that have been inserted.
+For example, when we execute the following statements, the result should be as follows:
+insert into university_ranking_year(university_id,ranking_criteria_id,year,score) values(1,1,2020,99),(12,2,2020,67)
+universityjd university_name ranking_criteria_id criteria_name year 1 Ị 12	Ị Cornell University 2	International 2020 2	1	Harvard University 1	Teaching	2020	score 67 99
+Picture 9.1
+Question 10:
+Write queries to insert a new ranking system with id=4 and system_name = ‘QS World University Rankings’ and to insert two new ranking criteria for this ranking system. The id and criteria_name of these two new criteria are (22,’Academic Reputation’) and (23,’Citations per faculty’).

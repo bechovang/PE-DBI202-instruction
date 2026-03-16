@@ -3,6 +3,103 @@
 
 ---
 
+## 🚨 QUAN TRỌNG: Q1.SQL NỘP GÌ?
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Q1.sql CHỈ chứa CREATE TABLE - không có gì khác!
+```
+
+### 📋 Mẫu Q1.sql (Paper 11):
+
+```sql
+CREATE TABLE Tables (
+    TableID INT PRIMARY KEY,
+    TableNumber INT,
+    Capacity INT,
+    Location NVARCHAR(100)
+);
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    Phone VARCHAR(15),
+    Email VARCHAR(50),
+    CreatedDate DATE
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    Role NVARCHAR(50),
+    HireDate DATE,
+    Salary DECIMAL(18, 2)
+);
+
+CREATE TABLE MenuItems (
+    ItemID INT PRIMARY KEY,
+    ItemName NVARCHAR(100),
+    Category NVARCHAR(50),
+    Price DECIMAL(12, 2),
+    IsAvailable BIT
+);
+
+CREATE TABLE Reservations (
+    ReservationID INT PRIMARY KEY,
+    CustomerID INT,
+    ReservationTime DATETIME,
+    GuestCount INT,
+    Status NVARCHAR(20),
+    Notes NVARCHAR(200),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    EmployeeID INT,
+    ReservationID INT,
+    OrderTime DATETIME,
+    Status NVARCHAR(20),
+    PaymentTime DATETIME,
+    PaymentMethod NVARCHAR(50),
+    TotalAmount DECIMAL(18, 2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID)
+);
+
+CREATE TABLE ReservationTables (
+    ReservationID INT,
+    TableID INT,
+    PRIMARY KEY (ReservationID, TableID),
+    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID),
+    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
+);
+
+CREATE TABLE OrderTables (
+    OrderID INT,
+    TableID INT,
+    PRIMARY KEY (OrderID, TableID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
+);
+
+CREATE TABLE OrderDetails (
+    OrderID INT,
+    ItemID INT,
+    Quantity INT,
+    Price DECIMAL(12, 2),
+    PRIMARY KEY (OrderID, ItemID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ItemID) REFERENCES MenuItems(ItemID)
+);
+```
+
+---
+
 ## 🎯 PHẦN 1: TƯ DUY KHI ĐỌC ĐỀ BÀI
 
 ### Step 1: Đọc đề bài - Đừng vội code! ⚠️
@@ -167,16 +264,27 @@ Số 1, ∞ hoặc N       = Cardinality (1-N, N-M)
 
 ## 📌 QUESTION 1: CREATE DATABASE + TABLES [1 điểm]
 
+### ⚠️ QUAN TRỌNG - SUBMISSION RULES CHO Q1
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Khi làm bài:
+  → Tạo file Q1_temp.sql có đầy đủ CREATE DATABASE, USE, GO để test
+  → Sau khi test OK, copy chỉ CREATE TABLE vào Q1.sql để nộp
+```
+
 ### 📖 Đọc đề
 > "Create one database and then write SQL statements to create, in this database, all tables derived from the ERD..."
 
 ### 🧠 Tư duy
 
 ```
-Yêu cầu: Tạo database + các bảng từ ERD
+Yêu cầu: Chuyển ERD → SQL CREATE TABLE
+Lưu ý:   Đây là BT chuyển từ ERD sang SQL (KHÔNG cần chạy được)
 Input:   ERD Diagram
-Output:  CREATE DATABASE + CREATE TABLE statements
-Lưu ý:   Giữ nguyên tên bảng, thuộc tính, data type
+Output:  SQL CREATE TABLE statements (KHÔNG có CREATE DATABASE, USE, GO)
 ```
 
 ### 🔍 Phân tích
@@ -286,6 +394,105 @@ CREATE TABLE OrderDetails (
     FOREIGN KEY (ItemID) REFERENCES MenuItems(ItemID)
 );
 ```
+
+### ✅ Code (Q1.sql - NỘP file này)
+
+```sql
+-- ==========================================
+-- Q1.sql - File NỘP (Chỉ có CREATE TABLE)
+-- ==========================================
+
+-- Bước 1: Tạo bảng MẠNH (không có FK)
+CREATE TABLE Tables (
+    TableID INT PRIMARY KEY,
+    TableNumber INT,
+    Capacity INT,
+    Location NVARCHAR(100)
+);
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    Phone VARCHAR(15),
+    Email VARCHAR(50),
+    CreatedDate DATE
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FullName NVARCHAR(100),
+    Role NVARCHAR(50),
+    HireDate DATE,
+    Salary DECIMAL(18, 2)
+);
+
+CREATE TABLE MenuItems (
+    ItemID INT PRIMARY KEY,
+    ItemName NVARCHAR(100),
+    Category NVARCHAR(50),
+    Price DECIMAL(12, 2),
+    IsAvailable BIT
+);
+
+-- Bước 2: Tạo bảng có FK
+CREATE TABLE Reservations (
+    ReservationID INT PRIMARY KEY,
+    CustomerID INT,
+    ReservationTime DATETIME,
+    GuestCount INT,
+    Status NVARCHAR(20),
+    Notes NVARCHAR(200),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    EmployeeID INT,
+    ReservationID INT,
+    OrderTime DATETIME,
+    Status NVARCHAR(20),
+    PaymentTime DATETIME,
+    PaymentMethod NVARCHAR(50),
+    TotalAmount DECIMAL(18, 2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID)
+);
+
+-- Bước 3: Tạo bảng trung gian (Composite PK)
+CREATE TABLE ReservationTables (
+    ReservationID INT,
+    TableID INT,
+    PRIMARY KEY (ReservationID, TableID),
+    FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID),
+    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
+);
+
+CREATE TABLE OrderTables (
+    OrderID INT,
+    TableID INT,
+    PRIMARY KEY (OrderID, TableID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (TableID) REFERENCES Tables(TableID)
+);
+
+CREATE TABLE OrderDetails (
+    OrderID INT,
+    ItemID INT,
+    Quantity INT,
+    Price DECIMAL(12, 2),
+    PRIMARY KEY (OrderID, ItemID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ItemID) REFERENCES MenuItems(ItemID)
+);
+```
+
+### 💡 Tips
+- **Q1.sql**: KHÔNG có CREATE DATABASE, USE, GO - Chỉ CREATE TABLE
+- **Q1_temp.sql**: CÓ đầy đủ CREATE DATABASE, USE, GO - Dùng để test
+- Thứ tự tạo quan trọng: Bảng không FK → Bảng có FK → Bridging Tables
+- Composite PK: `PRIMARY KEY (col1, col2)`
 
 ---
 
@@ -898,7 +1105,7 @@ END;
 ☐ Folder tên đúng: RollNo_Name_DBI202_11
 ☐ Không có subfolder
 ☐ File naming: Q1.sql, Q2.sql, ..., Q10.sql
-☐ Q1.sql: Có CREATE DATABASE (chỉ Q1 có)
+☐ Q1.sql: CHỈ có CREATE TABLE (KHÔNG có CREATE DATABASE, USE, GO)
 ☐ Q2-Q10: KHÔNG có USE, GO, EXEC
 ☐ Chỉ chứa câu trả lời (không có test code)
 ☐ LEFT JOIN khi cần giữ NULL

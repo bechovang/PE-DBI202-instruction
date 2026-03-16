@@ -3,6 +3,35 @@
 
 ---
 
+## 🚨 QUAN TRỌNG: Q2.SQL NỘP GÌ?
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE + INSERT statements
+
+Q2.sql CHỈ chứa CREATE TABLE + INSERT - không có gì khác!
+```
+
+### 📋 Mẫu Q2.sql (Paper 112131):
+
+```sql
+CREATE TABLE Account (
+    AccountId INT PRIMARY KEY,
+    ClientId INT,
+    Balance DECIMAL(15, 2) DEFAULT 0,
+    FOREIGN KEY (ClientId) REFERENCES Client(Id)
+);
+
+INSERT INTO Account (AccountId, ClientId, Balance) VALUES
+(1, 1, 1500.50),
+(2, 1, 2000.00),
+(3, 2, 250.00),
+(4, 3, 500.00),
+(5, 4, 50.00);
+```
+
+---
+
 ## PHẦN 1: TƯ DUY KHI ĐỌC ĐỀ BÀI
 
 ### Step 1: Đọc đề bài - Đừng vội code! ⚠️
@@ -165,6 +194,17 @@ Số N hoặc M ở cuối     = Many (Nhiều bên)
 
 ## CÂU 2: CREATE TABLE + INSERT [2 điểm]
 
+### ⚠️ QUAN TRỌNG - SUBMISSION RULES CHO Q2
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE + INSERT statements
+
+Khi làm bài:
+  → Tạo file Q2_temp.sql có đầy đủ CREATE DATABASE, USE, GO để test
+  → Sau khi test OK, copy chỉ CREATE TABLE + INSERT vào Q2.sql để nộp
+```
+
 ### Đọc đề
 > "From the complete ERD in question 1, write SQL statements to create the table(s) corresponding to the entity(ies) added to the diagram. Insert 5 appropriate data rows..."
 
@@ -188,9 +228,40 @@ Output:  CREATE TABLE + 5 INSERT statements
 | Default value | 0 |
 | Số dòng insert | 5 |
 
-### Code
+### Code (Q2_temp.sql - Dùng để TEST)
 
 ```sql
+-- ==========================================
+-- Q2_temp.sql - File dùng để test (KHÔNG NỘP)
+-- ==========================================
+
+CREATE DATABASE BankDB;
+GO
+
+USE BankDB;
+GO
+
+-- Tạo bảng Account
+CREATE TABLE Account (
+    AccountId INT PRIMARY KEY,
+    Balance DECIMAL(15, 2) DEFAULT 0
+);
+
+-- Chèn 5 dòng dữ liệu
+INSERT INTO Account (AccountId, Balance) VALUES (1, 1500.50);
+INSERT INTO Account (AccountId, Balance) VALUES (2, 3250.00);
+INSERT INTO Account (AccountId, Balance) VALUES (3, 500.75);
+INSERT INTO Account (AccountId, Balance) VALUES (4, 0);
+INSERT INTO Account (AccountId, Balance) VALUES (5, 10000.00);
+```
+
+### Code (Q2.sql - NỘP file này)
+
+```sql
+-- ==========================================
+-- Q2.sql - File NỘP (Chỉ có CREATE TABLE + INSERT)
+-- ==========================================
+
 -- Tạo bảng Account
 CREATE TABLE Account (
     AccountId INT PRIMARY KEY,
@@ -232,6 +303,10 @@ INSERT INTO Account (AccountId, Balance) VALUES
 -- Khi không nhập Balance, sẽ tự động là 0
 INSERT INTO Account (AccountId) VALUES (6);  -- Balance = 0
 ```
+
+### 💡 Lưu ý về nộp bài
+- **Q2.sql**: CHỈ có CREATE TABLE + INSERT (KHÔNG có CREATE DATABASE, USE, GO)
+- **Q2_temp.sql**: CÓ đầy đủ CREATE DATABASE, USE, GO - Dùng để test
 
 ---
 
@@ -667,6 +742,7 @@ WHERE condition;
 ☐ File SQL: PE_DBI202_[RollNo].sql
 ☐ File ERD: PE_DBI202_[RollNo].docx
 ☐ Câu 1: Vẽ ERD đầy đủ trong Word
+☐ Câu 2: CHỈ có CREATE TABLE + INSERT (KHÔNG có CREATE DATABASE, USE, GO)
 ☐ Câu 2: CREATE TABLE có ClientId (FK)
 ☐ Câu 2: DECIMAL(15,2) DEFAULT 0
 ☐ Câu 2: 5 dòng INSERT đúng format

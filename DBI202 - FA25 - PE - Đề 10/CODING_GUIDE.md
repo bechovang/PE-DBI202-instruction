@@ -3,6 +3,58 @@
 
 ---
 
+## 🚨 QUAN TRỌNG: Q1.SQL NỘP GÌ?
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Q1.sql CHỈ chứa CREATE TABLE - không có gì khác!
+```
+
+### 📋 Mẫu Q1.sql (Paper 10):
+
+```sql
+CREATE TABLE Restaurants (
+    restaurantID INT PRIMARY KEY,
+    name NVARCHAR(100),
+    street NVARCHAR(50),
+    city NVARCHAR(50)
+);
+
+CREATE TABLE Shifts (
+    shiftID INT PRIMARY KEY,
+    shiftDate DATE,
+    startTime TIME,
+    endTime TIME
+);
+
+CREATE TABLE Employees (
+    empID INT PRIMARY KEY,
+    FullName NVARCHAR(60),
+    gender CHAR(1),
+    restaurantID INT,
+    FOREIGN KEY (restaurantID) REFERENCES Restaurants(restaurantID)
+);
+
+CREATE TABLE works (
+    empID INT,
+    shiftID INT,
+    PRIMARY KEY (empID, shiftID),
+    FOREIGN KEY (empID) REFERENCES Employees(empID),
+    FOREIGN KEY (shiftID) REFERENCES Shifts(shiftID)
+);
+
+CREATE TABLE Employeesphone (
+    empID INT,
+    phone NVARCHAR(20),
+    PRIMARY KEY (empID, phone),
+    FOREIGN KEY (empID) REFERENCES Employees(empID)
+);
+```
+
+---
+
 ## 🎯 PHẦN 1: TƯ DUY KHI ĐỌC ĐỀ BÀI
 
 ### Step 1: Đọc đề bài - Đừng vội code! ⚠️
@@ -229,6 +281,17 @@ CREATE TABLE Employeesphone (
 * **Chính tả là mạng sống:** Data type và tên cột phải GIỐNG HỆT hình ERD (VD: `empID` chứ không phải `EmployeeID`, `FullName` viết hoa chữ F và N).
 * **Thứ tự chạy code:** Bảng nào không lấy khóa ngoại thì tạo trước. Bảng nào có chứa khóa ngoại thì phải tạo sau khi bảng gốc đã tồn tại.
 * **Không dư thừa:** KHÔNG dùng lệnh `CREATE DATABASE`, KHÔNG tạo các bảng không có trong hình (như Customers, Orders...).
+
+### ⚠️ QUAN TRỌNG - SUBMISSION RULES CHO Q1
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Khi làm bài:
+  → Tạo file Q1_temp.sql có đầy đủ CREATE DATABASE, USE, GO để test
+  → Sau khi test OK, copy chỉ CREATE TABLE vào Q1.sql để nộp
+```
 
 ---
 
@@ -1033,9 +1096,8 @@ SELECT * FROM CTE_Name WHERE total > 1000;
 ☐ Folder tên đúng: RollNo_Name_DBI202_10
 ☐ Không có subfolder
 ☐ File naming: Q1.sql, Q2.sql, ..., Q10.sql
-☐ Không có USE database
-☐ Không có CREATE DATABASE (trừ Q1)
-☐ Không có GO, EXEC (trừ khi test)
+☐ Q1.sql: CHỈ có CREATE TABLE (KHÔNG có CREATE DATABASE, USE, GO)
+☐ Q2-Q10: KHÔNG có USE, GO, EXEC
 ☐ Chỉ chứa câu trả lời (không có test code)
 ☐ Data type đúng với ERD
 ☐ PK, FK đúng

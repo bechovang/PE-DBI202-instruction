@@ -3,6 +3,101 @@
 
 ---
 
+## 🚨 QUAN TRỌNG: Q1.SQL NỘP GÌ?
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Q1.sql CHỈ chứa CREATE TABLE - không có gì khác!
+```
+
+### 📋 Mẫu Q1.sql (Paper 1 - Bike Store):
+
+```sql
+CREATE TABLE stores (
+    store_id INT PRIMARY KEY,
+    store_name NVARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    street NVARCHAR(100),
+    city NVARCHAR(50),
+    state VARCHAR(5),
+    zip_code VARCHAR(10)
+);
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    street NVARCHAR(100),
+    city NVARCHAR(50),
+    state VARCHAR(5),
+    zip_code VARCHAR(10)
+);
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name NVARCHAR(150),
+    model_year INT,
+    list_price DECIMAL(12, 2),
+    brand_name NVARCHAR(50),
+    category_name NVARCHAR(50)
+);
+
+CREATE TABLE staffs (
+    staff_id INT PRIMARY KEY,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    active BIT,
+    store_id INT,
+    manager_id INT,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (manager_id) REFERENCES staffs(staff_id)
+);
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_status INT,
+    order_date DATE,
+    required_date DATE,
+    shipped_date DATE,
+    customer_id INT,
+    store_id INT,
+    staff_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (staff_id) REFERENCES staffs(staff_id)
+);
+
+CREATE TABLE stocks (
+    store_id INT,
+    product_id INT,
+    quantity INT,
+    PRIMARY KEY (store_id, product_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+CREATE TABLE order_items (
+    order_id INT,
+    item_id INT,
+    product_id INT,
+    quantity INT,
+    list_price DECIMAL(12, 2),
+    discount DECIMAL(4, 2),
+    PRIMARY KEY (order_id, item_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+```
+
+---
+
 ## 🎯 PHẦN 1: TƯ DUY KHI ĐỌC ĐỀ BÀI
 
 ### Step 1: Đọc đề bài - Đừng vội code! ⚠️
@@ -158,7 +253,18 @@ Số 1, ∞ hoặc N       = Cardinality (1-N, N-M)
 
 ---
 
-## 📌 QUESTION 1: CREATE DATABASE + TABLES [1.5 điểm]
+## 📌 QUESTION 1: CREATE TABLE [2 điểm]
+
+### ⚠️ QUAN TRỌNG - SUBMISSION RULES CHO Q1
+
+```
+❌ KHÔNG nộp: CREATE DATABASE, USE, GO, EXEC
+✅ CHỈ nộp:  CREATE TABLE statements
+
+Khi làm bài:
+  → Tạo file Q1_temp.sql có đầy đủ CREATE DATABASE, USE, GO để test
+  → Sau khi test OK, copy chỉ CREATE TABLE vào Q1.sql để nộp
+```
 
 ### 📖 Đọc đề
 > "Create one database and then write SQL statements to create, in this database, all tables derived from the ERD given..."
@@ -166,10 +272,10 @@ Số 1, ∞ hoặc N       = Cardinality (1-N, N-M)
 ### 🧠 Tư duy
 
 ```
-Yêu cầu: Tạo database + các bảng từ ERD
+Yêu cầu: Chuyển ERD → SQL CREATE TABLE
+Lưu ý:   Đây là BT chuyển từ ERD sang SQL (KHÔNG cần chạy được)
 Input:   ERD Diagram
-Output:  CREATE DATABASE + CREATE TABLE statements
-Lưu ý:   Giữ nguyên tên bảng, thuộc tính, data type
+Output:  SQL CREATE TABLE statements (KHÔNG có CREATE DATABASE, USE, GO)
 ```
 
 ### 🔍 Phân tích
@@ -181,9 +287,13 @@ Lưu ý:   Giữ nguyên tên bảng, thuộc tính, data type
 | 3. Composite PK | stocks (store_id, product_id), order_items (order_id, item_id) |
 | 4. Self-referencing | staffs.manager_id → staffs.staff_id |
 
-### ✅ Code
+### ✅ Code (Q1_temp.sql - Dùng để TEST)
 
 ```sql
+-- ==========================================
+-- Q1_temp.sql - File dùng để test (KHÔNG NỘP)
+-- ==========================================
+
 -- Tạo database
 CREATE DATABASE BikeStore;
 GO
@@ -283,7 +393,104 @@ CREATE TABLE order_items (
 );
 ```
 
+### ✅ Code (Q1.sql - NỘP file này)
+
+```sql
+-- ==========================================
+-- Q1.sql - File NỘP (Chỉ có CREATE TABLE)
+-- ==========================================
+
+-- Table stores
+CREATE TABLE stores (
+    store_id INT PRIMARY KEY,
+    store_name NVARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    street NVARCHAR(100),
+    city NVARCHAR(50),
+    state VARCHAR(5),
+    zip_code VARCHAR(10)
+);
+
+-- Table customers
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    street NVARCHAR(100),
+    city NVARCHAR(50),
+    state VARCHAR(5),
+    zip_code VARCHAR(10)
+);
+
+-- Table products
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name NVARCHAR(150),
+    model_year INT,
+    list_price DECIMAL(12, 2),
+    brand_name NVARCHAR(50),
+    category_name NVARCHAR(50)
+);
+
+-- Table staffs (có self-referencing)
+CREATE TABLE staffs (
+    staff_id INT PRIMARY KEY,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    active BIT,
+    store_id INT,
+    manager_id INT,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (manager_id) REFERENCES staffs(staff_id)
+);
+
+-- Table orders
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_status INT,
+    order_date DATE,
+    required_date DATE,
+    shipped_date DATE,
+    customer_id INT,
+    store_id INT,
+    staff_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (staff_id) REFERENCES staffs(staff_id)
+);
+
+-- Table stocks (Composite PK)
+CREATE TABLE stocks (
+    store_id INT,
+    product_id INT,
+    quantity INT,
+    PRIMARY KEY (store_id, product_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- Table order_items (Composite PK)
+CREATE TABLE order_items (
+    order_id INT,
+    item_id INT,
+    product_id INT,
+    quantity INT,
+    list_price DECIMAL(12, 2),
+    discount DECIMAL(4, 2),
+    PRIMARY KEY (order_id, item_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+```
+
 ### 💡 Tips
+- **Q1.sql**: KHÔNG có CREATE DATABASE, USE, GO - Chỉ CREATE TABLE
+- **Q1_temp.sql**: CÓ đầy đủ CREATE DATABASE, USE, GO - Dùng để test
 - Thứ tự tạo quan trọng: Bảng không FK → Bảng có FK
 - Self-referencing: manager_id tham chiếu đến staff_id của cùng bảng
 - Composite PK: `PRIMARY KEY (col1, col2)`
@@ -891,7 +1098,7 @@ WHERE col IN (
 ☐ Folder tên đúng: RollNo_Name_DBI202_01
 ☐ Không có subfolder
 ☐ File naming: Q1.sql, Q2.sql, ..., Q10.sql
-☐ Q1.sql: Có CREATE DATABASE (chỉ Q1 có)
+☐ Q1.sql: CHỈ có CREATE TABLE (KHÔNG có CREATE DATABASE, USE, GO)
 ☐ Q2-Q10: KHÔNG có USE, GO, EXEC
 ☐ Chỉ chứa câu trả lời (không có test code)
 ☐ Data type đúng với ERD
