@@ -125,11 +125,24 @@ VALUES
 ```sql
 CREATE PROCEDURE TenProcedure
     @Param1 INT, -- inp/tham số
-    @Param2 NVARCHAR(50)
+    @Param2 DECIMAL(10,2) OUTPUT -- Tham số đầu ra (Bắt buộc có chữ OUTPUT)
 AS
 BEGIN
     -- code ở đây
 END
+```
+
+```sql
+CREATE PROCEDURE proc_SumQuantityProduct
+    @store_id INT,                    -- Tham số đầu vào
+    @SumQuantity DECIMAL(10,2) OUTPUT -- Tham số đầu ra (Bắt buộc có chữ OUTPUT)
+AS
+BEGIN
+    -- Gán kết quả tính tổng vào biến Output
+    SELECT @SumQuantity = SUM(quantity)
+    FROM stocks
+    WHERE store_id = @store_id;
+END;
 ```
 
 ---
@@ -487,6 +500,7 @@ HAVING SUM(a.Balance) > 300
 | `AVG(cot)` | Tính trung bình |
 | `MAX(cot)` | Giá trị lớn nhất |
 | `MIN(cot)` | Giá trị nhỏ nhất |
+- **các hàm này cần group để biết xử lý theo nhóm nào**
 
 |          | `WHERE`    | `HAVING`                 |
 | -------- | ---------- | ------------------------ |
@@ -494,6 +508,8 @@ HAVING SUM(a.Balance) > 300
 | Dùng với | Cột thường | `SUM`, `COUNT`, `AVG`... |
 
 > SQL bắt buộc: **mọi cột trong SELECT phải nằm trong GROUP BY**
+
+**chia group ra rồi thì mỗi group sẽ chạy 1 select riêng**
 
 ---
 
@@ -720,14 +736,215 @@ AND CategoryID IN (1, 2, 3)
 ---
 
 
+## 27. COUNT
+ **ĐẾM TOÀN BỘ (Dùng khi muốn biết tổng số lượng)**
+```sql
+-- 
+SELECT COUNT(*) AS total_records 
+FROM university; 
+```
+```
+-- Giải thích: Trả về một con số duy nhất là tổng số dòng trong bảng.
+```
+**ĐẾM THEO NHÓM**
+```sql
+-- 2. 
+SELECT 
+    system_id, 
+    COUNT(id) AS numberOfCriteria 
+FROM ranking_criteria
+GROUP BY system_id; 
+```
+```
+-- Giải thích: 
+-- + SELECT: Chọn cột muốn hiện và hàm đếm.
+-- + COUNT(id): Đếm số lượng tiêu chí.
+-- + AS: Đặt tên cột là 'numberOfCriteria' theo yêu cầu đề.
+-- + GROUP BY: Bắt buộc phải có để gom nhóm theo ID hệ thống.
 
+```
+**ĐẾM CÓ ĐIỀU KIỆN (Dùng lọc nhóm sau khi đếm)**
+```sql
+-- 
+SELECT 
+    university_id, 
+    COUNT(ranking_criteria_id) AS total_ranks
+FROM university_ranking_year
+GROUP BY university_id
+HAVING COUNT(ranking_criteria_id) > 5;
 
+```
+```
+-- Giải thích: 
+-- + HAVING: Chỉ lấy những trường đại học có hơn 5 tiêu chí xếp hạng.
+```
 
+---
+## 28. Subquery trong WHERE
 
+```sql
+-- Lấy nhân viên có lương cao hơn mức lương trung bình
+SELECT * FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees)
+```
 
+```sql
+-- Lấy client có tài khoản tồn tại
+SELECT * FROM Clients
+WHERE Id IN (SELECT ClientId FROM Accounts)
+```
 
+> ⚠️ Dùng `=` khi subquery trả về **1 giá trị**, dùng `IN` khi trả về **nhiều dòng**
 
+---
 
+## 29. DELETE — Xóa dữ liệu
+
+```sql
+DELETE FROM TenBang
+WHERE DieuKien
+```
+
+> ⚠️ **Luôn có WHERE** — không có WHERE sẽ xóa **toàn bộ** bảng
+
+**Xóa liên quan FK — phải xóa bảng CON trước**
+```sql
+-- ❌ Sai: xóa Clients trước khi xóa Accounts → lỗi FK
+DELETE FROM Clients WHERE Id = 5
+
+-- ✅ Đúng: xóa bảng con trước, bảng cha sau
+DELETE FROM Accounts WHERE ClientId = 5
+DELETE FROM Clients  WHERE Id = 5
+```
+
+> ⚠️ Bảng có **FK trỏ vào** = bảng cha → phải xóa sau cùng
+
+|                | `DELETE`               | `TRUNCATE`          | `DROP`               |
+| -------------- | ---------------------- | ------------------- | -------------------- |
+| Xóa gì         | Từng dòng có điều kiện | Toàn bộ dữ liệu     | Cả bảng lẫn cấu trúc |
+| WHERE          | ✅ Có                   | ❌ Không             | ❌ Không              |
+| Rollback được  | ✅ Có                   | ✅ Có                | ❌ Không              |
+| IDENTITY reset | ❌ Không                | ✅ Reset về 1        | ❌ Không còn bảng     |
+| Khi nào dùng   | Xóa có chọn lọc        | Xóa sạch để làm lại | Bỏ hẳn bảng          |
+
+---
+
+## 30. Stored Procedure — Nâng cao
+
+### 30.1 DROP + CREATE — Cách chuẩn khi đi thi
+
+```sql
+-- Bước 1: Xóa nếu đã tồn tại
+IF OBJECT_ID('proc_TenProcedure', 'P') IS NOT NULL
+    DROP PROCEDURE proc_TenProcedure
+GO
+
+-- Bước 2: Tạo mới
+CREATE PROCEDURE proc_TenProcedure
+    @Store_id INT,
+    @SumQuantity DECIMAL(10,2) OUTPUT
+AS
+BEGIN
+    SELECT @SumQuantity = SUM(st.quantity)
+    FROM stocks st
+    WHERE st.store_id = @Store_id
+END
+GO
+```
+
+> ⚠️ `GO` bắt buộc phải có giữa `DROP` và `CREATE` — SQL Server yêu cầu `CREATE PROCEDURE` phải là lệnh đầu tiên trong 1 batch
+
+---
+
+### 30.2 OUTPUT — Tham số đầu ra
+
+```sql
+CREATE PROCEDURE proc_SumQuantityProduct
+    @Store_id INT,              -- tham số đầu vào
+    @SumQuantity DECIMAL(10,2) OUTPUT  -- tham số đầu ra
+AS
+BEGIN
+    SELECT @SumQuantity = SUM(st.quantity)
+    FROM stocks st
+    WHERE st.store_id = @Store_id
+END
+```
+
+**Cách gọi:**
+
+```sql
+DECLARE @KetQua DECIMAL(10,2)
+
+EXEC proc_SumQuantityProduct 
+    @Store_id = 2, 
+    @SumQuantity = @KetQua OUTPUT  -- phải ghi OUTPUT khi gọi
+
+SELECT @KetQua AS TongSoLuong
+```
+
+> ⚠️ Khi gọi EXEC cũng phải ghi `OUTPUT` — thiếu chữ này biến `@KetQua` sẽ luôn NULL
+
+---
+
+### 30.3 Debug bằng PRINT
+
+```sql
+-- Chèn vào trong Procedure để kiểm tra
+PRINT 'StoreID: ' + CAST(@Store_id AS NVARCHAR)
+PRINT 'Tong: ' + ISNULL(CAST(@SumQuantity AS NVARCHAR), 'NULL')
+--              ^ISNULL dùng để tránh in ra trống khi biến bị NULL
+```
+
+|Kết quả PRINT|Ý nghĩa|
+|---|---|
+|Hiện đúng số|Logic trong Proc chuẩn|
+|Hiện `NULL`|Điều kiện `WHERE` không khớp dòng nào|
+
+> ✅ Kết quả PRINT hiện ở tab **Messages**, không phải tab **Results**
+
+---
+
+### 30.4 Debug — Quy trình chuẩn 3 bước
+
+**Bước 1: Chạy SELECT thô để biết con số kỳ vọng**
+
+```sql
+SELECT SUM(quantity) FROM stocks WHERE store_id = 2
+-- Ghi nhớ con số này → đây là đáp án đúng
+```
+
+**Bước 2: Gọi Proc + kiểm tra OUTPUT**
+
+```sql
+DECLARE @KetQua DECIMAL(10,2)
+EXEC proc_SumQuantityProduct @Store_id = 2, @SumQuantity = @KetQua OUTPUT
+
+IF @KetQua IS NULL
+    SELECT 'Loi: NULL, kiem tra lai WHERE' AS Status
+ELSE
+    SELECT @KetQua AS KetQuaThanhCong
+```
+
+**Bước 3: Dọn dẹp trước khi nộp**
+
+```sql
+-- Xóa hết các dòng PRINT
+-- Xóa khối IF...DROP
+-- Chỉ giữ lại đúng 1 khối CREATE PROCEDURE...END
+```
+
+---
+
+### 30.5 Lỗi hay gặp khi thi
+
+|Triệu chứng|Nguyên nhân|Cách fix|
+|---|---|---|
+|Biến OUTPUT luôn NULL|Thiếu chữ `OUTPUT` khi gọi EXEC|Thêm `OUTPUT` sau tên biến|
+|Không thấy bảng kết quả|Tab Results bị ẩn|Nhấn `Ctrl + R`|
+|Gạch đỏ dưới tên Proc|Lỗi hiển thị của SSMS|Cứ chạy, không ảnh hưởng|
+|`CREATE` báo lỗi|Thiếu `GO` giữa DROP và CREATE|Thêm `GO` vào giữa|
+
+---
 
 
 
