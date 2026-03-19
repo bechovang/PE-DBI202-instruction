@@ -49,6 +49,13 @@ CREATE TABLE Clients (
     Name NVARCHAR(50)
 )
 
+CREATE TABLE Clients (
+    Id INT PRIMARY KEY UNIQUE,  
+    -- UNIQUE cho quan he 1-1
+    Name NVARCHAR(50)
+)
+
+
 -- Cách 2: khai báo riêng bên dưới
 CREATE TABLE Clients (
     Id INT,
@@ -92,13 +99,6 @@ CREATE TABLE Accounts (
     Balance DECIMAL(15, 2) DEFAULT 0  -- mặc định là 0
 )
 ```
-
-> So sánh các kiểu số thực:
-> | Kiểu | Mô tả |
-> |------|-------|
-> | `FLOAT` | số thực, không kiểm soát chữ số thập phân |
-> | `DECIMAL(p, s)` | chính xác, kiểm soát được số chữ số |
-> | `NUMERIC(p, s)` | giống DECIMAL |
 
 ---
 
@@ -349,6 +349,9 @@ CONVERT(NVARCHAR, GETDATE(), 108) -- HH:mm:ss
 CAST(GiaTri AS KieuMoi)
 ```
 
+**dùng này để ép kiểu dữ liệu luôn**
+**để lấy 2 số sau dâu phẩy luôn**
+
 **Các trường hợp hay dùng**
 
 | Từ         | Sang       | Ví dụ                            |
@@ -475,6 +478,19 @@ ON a.Balance = b.Balance
 ON a.Name = b.Name
 ```
 
+**left join A là thêm hết của cái A** 
+**cái nào ON đúng thì ghi thông tin ra.**
+**cáo nào ko đúng ON thì để null đúng** 
+
+* **INNER JOIN (hoặc JOIN):**
+    * **Khi nào dùng:** Khi bạn chỉ muốn lấy phần dữ liệu **khớp nhau ở cả 2 bảng**.
+    * **Ứng dụng:** Tìm những đối tượng chắc chắn đã tương tác. (Ví dụ: Chỉ lấy danh sách khách hàng *ĐÃ* đặt bàn).
+
+* **LEFT JOIN:**
+    * **Khi nào dùng:** Khi bạn muốn lấy **TẤT CẢ** dữ liệu của bảng bên trái, cộng với phần khớp ở bảng bên phải. Nếu bảng bên phải không có dữ liệu, nó sẽ hiển thị `NULL`.
+    * [cite_start]**Dấu hiệu nhận biết:** Khi đề bài có chữ "hiển thị tất cả...", "bao gồm... ngay cả khi không..." (include... even if not...)[cite: 37, 38].
+    * [cite_start]**Ứng dụng:** Hiển thị *TẤT CẢ* các món ăn, *KỂ CẢ* những món tháng này không có ai gọi. 
+* **RIGHT JOIN:** ngược lại của left, đổi chỗ là được
 
 ---
 
@@ -542,7 +558,7 @@ JOIN Accounts a ON a.ClientId = c.Id
 ---
 
 
-## 21. Bảng trung gian (M - N)
+## 21. Bảng trung gian (M - N, N-N, oval kép)
 
 Khi ERD có quan hệ **Many-to-Many (M-N)**
 → phải tạo **bảng trung gian (junction table)**
@@ -559,11 +575,15 @@ CREATE TABLE EmployeeShifts (
 )
 ```
 **Tên bảng N-N = [Tên mối quan hệ].**
+**Oval kép cũng tách ra làm khoá chính đôi, ==1 khóa phụ== như quan hệ N-N**
+
+
 
 **LƯU Ý**
 > **Thấy Ovan kép (phone):** Bắt buộc tách bảng `Employeesphone`.
    **Thấy hình thoi (works) nối N-N:** Bắt buộc tách bảng `works`.
   **Thấy thuộc tính phức hợp (address):** Phải rã ra thành các cột nhỏ (`street`, `city`) ngay trong bảng chính chứ không tạo bảng mới.
+  
 
 ---
 
@@ -829,7 +849,7 @@ DELETE FROM Clients  WHERE Id = 5
 
 ---
 
-## 30. Stored Procedure — Nâng cao
+## 30.  Procedure — Nâng cao
 
 ### 30.1 DROP + CREATE — Cách chuẩn khi đi thi
 
@@ -871,13 +891,24 @@ END
 ```
 
 **Cách gọi:**
-
 ```sql
-DECLARE @KetQua DECIMAL(10,2)
+-- 1. Chuẩn bị 3 cái "bát không" để hứng kết quả trả về
+DECLARE @ThangKetQua nvarchar(50);
+DECLARE @SoDonKetQua INT;
+DECLARE @DoanhThuKetQua INT;
 
-EXEC proc_SumQuantityProduct 
-    @Store_id = 2, 
-    @SumQuantity = @KetQua OUTPUT  -- phải ghi OUTPUT khi gọi
+-- 2. Gọi hàm ra chạy, truyền số năm vào và đưa 3 cái bát ra hứng
+EXEC MonthlySalesSummary 
+    @year = 2024,                        -- Nhập thử năm 2024 (hoặc năm nào có data)
+    @Month = @ThangKetQua OUTPUT,        -- Hứng kết quả vào biến
+    @NumberOfOrders = @SoDonKetQua OUTPUT, 
+    @TotalRevenue = @DoanhThuKetQua OUTPUT;
+
+-- 3. In 3 cái bát ra xem bên trong có gì
+SELECT 
+    @ThangKetQua AS Thang, 
+    @SoDonKetQua AS SoDon, 
+    @DoanhThuKetQua AS DoanhThu;
 
 SELECT @KetQua AS TongSoLuong
 ```
@@ -945,6 +976,301 @@ ELSE
 |`CREATE` báo lỗi|Thiếu `GO` giữa DROP và CREATE|Thêm `GO` vào giữa|
 
 ---
+
+## 31. JOIN + SELECT (subquerry trong FROM)
+```sql
+-- Tạo bảng tạm ngay trong query
+FROM A
+LEFT JOIN (
+    SELECT col1, col2
+    FROM B
+    WHERE điều_kiện_lọc   -- lọc trước khi JOIN
+) t ON t.col1 = A.col1
+```
+ **Tự hỏi trước khi JOIN**
+
+> **"Bảng mình sắp JOIN vào có thể có nhiều dòng khớp với 1 dòng bên trái không?"**
+
+Nếu **CÓ** → phải xử lý trước!
+=> cách trên: **Dùng subquery lọc trước**
+
+---
+
+## 32. ISNULL trong SQL Server
+
+**Cú pháp**
+
+```sql
+ISNULL(giá_trị, thay_thế_nếu_null)
+```
+
+**Ví dụ cơ bản**
+```sql
+ISNULL(NULL, 0)        -- → 0
+ISNULL(500, 0)         -- → 500
+ISNULL(NULL, 'N/A')    -- → 'N/A'
+ISNULL(NULL, 0.00)     -- → 0.00
+```
+
+```sql
+-- Ví dụ: khách không có đơn → COUNT = NULL → thay bằng 0
+ISNULL(t.NumberOfOrders, 0) AS NumberOfOrders
+ISNULL(t.TotalSpent, 0)     AS TotalAmount
+```
+
+---
+## 33. ## Bảng tóm tắt chuyển ER → SQL
+
+| Ký hiệu gặp                               | Cách xử lý                                                                                             |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Hình chữ nhật kép** , **Hình thoi kép** | là phụ thuộc, hình kép phụ thuộc hình ko kép. nghĩa là trong bảng kép sẽ có khoá chính của bảng ko kép |
+| **Oval kép** (multivalued attr)           | ko ghi thuộc tính đó, Tách bảng riêng = thuộc tính đó + khoá chính bảng của nó                         |
+| **Hình thoi N-N** (relationship)          | tạo bảng trung gian, lấy khoá chính của 2 bảng N-N bỏ vào                                              |
+| **hình oval có nhanh con**                | Rã cột, chỉ ghi thuộc tính con, không tạo bảng mới                                                     |
+| ==lưu ý, trong bảng có khoá chính bảng khác== | ===> thì phải có FK trả về bảng đó==                                                                       |
+
+---
+## 34. DATEPART -Bóc tách Giờ, Phút, Giây
+
+Khác với ngày (có hàm viết tắt `YEAR()`, `MONTH()`), để lấy Giờ/Phút/Giây trong SQL Server, bạn dùng hàm "vạn năng" **`DATEPART`**.
+
+| **Bạn muốn lấy** | **Cú pháp SQL Server**        | **Ví dụ kết quả (với 19:15:30)** |
+| ---------------- | ----------------------------- | -------------------------------- |
+| **Giờ**          | `DATEPART(HOUR, OrderTime)`   | `19`                             |
+| **Phút**         | `DATEPART(MINUTE, OrderTime)` | `15`                             |
+| **Giây**         | `DATEPART(SECOND, OrderTime)` | `30`                             |
+
+**Lọc trong khoảng thời gian (Dùng BETWEEN)**
+
+
+```sql
+-- Tìm các đơn hàng đặt từ 6h tối đến 8h tối (bất kể ngày/tháng/năm nào)
+WHERE CAST(OrderTime AS TIME) BETWEEN '18:00:00' AND '20:00:00'
+```
+
+```sql
+-- Tìm khách đặt nhà hàng sau 8 giờ rưỡi tối
+WHERE CAST(ReservationTime AS TIME) > '20:30:00'
+```
+
+---
+
+## 35. Syntax TOP trong SQL Server
+
+**Cơ bản**
+```sql
+-- Lấy N dòng đầu tiên
+SELECT TOP 1 * FROM Hotels
+SELECT TOP 5 * FROM Hotels
+SELECT TOP 10 * FROM Hotels
+```
+
+**Kết hợp ORDER BY (hay dùng nhất)**
+```sql
+-- Lấy khách sạn có hotelID lớn nhất
+SELECT TOP 1 * 
+FROM Hotels
+ORDER BY hotelID DESC
+
+-- Lấy 3 phòng có floor cao nhất
+SELECT TOP 3 * 
+FROM Rooms
+ORDER BY floor DESC
+
+-- Lấy guest mới đăng ký nhất
+SELECT TOP 1 * 
+FROM Guests
+ORDER BY guestID DESC
+```
+
+**TOP với PERCENT**
+```sql
+-- Lấy 10% dòng đầu tiên
+SELECT TOP 10 PERCENT * FROM Hotels
+```
+
+**TOP với WITH TIES**
+```sql
+-- Nếu có nhiều dòng cùng giá trị → lấy hết, không bỏ sót
+SELECT TOP 1 WITH TIES *
+FROM Rooms
+ORDER BY floor DESC
+
+-- Ví dụ: floor cao nhất = 10, có 3 phòng cùng floor 10
+-- → TOP 1            : chỉ lấy 1
+-- → TOP 1 WITH TIES  : lấy cả 3
+```
+
+---
+
+## 36. Syntax WITH AS (CTE — Common Table Expression)
+
+**Cơ bản**
+```sql
+WITH TenBangAo AS (
+    SELECT ...
+    FROM ...
+    WHERE ...
+)
+SELECT * FROM TenBangAo
+```
+
+ **Ví dụ thực tế**
+```sql
+-- Lấy danh sách phòng thuộc hotel 1
+WITH PhongHotel1 AS (
+    SELECT roomNumber, floor, building
+    FROM Rooms
+    WHERE hotelID = 1
+)
+SELECT * FROM PhongHotel1
+```
+
+---
+
+## 37. CASE WHEN - giống if else
+### Cú pháp cơ bản
+```sql
+CASE
+    WHEN điều_kiện_1 THEN kết_quả_1
+    WHEN điều_kiện_2 THEN kết_quả_2
+    ...
+    ELSE kết_quả_khác
+END
+```
+### 2 dạng CASE WHEN
+**Dạng 1: Tìm kiếm (Search) — hay dùng hơn**
+```sql
+SELECT fullname,
+    CASE
+        WHEN age < 18  THEN 'Trẻ em'
+        WHEN age < 60  THEN 'Người lớn'
+        ELSE 'Người cao tuổi'
+    END AS PhanLoai
+FROM Guests
+```
+**Dạng 2: So sánh đơn giản (Simple)**
+```sql
+SELECT fullname,
+    CASE floor
+        WHEN 1 THEN 'Tầng trệt'
+        WHEN 2 THEN 'Tầng 2'
+        WHEN 3 THEN 'Tầng 3'
+        ELSE 'Tầng khác'
+    END AS TenTang
+FROM Rooms
+```
+### Dùng trong SELECT
+```sql
+SELECT 
+    bookingID,
+    guestID,
+    CASE
+        WHEN guestID <= 100 THEN 'Khách cũ'
+        ELSE 'Khách mới'
+    END AS LoaiKhach
+FROM Books
+```
+### Dùng trong ORDER BY
+```sql
+-- Ưu tiên sắp xếp tầng cao lên trước
+SELECT * FROM Rooms
+ORDER BY
+    CASE
+        WHEN floor >= 10 THEN 1
+        WHEN floor >= 5  THEN 2
+        ELSE 3
+    END
+```
+### Dùng trong WHERE
+
+```sql
+SELECT * FROM Rooms
+WHERE
+    CASE
+        WHEN building = N'A' THEN floor
+        ELSE floor + 1
+    END > 5
+```
+### Dùng với GROUP BY + COUNT
+```sql
+-- Đếm số khách theo loại
+SELECT
+    CASE
+        WHEN guestID <= 100 THEN 'Khách cũ'
+        ELSE 'Khách mới'
+    END AS LoaiKhach,
+    COUNT(*) AS SoLuong
+FROM Guests
+GROUP BY
+    CASE
+        WHEN guestID <= 100 THEN 'Khách cũ'
+        ELSE 'Khách mới'
+    END
+```
+
+---
+
+## 38. Vòng lặp WHILE trong SQL Server (Chạy từ 1 đến 12)
+
+> [!info] Bản chất
+> SQL Server **KHÔNG CÓ** vòng lặp `FOR (int i = 1; i <= 12; i++)` như C, Java hay Python. Mọi nhu cầu lặp đều phải được xử lý thông qua vòng lặp **`WHILE`** kết hợp với một biến đếm (counter) tự tạo.
+
+
+```sql
+DECLARE @i INT = 1;
+WHILE @i <= 12
+BEGIN
+
+	-- ...các câu lệnh SELECT, UPDATE, INSERT...
+
+	SET @i = @i + 1;
+END
+```
+
+---
+
+## 39. Tạo bảng ảo có dữ liệu
+---
+### Cú pháp
+
+```sql
+WITH TenBangAo AS (
+    SELECT 1 AS TenCot UNION ALL
+    SELECT 2           UNION ALL
+    SELECT 3           UNION ALL
+    ...
+    SELECT N
+)
+SELECT * FROM TenBangAo
+```
+### Nguyên tắc hoạt động
+```
+SELECT 1 AS MonthNum   → tạo 1 dòng có giá trị = 1
+UNION ALL              → nối thêm dòng tiếp theo
+SELECT 2               → tạo 1 dòng có giá trị = 2
+...                      cứ thế đến 12
+```
+
+> `UNION ALL` khác `UNION` ở chỗ **không loại bỏ trùng lặp** → nhanh hơn, dùng cho trường hợp này.
+
+### Ứng dụng thực tế
+**12 tháng trong năm**
+```sql
+WITH Months AS (
+    SELECT 1 AS MonthNum UNION ALL
+    SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL
+    SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL
+    SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10 UNION ALL
+    SELECT 11 UNION ALL SELECT 12
+)
+```
+
+---
+
+
+
+
 
 
 
