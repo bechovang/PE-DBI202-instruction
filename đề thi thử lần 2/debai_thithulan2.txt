@@ -1,0 +1,138 @@
+﻿lof 1
+Paper No: 3
+For the submission of your work:
+-	Create a folder named RollNo_Nanie_DBI202_Pa perNo, e.g,se01245_LongNT_DBl2Q2_01. Do not create any subfolder in this folder. All file created will be located in the above folder
+-	For each question, you are required to write a database script Create a file with the name corresponding to the index of the question. For example, for question 1, we will create a file named Qi.sql and create a file Q2.sql for question 2. So, if you do 10 questions, your folder must contain only 10 files Ql.sql, Q2.sq], Q3.sql, Q4.sql, Q5.sql, Q6.sql, Q7.sqL QS.sql, Q9.sql and QHLsqL
+-	Do not use any commands having the database name such as create database, alter database, use [database name], etc.
+-	Your response must contain only necessary commands for answering the question. Do not include any other command. For example, if you are required to create a trigger/procedure, then your response should contain only commands for creating the corresponding trigger/procedure; all commands for testing the created trigger/procedure are forbidden.
+-	On completion, import your work by browsing to the above folder.
+-	Note that:
++ You could use only SQL Server, SQL Server Management Studio, and paper or offline document in your computer.
++ If any of the previous requirements is not respected, your mark will be 0.
+From the 2nd question, you should use the database provided in the .sql file which has the following database diagram. Please, run the provided script to create tables and insert data into your database.
+2 of 2
+Paper No: 3
+Question 2:
+I IVIMIV I ■ I
+4 of 4	Paper No: 3
+Select all product subcategories of the category 'Accessories' as follows:
+	SubcategorylD	Category	Name
+1	26	Accessories	Bike Racks
+2	27	Accessories	Bike Stands
+3	28	Accessories	Bottles and Cages
+4	29	Accessories	Cleaners
+5	30	Accessories	Fenders
+6	31	Accessories	Helmets
+7	32	Accessories	Hydration Packs
+8	33	Accessories	Lights
+9	34	Accessories	Locks
+10	35	Accessories	Panniers
+11	36	Accessories	Pumps
+12	37	Accessories	Tires and Tubes
+Picture 2.1
+Question 3:
+Write a query to select ProductID, LocationlD, Quantity of all product inventory corresponding to the location 7 and the quantity greater than 250; display the results in descending order of Quantity as follows:
+	ProductlD	LocationlD	Quantity
+1	I 708	7	324
+2	845		324
+3	872		324
+4	871	7	288
+5	707	7	288
+6	844	7	288
+	843	7	252
+8	870	7	252
+s of 5	Paper No: 3
+Picture 3 1
+■ IViWIV V. I
+Question 4:
+Write a query to display the product inventory information for all products having the 'Yellow' color and having the Cost smaller than 400. Display the results with the following attributes. Product! D, ProductName, Color, Cost, Price, Location ID, Location Na me, Shelf, Bin, Quantity, Note that LocationlD, LocationName, Shelf, Bin, Quantity are NULL if we have no information about the product inventory of the corresponding product.
+	ProdwsiD	PrOd^Nem*	Gobi	Com	Pre*	Looo&oniD	LooawiNeme	Stell	Bin	QuaflWy
+1	322	ML RMd Frame-W - Yelbw. 33	Yellow	360.942 8	59463	10	Frame Forming	IWA	0	115
+2	322	ML Rood Fiww-W • Yelbw 33	Yellow	363,942 8	59483	20	Frame Wbdng	MAA	0	155
+J	322	Ml Rood Frame-W - Yelbw 38	Yellow	360.942 8	59453	30	Oobur end FbHh	MAA	0	142
+4	322	ML Roed Frame-W - Yelbw. 33	Yellow	360,9428	594 83	40	Point	IWA	0	100
+5	322	ML Rud Frame w - Yeltow 33	Yellow	360.9428	594 83	50	Submwnfety	MAA	0	153
+6	322	ML Rood Fram^w - Yelbw. 38	Yellow	360.9428	594 83	60	Fl Ml AM*mby	MAA	0	131
+7	315	ML Road Frame-W - Yellow 40	Yellow	360,9428	594 83	NULL	NULL	NULL	NULL	NULL
+&	334	ML Rc*d FtwwW ■ Yelbw 42	Yellow	360.942 8	594 83	NULL	NULL	NULL	NULL	NULL
+9	335	ML Reed Framed - Yèi CW 44	Yellow	360.942 8	59483	NULL	NULL	NULL	NULL	NULL
+10	336	ML Rood Frame-W - Yellow 43	Yellow	360,9428	594 83	NULL	NULL	NULL	NULL	NULL
+11	386	LL Touring Frame - Yellow 32	Yellow	198.8519	333.42	NULL	NULL	NULL	NULL	NULL
+12	899	LL Touring Frame - Yelbw 44	Yellow	199,8519	331.42	NULL	NULL	NULL	NULL	NULL
+13	900	LL Tour fig Frame ■ Yellow 50	Yellow	199.3519	33342	NULL	NULL	NULL	NULL	NULL
+14	501	LL Tounrig Frame - Yelkw Si	Yellow	199.8519	333.42	NULL	NULL	MULL	NULL	NULL
+15	902	LL Touring Frame" Yelbw 53	Yellow	199,3519	33142	NULL	NULL	NULL	NULL	NULL
+Picture 4.1
+Qu&sliôrt 5:
+Wile a query lo display McdellD ModeiNeme, NumbeiOFroducis wreipondtog lã each product model having 1he flame beginning with Mountain' or beginning With ML Mountain; where NumberOfProdbcls IS the count of define# products beloffigmg to each model. Display the resits in descending order of NumberOiProduds then in ascending order of ModelNam® for model having the same NurrberOfProduGts as follows
+6 of 6 Paper No: 3
+	ModellD		ModelName	Num berOfProd ucts
+	1	23	Mountain-500	10
+	2	19	Mountain-100	8
+	3	20	Mountain-200	6
+	4	15	ML Mountain Frame-W	5
+	5	21	Mountain-300	4
+	6	22	Mountain-400-W	4
+	7	14	ML Mountain Frame	3
+	8	45	ML Mountain Front Wheel	1
+	9	54	ML Mountain Handlebars	1
+	10	63	ML Mountain Pedal	1
+	11	124	ML Mountain Rear Wheel	1
+	12	80	ML Mountain SeaVSaddle 2	1
+	13	86	ML Mountain Tire	1
+	14	112	Mountain Bottle Cage	1
+	15	117	Mountain Pump	1
+	16	92	Mountain Tire Tube	1
+	17	72	ML Mountain SeaVSaddle 1	0
+	18	18	Mountain Bike Socks	0
+	19	39	Mountain-400	0
+Question 6:
+Rdurc 5 1
+Write a query Io display PíúdudlD Name. TotalQụanlity of the products having the highest lũlaic jar Illy, where Iota Quantity IS the total quantity In al locations of the oorrwpondlng product
+Product! D Name TotalQuantity 379 Hex Nut 7 1911
+Retire 6.1
+Question 7:
+Picture 6 1
+Write a query to display, for each location, the information of the products having the highest Quantity Display the information with the following attributes; LocationlD, LocationName, Product ID ProductName. Quantity: where ProductlD, ProductName, Quantity is the
+7of 7 Paper No: 3
+information of the products having the highest quantity in the given location. Display the result in ascending order of Location Name, then in descending order of ProductName with the products of the same location as follows:
+	LocationlD	LocationName	ProductlD	ProductName	Quantity
+1	30	Detour and Polish	747	HL Mountain Frame - Black, 38	148
+2	60	Final Assembly	526	Seat Lug	729
+3	7	Finished Goods Storage	708	Sport-100 Helmet, Black	324
+4	7	Finished Goods Storage	872	Road Bottle Cage	324
+5	7	Finished Goods Storage	845	Mountain Pump	324
+6	10	Frame Forming	478	Meta Bar 2	622
+7	20	Frame Welding	398	Handlebar Tube	550
+3	5	Metal Storage	350	Fork Crown	622
+9	6	Miscellaneous Storage	528	Seat Lug	924
+10	40	Pan:	747	HL Mountain Frame - Black, 38	107
+11	3	Paint Shop	494	Paint - Silver	49
+12	3	Paint Shop	495	Paint - Blue	49
+13	4	Pains Storage	495	Paint - Blue	35
+14	2	Sheet Metal Packs	483	Meta Sheet 3	691
+15	45	Specialized Paint	944	LL Mountain Frame - Silver, 40	136
+16	50	Subassembly	397	Hex Nut 19	763
+17	1	Tool Crib	389	Hex Nut 2	657
+Picture 7 1
+Question 8:
+Picture f 1
+Create a stored procedure named pioc_produci_quantity for calculating the total stock quantity in all the locations of a given product, where ©product!D mt IS the input parameter of the proced ure and @tota (Quantity int is an output parameter of the proced ure.
+For example, when we execute the procedure proc_product_quantity by using the following statements, the result should be as in the following figure:
+declare ©X int
+exec proc_producl_quantity 1, ©X output
+select @x as TotalQuantity
+TotalQuantity 1085
+Picture 8 1
+Question 9:
+a of 8 Paper No! 3
+Create a trigger named tr_insert_Product for the insert statement on table Product so that when we insert one or more products into the table Product, the system will display ProductlD ProduoiName ModellD, ModelName corresponding to the products that have been inserted.
+for example, when you execute the following statement, the system will display the results as in the following figure
+insert into Product; ProductID. Name, Cost. Price. ModellD, SellStartDate)
+values (1000, ‘Product Test'. 12.5,15.5.1, '2021-10-25'}
+ProductID ProductName ModellD ModelName
+1	1000 Product Test 1 Classic Vest
+Picture 9 1
+Picture 9 1
+QuesBon 1Ọ:
+Write a query to delete from the table Productinventory all rows corresponding to the location having the name = 'Tool Crib'.
